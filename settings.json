@@ -1,0 +1,55 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/walterday/.claude/hooks/post-edit.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "nohup afplay ~/Sounds/game_samples/jobs-done_1.mp3 > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/walterday/.claude/scripts/validate-claude.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/walterday/.claude/hooks/post-branch-create.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running qsweep before commit...' && /Users/walterday/.claude/scripts/qsweep.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
