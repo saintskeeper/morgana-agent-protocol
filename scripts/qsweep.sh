@@ -13,8 +13,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-AI_DOCS_DIR="ai-docs"
-COMPLETED_DIR="$AI_DOCS_DIR/completed"
+AI_DOCS_DIR="docs"
+COMPLETED_DIR="$AI_DOCS_DIR"
 ACTIVE_DIR="$AI_DOCS_DIR/active"
 
 # Search paths for documentation
@@ -181,5 +181,5 @@ else
 fi
 
 # Show current structure
-echo -e "\n${BLUE}Current ai-docs structure:${NC}"
+echo -e "\n${BLUE}Current docs structure:${NC}"
 tree "$AI_DOCS_DIR" 2>/dev/null || find "$AI_DOCS_DIR" -type d | sort
