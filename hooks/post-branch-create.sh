@@ -1,23 +1,6 @@
 #!/bin/bash
-# Claude hook: Runs after creating a new branch
-# This hook automatically sweeps documentation to ai-docs when starting new work
+# Claude hook: Runs after user prompt submission
+# Note: qsweep is now handled by the Stop hook to avoid duplication
 
-echo "🧹 Running qsweep to organize documentation..."
-
-# Get the project root (assuming hook is in .claude/hooks/)
-PROJECT_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-
-# Run qsweep from project root
-cd "$PROJECT_ROOT"
-
-# Check if qsweep.sh exists
-if [[ -f "$PROJECT_ROOT/.claude/scripts/qsweep.sh" ]]; then
-    # Run qsweep to move completed docs
-    "$PROJECT_ROOT/.claude/scripts/qsweep.sh"
-
-    # Show summary
-    echo "✅ Documentation sweep complete!"
-    echo "📁 Check ai-docs/completed/ for organized documentation"
-else
-    echo "⚠️  qsweep.sh not found in project root"
-fi
+# This script can be used for other user prompt submission tasks
+# Currently empty to prevent duplicate qsweep execution
