@@ -119,6 +119,8 @@ move_document() {
 
 # Main sweep logic
 echo -e "${BLUE}Starting qsweep...${NC}"
+# Play Furion ready sound for starting sweep
+nohup afplay ~/Sounds/game_samples/NightElf/Furion/What1.mp3 > /dev/null 2>&1 &
 
 # Find all markdown files in doc paths
 found_files=()
@@ -132,6 +134,8 @@ done
 
 if [[ ${#found_files[@]} -eq 0 ]]; then
     echo -e "${YELLOW}No documentation files found to sweep.${NC}"
+    # Play Peon "work complete" sound for nothing to do
+    nohup afplay ~/Sounds/game_samples/Orc/Peon/Yes1.mp3 > /dev/null 2>&1 &
     exit 0
 fi
 
@@ -178,6 +182,8 @@ if [[ $DRY_RUN == true ]]; then
     echo -e "\n${YELLOW}[DRY RUN] Would move $moved_count files${NC}"
 else
     echo -e "\n${GREEN}Successfully moved $moved_count files${NC}"
+    # Play triumphant Paladin warcry for successful sweep
+    nohup afplay ~/Sounds/game_samples/Human/Paladin/HeroPaladinWarcry1.mp3 > /dev/null 2>&1 &
 fi
 
 # Show current structure

@@ -51,9 +51,13 @@ if [[ ${#MISSING_SECTIONS[@]} -gt 0 ]]; then
     for section in "${MISSING_SECTIONS[@]}"; do
         echo "   - $section"
     done
+    # Play Garithos pissed sound for validation failure
+    nohup afplay ~/Sounds/game_samples/Human/Garithos/Pissed1.mp3 > /dev/null 2>&1 &
     exit 1
 fi
 
 echo "✅ CLAUDE.md validation passed!"
 echo "   Lines: $LINE_COUNT"
 echo "   All required sections present"
+# Play Cairne approval sound for successful validation
+nohup afplay ~/Sounds/game_samples/Cairne/Yes1.mp3 > /dev/null 2>&1 &
