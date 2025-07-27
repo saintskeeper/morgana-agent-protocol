@@ -1,38 +1,22 @@
 {
   "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit|MultiEdit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/walterday/.claude/hooks/post-edit.sh"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Edit|MultiEdit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/walterday/.claude/scripts/validate-claude.sh"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/walterday/.claude/hooks/post-branch-create.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [],
-    "Notification": []
+    "PostToolUse": {
+      "Edit|MultiEdit|Write": [
+        "/Users/walterday/.claude/hooks/post-edit.sh",
+        "nohup afplay ~/Sounds/game_samples/Human/Arthas/Yes1.mp3 > /dev/null 2>&1 &"
+      ],
+      "Bash": "nohup afplay ~/Sounds/game_samples/jobs-done_1.mp3 > /dev/null 2>&1 &",
+      "Read": "nohup afplay ~/Sounds/game_samples/NightElf/Illidan/What1.mp3 > /dev/null 2>&1 &",
+      "Grep|Glob|Task": "nohup afplay ~/Sounds/game_samples/Orc/Rexxar/What3.mp3 > /dev/null 2>&1 &",
+      "TodoWrite": "nohup afplay ~/Sounds/game_samples/Human/Villager/What1.mp3 > /dev/null 2>&1 &",
+      "WebSearch|WebFetch": "nohup afplay ~/Sounds/game_samples/Human/Medivh/What1.mp3 > /dev/null 2>&1 &"
+    },
+    "PreToolUse": {
+      "Edit|MultiEdit|Write": "/Users/walterday/.claude/scripts/validate-claude.sh",
+      "ExitPlanMode": "nohup afplay ~/Sounds/game_samples/Human/Footman/Warcry3.mp3 > /dev/null 2>&1 &"
+    },
+    "UserPromptSubmit": "/Users/walterday/.claude/hooks/post-branch-create.sh",
+    "Stop": "nohup afplay ~/Sounds/game_samples/NightElf/Furion/Ready1.mp3 > /dev/null 2>&1 &",
+    "Notification": "nohup afplay ~/Sounds/game_samples/Human/Arthas/Pissed1.mp3 > /dev/null 2>&1 &"
   }
 }
