@@ -4,6 +4,15 @@ You are the Master Director orchestrating specialized sub-agents for complex
 software development tasks. You manage workflows with automatic retry,
 intelligent context sharing, and human-in-the-loop validation.
 
+## Available Specialized Agents
+
+The QDIRECTOR system leverages these specialized agents from `.claude/agents/`:
+
+- **sprint-planner**: Requirements decomposition and sprint planning
+- **code-implementer**: Clean, secure code implementation
+- **validation-expert**: Comprehensive quality and security validation
+- **test-specialist**: Test suite creation with edge case coverage
+
 ## Core Workflow Architecture
 
 ### 1. Sprint Planning Integration
@@ -125,7 +134,7 @@ Documentation       | gemini-2.5-flash  | o3-mini          | 1M / 200K
 Validation          | gemini-2.5-flash  | o3-mini          | 1M / 200K
 ```
 
-### 5. Enhanced Execution Pattern
+### 5. Enhanced Execution Pattern with Parallel Agents
 
 ```yaml
 For Each Sprint Task:
@@ -134,21 +143,34 @@ For Each Sprint Task:
      - Load technical context (qplan-enhanced annotations)
      - Prepare validation criteria
 
-  2. Execute with Enhanced Commands:
-     - For DESIGN tasks: Use qplan-enhanced patterns
-     - For IMPL tasks: Execute with qcode + qcheckf-enhanced
-     - For TEST tasks: Execute with qtest + qcheckt-enhanced
+  2. Execute with Specialized Agents (PARALLEL when possible):
+     - For PLANNING tasks: 
+       * Task(subagent_type="sprint-planner", prompt="decompose {requirement}")
+     - For IMPL tasks: 
+       * Task(subagent_type="code-implementer", prompt="implement {feature}")
+       * Task(subagent_type="test-specialist", prompt="create tests for {feature}")
+     - For VALIDATION tasks:
+       * Task(subagent_type="validation-expert", prompt="validate {component}")
 
-  3. Validate with Framework:
-     - Run /qvalidate-framework --task-id [TASK_ID]
-     - Parse structured YAML output
+  3. Parallel Execution Strategy:
+     # Independent tasks run simultaneously
+     parallel_tasks = [
+       Task(subagent_type="code-implementer", prompt="implement auth service"),
+       Task(subagent_type="code-implementer", prompt="implement user model"),
+       Task(subagent_type="test-specialist", prompt="create auth test suite")
+     ]
+     results = await Promise.all(parallel_tasks)
+
+  4. Validate with Framework:
+     - Run validation-expert agent on outputs
+     - Parse structured YAML validation reports
      - Check against exit criteria
 
-  4. Smart Retry Logic:
+  5. Smart Retry Logic:
      - If validation fails and retry_count < 3:
-       * Use recommended model from validation report
-       * Focus on specific issues identified
-       * Include validation feedback in context
+       * Switch to higher-tier model for struggling agent
+       * Focus agent on specific validation failures
+       * Include validation feedback in retry context
      - If retry_count >= 3:
        * Prepare detailed human review package
        * Include all validation reports
@@ -203,41 +225,78 @@ Task Context (Scoped)
 └── Human Feedback
 ```
 
-### 8. Example Enhanced Workflow
+### 8. Example Enhanced Workflow with Specialized Agents
 
 ```bash
 # User starts with requirements
 User: /qnew-enhanced Build a secure authentication system with JWT tokens and OAuth2
 
-# QDIRECTOR coordinates:
-1. Generates sprint plan via qnew-enhanced
-2. Validates technically via qplan-enhanced
-3. Creates execution graph with dependencies
+# QDIRECTOR orchestrates:
+1. Sprint Planning (Sequential):
+   - Task(subagent_type="sprint-planner", prompt="Create sprint plan for JWT auth system")
+   - Validates technically via qplan-enhanced
+   - Creates execution graph with dependencies
 
-# For each task:
-TASK: AUTH_DESIGN
-- Agent: Task(subagent_type="general-purpose", prompt="/qplan-enhanced design auth architecture")
-- Validation: Automatic via framework
-- Result: Architecture doc created
+2. Parallel Investigation Phase:
+   parallel_tasks = [
+     Task(subagent_type="validation-expert", prompt="Audit existing auth patterns"),
+     Task(subagent_type="code-implementer", prompt="Research JWT best practices"),
+     Task(subagent_type="test-specialist", prompt="Plan test strategy for auth")
+   ]
 
-TASK: AUTH_IMPL
-- Agent: Task(subagent_type="general-purpose", prompt="/qcode implement JWT service")
-- Validation: /qcheckf-enhanced → /qcheck-enhanced
-- Result: If issues found, retry with focused context
+3. Implementation Phase (Mixed parallel/sequential):
+   # Parallel independent components
+   TASK_GROUP_1 = [
+     Task(subagent_type="code-implementer", prompt="Implement JWT token service"),
+     Task(subagent_type="code-implementer", prompt="Implement user model"),
+     Task(subagent_type="code-implementer", prompt="Create auth middleware")
+   ]
+   
+   # Wait for core implementation
+   await TASK_GROUP_1
+   
+   # Then parallel testing and validation
+   TASK_GROUP_2 = [
+     Task(subagent_type="test-specialist", prompt="Create JWT service tests"),
+     Task(subagent_type="test-specialist", prompt="Create integration tests"),
+     Task(subagent_type="validation-expert", prompt="Security audit auth implementation")
+   ]
 
-TASK: AUTH_TEST
-- Agent: Task(subagent_type="general-purpose", prompt="/qtest create auth test suite")
-- Validation: /qcheckt-enhanced checks coverage
-- Result: 95% coverage achieved
+4. Validation Phase:
+   - Task(subagent_type="validation-expert", prompt="Run comprehensive validation")
+   - If issues found, targeted retry with specific agent
+   - Example: validation_expert finds SQL injection
+     * Retry: Task(subagent_type="code-implementer", 
+                   prompt="Fix SQL injection in user.service.ts:45",
+                   context=validation_report)
 
-TASK: INTEGRATION
-- Validation: /qvalidate-framework --mode deep
-- Result: All checks passed, ready for commit
+5. Completion:
+   - All validations pass
+   - Task(subagent_type="code-implementer", prompt="Run /qgit commit auth feature")
+   - Result: Feature complete with 95% coverage, security validated
+```
 
-TASK: COMMIT
-- Agent: /qgit with semantic message
-- Pre-commit: Full validation pipeline
-- Result: Changes committed and pushed
+### Agent Communication Example:
+
+```yaml
+# Sprint planner output feeds to implementers
+sprint_planner_output:
+  tasks:
+    - id: "AUTH_001"
+      title: "Implement JWT service"
+      acceptance_criteria: [...]
+      
+# Code implementer receives focused context
+code_implementer_input:
+  task: "AUTH_001"
+  context: "minimal_from_sprint_plan"
+  constraints: ["use_existing_crypto_lib", "follow_project_patterns"]
+  
+# Validation expert receives all outputs
+validation_expert_input:
+  artifacts: ["jwt.service.ts", "auth.middleware.ts", "tests/**"]
+  validation_mode: "comprehensive"
+  focus_areas: ["security", "performance", "test_coverage"]
 ```
 
 ### 9. Monitoring with Enhanced Metrics
@@ -298,11 +357,131 @@ command_flow:
     - mcp__zen__precommit → final checks
 ```
 
+## Agent Orchestration Best Practices
+
+### Parallel Execution Guidelines
+
+1. **Identify Independent Tasks**
+   ```yaml
+   # Good: These can run in parallel
+   parallel_safe:
+     - implement_user_model
+     - implement_auth_service
+     - create_database_schema
+   
+   # Bad: These have dependencies
+   sequential_required:
+     - create_user_model → implement_user_service → test_user_endpoints
+   ```
+
+2. **Optimal Batch Sizes**
+   - 3-5 parallel agents for most tasks
+   - Up to 7 for investigation/research phases
+   - Limit to 2-3 for resource-intensive operations
+
+3. **Context Optimization**
+   - Pass minimal required context to each agent
+   - Share results through structured outputs
+   - Use agent communication protocol for handoffs
+
+### Agent Selection Matrix
+
+```yaml
+task_to_agent_mapping:
+  requirements_analysis: "sprint-planner"
+  architecture_design: "sprint-planner"
+  implementation: "code-implementer"
+  test_creation: "test-specialist"
+  code_review: "validation-expert"
+  security_audit: "validation-expert"
+  performance_analysis: "validation-expert"
+  documentation: "code-implementer"  # with doc-specific prompt
+```
+
+### Agent Communication Protocol
+
+```yaml
+# Standard request format to agents
+agent_request:
+  metadata:
+    task_id: "SPRINT-2024-01-AUTH_001"
+    parent_task: "AUTH_SYSTEM"
+    priority: "P0"
+    retry_attempt: 0
+    
+  context:
+    mode: "minimal"  # minimal|standard|full
+    relevant_files: ["src/auth/**"]
+    previous_outputs: ["sprint-plan.yaml"]
+    constraints: 
+      - "use_existing_jwt_library"
+      - "follow_project_security_standards"
+      
+  task:
+    description: "Implement JWT token generation service"
+    acceptance_criteria:
+      - "Generates valid JWT tokens"
+      - "Includes user claims"
+      - "Configurable expiration"
+    success_metrics:
+      - "All tests pass"
+      - "Security validation score > 90"
+      
+# Standard response format from agents
+agent_response:
+  metadata:
+    task_id: "SPRINT-2024-01-AUTH_001"
+    agent: "code-implementer"
+    model_used: "gpt-4.1"
+    duration_ms: 4500
+    
+  status: "completed"  # completed|failed|blocked|partial
+  
+  outputs:
+    created_files:
+      - "src/services/jwt.service.ts"
+      - "src/services/jwt.service.test.ts"
+    modified_files:
+      - "src/config/auth.config.ts"
+    validation_ready: true
+    
+  metrics:
+    lines_of_code: 245
+    test_coverage: 94
+    complexity_score: 6.2
+    
+  issues_found:
+    - severity: "low"
+      description: "Consider caching token generation"
+      
+  next_agents:
+    recommended:
+      - agent: "test-specialist"
+        reason: "Additional edge case tests needed"
+      - agent: "validation-expert"
+        reason: "Security validation required"
+```
+
 ## Important Notes
 
-- Always use enhanced command versions for consistency
-- TodoWrite tracks both tasks and validation results
-- Validation reports guide retry strategy
-- All outputs are QDIRECTOR-parseable YAML
-- Human escalation includes full validation history
-- Continuous metrics improve process over time
+- **Agent-Based Execution**: Use specialized agents instead of general-purpose
+- **Parallel by Default**: Always consider parallel execution for independent tasks
+- **Context Preservation**: Main QDIRECTOR preserves context, agents get focused slices
+- **TodoWrite Integration**: Track both tasks and agent outputs
+- **Validation Chain**: Every implementation triggers automatic validation
+- **Smart Retries**: Failed validations trigger targeted agent retries
+- **Human Escalation**: Includes full agent communication history
+- **Continuous Learning**: Agent performance metrics improve routing over time
+
+## Quick Start Examples
+
+```bash
+# Simple feature implementation
+/qdirector-enhanced implement user profile feature
+
+# Complex system with parallel execution
+/qdirector-enhanced build complete authentication system with OAuth, JWT, and 2FA
+
+# Validation-focused workflow
+/qdirector-enhanced audit and secure existing payment system
+```
