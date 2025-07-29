@@ -192,6 +192,145 @@ The QDIRECTOR system leverages specialized agents for focused tasks:
   - Performance (algorithms, resource usage, queries)
   - Best practices compliance
 
+## 📚 USER GUIDE - Intelligent Model Routing
+
+### Understanding Complexity-Based Model Selection
+
+QDIRECTOR automatically analyzes your tasks and routes them to the optimal model
+based on complexity. This ensures you get the best balance of quality, speed,
+and cost.
+
+#### 🎯 Complexity Keywords & Model Selection
+
+**SIMPLE TASKS → Claude 3.7 Sonnet (Token-Efficient)** Keywords that trigger
+simple routing:
+
+- `utility`, `helper`, `function`, `component`
+- `convert`, `format`, `validate` (simple)
+- `button`, `modal`, `form`, `tooltip`
+- `config`, `constant`, `interface`
+
+Examples:
+
+```bash
+"Create a date formatting utility"           # → Claude 3.7 Sonnet
+"Add a button component"                     # → Claude 3.7 Sonnet
+"Write a helper function to validate email"  # → Claude 3.7 Sonnet
+```
+
+**MODERATE TASKS → Claude 4 Sonnet** Keywords that trigger moderate routing:
+
+- `api`, `service`, `integration`, `middleware`
+- `authentication`, `authorization`, `database schema`
+- `cache`, `queue`, `websocket`, `graphql`
+- `business logic`, `workflow`, `state management`
+
+Examples:
+
+```bash
+"Implement REST API with authentication"     # → Claude 4 Sonnet
+"Create caching service with Redis"          # → Claude 4 Sonnet
+"Build user authentication middleware"       # → Claude 4 Sonnet
+```
+
+**COMPLEX TASKS → Claude 4 Opus** Keywords that trigger complex routing:
+
+- `architect`, `design system`, `refactor entire`
+- `migrate`, `distributed`, `concurrent`, `parallel`
+- `real-time`, `blockchain`, `machine learning`
+- `performance critical`, `security critical`
+- `custom algorithm`, `parser`, `compiler`
+
+Examples:
+
+```bash
+"Design distributed caching system"          # → Claude 4 Opus
+"Refactor entire payment architecture"       # → Claude 4 Opus
+"Implement concurrent data processing"       # → Claude 4 Opus
+```
+
+#### 🔧 Manual Complexity Analysis
+
+Test task complexity before execution:
+
+```bash
+# Analyze complexity
+~/.claude/scripts/code-complexity-analyzer.sh analyze "your task description"
+
+# Get model recommendation
+~/.claude/scripts/code-complexity-analyzer.sh recommend "your task description" true
+```
+
+#### 💡 Pro Tips for Task Description
+
+1. **Be Specific**: More details help accurate routing
+2. **Use Keywords**: Include complexity indicators
+3. **Mention Scale**: "entire system" vs "single function"
+4. **State Requirements**: "high-performance" or "simple utility"
+
+### Token-Efficient Mode Benefits
+
+When enabled, simple tasks automatically use Claude 3.7 Sonnet with:
+
+- **14-70% token reduction**
+- **Faster response times**
+- **Lower API costs**
+- **Maintained quality**
+
+Enable token-efficient mode:
+
+```bash
+~/.claude/scripts/token-efficient-config.sh enable
+```
+
+### Model Routing Examples
+
+```bash
+# Automatic routing based on complexity:
+/qdirector-enhanced "Create a simple date formatter"
+# → Routes to: Claude 3.7 Sonnet (simple, token-efficient)
+
+/qdirector-enhanced "Build authentication API with JWT"
+# → Routes to: Claude 4 Sonnet (moderate complexity)
+
+/qdirector-enhanced "Design microservices architecture"
+# → Routes to: Claude 4 Opus (complex, needs deep reasoning)
+```
+
+### Understanding Model Capabilities
+
+| Model             | Best For                | Token Efficiency       | Use When                     |
+| ----------------- | ----------------------- | ---------------------- | ---------------------------- |
+| Claude 3.7 Sonnet | Simple tasks, utilities | Yes (14-70% reduction) | Clear, straightforward tasks |
+| Claude 4 Sonnet   | Moderate complexity     | No (works normally)    | APIs, services, integrations |
+| Claude 4 Opus     | Complex architecture    | No (works normally)    | System design, algorithms    |
+| GPT-4.1           | General coding          | No                     | Fallback for moderate tasks  |
+| Gemini 2.5 Flash  | Quick tasks             | No                     | Fast simple tasks            |
+
+### Structured Prompts for Efficiency
+
+Use these templates for optimal results:
+
+**For Simple Tasks:**
+
+```
+Task: [specific action]
+Input: [data/parameters]
+Output: [expected format]
+```
+
+**For Complex Tasks:**
+
+```
+Implement: [feature]
+Requirements:
+- [requirement 1]
+- [requirement 2]
+Constraints:
+- [constraint 1]
+Architecture: [patterns to follow]
+```
+
 ## 🧪 Experimental Features
 
 ### Token-Efficient Tool Use (Beta)
@@ -206,18 +345,18 @@ Configuration in `settings.json`:
 
 ```json
 {
-  "experimental": {
-    "tokenEfficientTools": {
-      "enabled": false,
-      "betaHeader": "token-efficient-tools-2025-02-19",
-      "compatibleModels": ["claude-3-7-sonnet-20250219"]
-    }
+  "env": {
+    "CLAUDE_TOKEN_EFFICIENT_MODE": "true",
+    "CLAUDE_BETA_HEADER": "token-efficient-tools-2025-02-19"
   }
 }
 ```
 
 ⚠️ **Limitations**: Only works with Claude Sonnet 3.7, not compatible with
 Claude 4 models.
+
+📖 **Learn More**: See [Beta Features Guide](docs/beta-features-guide.md) for
+detailed information about what beta features mean and how they work.
 
 ## 🔧 Templates (`/templates/`)
 
