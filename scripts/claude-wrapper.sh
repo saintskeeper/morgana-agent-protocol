@@ -2,6 +2,7 @@
 
 # Claude Code Wrapper Script for Token-Efficient Mode
 # This wrapper intercepts Claude Code calls and adds beta headers when needed
+# NOTE: Token-efficient mode only works with Claude 3.7 Sonnet, not with Claude 4 models
 
 SETTINGS_FILE="$HOME/.claude/settings.json"
 ORIGINAL_CLAUDE="/opt/homebrew/bin/claude"
@@ -9,7 +10,7 @@ ORIGINAL_CLAUDE="/opt/homebrew/bin/claude"
 # Function to check if token-efficient mode is enabled
 is_token_efficient_enabled() {
     if command -v jq &> /dev/null; then
-        enabled=$(jq -r '.experimental.tokenEfficientTools.enabled // false' "$SETTINGS_FILE" 2>/dev/null)
+        enabled=$(jq -r '.env.CLAUDE_TOKEN_EFFICIENT_MODE // "false"' "$SETTINGS_FILE" 2>/dev/null)
         [ "$enabled" = "true" ]
     else
         return 1
@@ -19,7 +20,7 @@ is_token_efficient_enabled() {
 # Function to get beta header
 get_beta_header() {
     if command -v jq &> /dev/null; then
-        jq -r '.experimental.tokenEfficientTools.betaHeader // "token-efficient-tools-2025-02-19"' "$SETTINGS_FILE" 2>/dev/null
+        jq -r '.env.CLAUDE_BETA_HEADER // "token-efficient-tools-2025-02-19"' "$SETTINGS_FILE" 2>/dev/null
     else
         echo "token-efficient-tools-2025-02-19"
     fi
@@ -34,6 +35,8 @@ if is_token_efficient_enabled; then
     # Show notification if verbose
     if [ -n "$CLAUDE_VERBOSE" ] || [ -n "$DEBUG" ]; then
         echo "[Token-Efficient Mode] Activated with header: $ANTHROPIC_BETA_HEADER" >&2
+        echo "[Token-Efficient Mode] NOTE: Only applies to Claude 3.7 Sonnet models" >&2
+        echo "[Token-Efficient Mode] Incompatible with disable_parallel_tool_use" >&2
     fi
 fi
 

@@ -118,25 +118,37 @@ Track each task through states:
 
 ### 4. Model Selection Strategy
 
+**Enhanced Model Selection with Complexity Detection:**
+
+```bash
+# Automatic complexity analysis for code generation
+complexity=$(/Users/walterday/.claude/scripts/code-complexity-analyzer.sh analyze "$task_description")
+model=$(/Users/walterday/.claude/scripts/code-complexity-analyzer.sh recommend "$task_description" "$token_efficient_enabled")
+```
+
 **Quick Reference Table:**
 
 ```
-Task Type           | Primary Model      | Fallback Model     | Context Window | Token-Efficient
--------------------|-------------------|-------------------|---------------|----------------
-Sprint Planning     | gemini-2.5-pro    | o3               | 1M / 200K     | No
-Architecture/Design | gemini-2.5-pro    | o3               | 1M / 200K     | No
-Complex Planning    | o3                | gemini-2.5-pro    | 200K / 1M     | No
-Implementation      | gpt-4.1           | gemini-2.5-flash  | 1M / 1M       | No
-Simple Coding       | gemini-2.5-flash  | claude-3-7-sonnet | 1M / 200K     | Yes*
-Test Generation     | claude-3-7-sonnet | gemini-2.5-flash  | 200K / 1M     | Yes*
-Quick Tasks         | claude-3-7-sonnet | o3-mini          | 200K / 200K   | Yes*
-Critical Decisions  | o3-pro            | o3               | 200K / 200K   | No
-Documentation       | claude-3-7-sonnet | o3-mini          | 200K / 200K   | Yes*
-Validation          | claude-3-7-sonnet | gemini-2.5-flash  | 200K / 1M     | Yes*
+Task Type           | Complexity | Primary Model        | Fallback Model     | Token-Efficient
+-------------------|-----------|---------------------|-------------------|----------------
+Sprint Planning     | N/A       | gemini-2.5-pro      | o3               | No
+Architecture/Design | N/A       | gemini-2.5-pro      | o3               | No
+Complex Planning    | N/A       | o3                  | gemini-2.5-pro    | No
+Code Implementation | Complex   | claude-4-opus       | gpt-4.1           | No
+Code Implementation | Moderate  | claude-4-sonnet     | gpt-4.1           | Limited*
+Code Implementation | Simple    | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
+Test Generation     | Any       | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
+Quick Tasks         | Any       | claude-3-7-sonnet   | o3-mini          | Yes*
+Critical Decisions  | N/A       | o3-pro              | o3               | No
+Documentation       | Any       | claude-3-7-sonnet   | o3-mini          | Yes*
+Validation          | Any       | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
 ```
 
-\*Token-efficient mode available with Claude 3.7 Sonnet when enabled via
-settings
+\*Token-efficient mode:
+
+- Claude 3.7 Sonnet: Full support (14-70% token reduction)
+- Claude 4 Sonnet: No-op (works normally, no token reduction)
+- Claude 4 Opus: No-op (works normally, no token reduction)
 
 ### 5. Enhanced Execution Pattern with Parallel Agents
 
@@ -280,6 +292,47 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
    - Result: Feature complete with 95% coverage, security validated
 ```
 
+### Complexity-Based Code Generation
+
+QDIRECTOR automatically analyzes task complexity and selects the optimal model:
+
+```yaml
+code_generation_flow:
+  1. Analyze Task:
+    - Extract task description
+    - Run complexity analyzer
+    - Detect: simple, moderate, or complex
+
+  2. Select Model:
+    simple:
+      primary: claude-3-7-sonnet-20250219 # Token-efficient
+      fallback: gemini-2.5-flash
+    moderate:
+      primary: claude-4-sonnet # Balanced capability
+      fallback: gpt-4.1
+    complex:
+      primary: claude-4-opus # Maximum reasoning
+      fallback: o3
+
+  3. Apply Optimization:
+    - Use structured prompts for all models
+    - Enable token-efficient mode for Claude 3.7
+    - No-op for Claude 4 (works normally)
+```
+
+Example complexity detection:
+
+```bash
+# Simple task - uses Claude 3.7 Sonnet
+"Create a utility function to format dates"
+
+# Moderate task - uses Claude 4 Sonnet
+"Implement REST API with authentication"
+
+# Complex task - uses Claude 4 Opus
+"Design distributed caching system with failover"
+```
+
 ### Agent Communication Example:
 
 ```yaml
@@ -288,12 +341,15 @@ sprint_planner_output:
   tasks:
     - id: "AUTH_001"
       title: "Implement JWT service"
+      complexity: "moderate" # Added by analyzer
+      recommended_model: "claude-4-sonnet"
       acceptance_criteria: [...]
 
 # Code implementer receives focused context
 code_implementer_input:
   task: "AUTH_001"
   context: "minimal_from_sprint_plan"
+  model_override: "claude-4-sonnet" # From complexity analysis
   constraints: ["use_existing_crypto_lib", "follow_project_patterns"]
 
 # Validation expert receives all outputs
