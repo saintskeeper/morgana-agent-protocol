@@ -1,350 +1,557 @@
-# Claude Code Configuration
-
-A comprehensive Claude Code enhancement system with automated workflows, quality
-assurance, and development commands.
-
-## 🏗️ Repository Structure
-
-```
-.
-├── commands/           # Claude Code slash commands
-├── hooks/             # Event-triggered automation scripts
-├── scripts/           # Utility scripts for maintenance
-├── templates/         # Reusable configuration templates
-├── guidelines/        # Best practices documentation
-├── settings.json      # Claude Code hook configuration
-├── CLAUDE.md         # Global user instructions
-├── CLAUDE_SAFETY.md  # Safety guidelines for configuration editing
-├── setup-local.sh    # Local git hooks installer
-└── test-hooks.sh     # Hook testing utility
-```
-
-## 📜 Scripts (`/scripts/`)
-
-### `validate-claude.sh`
-
-Validates CLAUDE.md integrity after edits:
-
-- Ensures minimum 200 lines
-- Validates required sections
-- Prevents configuration corruption
-
-### `token-efficient-config.sh`
-
-Manages the token-efficient tool use beta feature:
-
-- Enable/disable token-efficient mode
-- Check current status and compatibility
-- Reduces output tokens by 14-70% with Claude Sonnet 3.7
-
-### `qsweep.sh`
-
-Organizes AI documentation with conventional commit patterns:
-
-- Moves docs to structured `ai-docs/` hierarchy
-- Supports filtering by ticket ID or commit type
-- Categories: feat, fix, docs, chore, refactor, test, build, ci, perf, style
-- Dry-run mode available
-
-## 🪝 Hooks (`/hooks/`)
-
-### `post-edit.sh`
-
-Main dispatcher that routes to file-specific formatters:
-
-- Supports Go, Markdown, TypeScript/JavaScript, YAML, Rust
-- Uses appropriate formatters (Prettier, gofmt, rustfmt)
-
-### `post-branch-create.sh`
-
-Automatically runs documentation cleanup on new branches
-
-### `post-edit-markdown.sh`
-
-Formats Markdown files:
-
-- Fixes end-of-file newlines
-- Removes trailing whitespace
-- Runs Prettier with prose-wrap
-
-### `post-edit-go.sh`
-
-Auto-formats Go files:
-
-- Runs `gofmt` for formatting
-- Runs `goimports` for import organization
-
-## ⚡ Commands (`/commands/`)
-
-### Enhanced Workflow Commands
-
-#### Planning & Sprint Management
-
-- **`/qnew-enhanced`** - Advanced sprint planning generator
-
-  - Creates structured sprint plans with tasks, dependencies, and exit criteria
-  - Outputs QDIRECTOR-compatible YAML format
-  - Models: `gemini-2.5-pro` or `o3` for comprehensive planning
-
-- **`/qplan-enhanced`** - Technical validation & sprint refinement
-  - Validates sprint plans for technical feasibility
-  - Enriches tasks with codebase context and patterns
-  - Generates dependency graphs and risk assessments
-
-#### Master Orchestration
-
-- **`/qdirector-enhanced`** - Intelligent task orchestrator
-  - Manages specialized agents for complex workflows
-  - Automatic retry logic with smart model selection
-  - Parallel execution for independent tasks
-  - State machine: PENDING → READY → IN_PROGRESS → VALIDATION → COMPLETED
-
-### Validation Framework
-
-#### Comprehensive Validations
-
-- **`/qcheck-enhanced`** - Full code validation suite
-
-  - Security, performance, and quality checks
-  - Structured YAML output for automated parsing
-  - Severity levels: MUST_FIX, SHOULD_FIX, CONSIDER
-  - Pass rate thresholds: 90%+ auto-approve, 70-89% retry, <70% human review
-
-- **`/qcheckf-enhanced`** - Function-level analysis
-
-  - Complexity metrics (cyclomatic, cognitive, nesting)
-  - Design principles validation
-  - Performance characteristics analysis
-
-- **`/qcheckt-enhanced`** - Test quality validation
-
-  - Coverage analysis (line, branch, function)
-  - Test effectiveness metrics
-  - Anti-pattern detection
-
-- **`/qvalidate-framework`** - Unified validation orchestrator
-  - Aggregates all validation results
-  - Progressive modes: quick (dev), standard (pre-commit), deep (pre-deploy)
-  - Smart retry recommendations based on failure patterns
-
-### Core Workflow Commands
-
-- **`/qcode`** - Implementation with auto-validation
-
-  - Triggers `/qcheckf-enhanced` automatically
-  - Models: `gpt-4.1` or `gemini-2.5-flash`
-
-- **`/qgit`** - Git operations with pre-commit validation
-  - Runs `/qvalidate-framework --mode standard`
-  - Semantic commit messages
-
-### Specialized Tools
-
-- **`/qux`** - UX testing scenario generation
-- **`/rules-of-theroad`** - Claude Commands system guide
-- **`/important-instruction-reminders`** - Core behavioral constraints
-- **`/enhanced-quick-reference`** - Quick guide to enhanced workflow
-
-## 🤖 Specialized Agents (`/agents/`)
-
-### Agent Architecture
-
-The QDIRECTOR system leverages specialized agents for focused tasks:
-
-#### `sprint-planner`
-
-- **Purpose**: Expert requirements decomposition and sprint planning
-- **Tools**: Read, Write, TodoWrite, Grep, Glob
-- **Outputs**: QDIRECTOR-compatible sprint plans with:
-  - Task decomposition (2-4 hour chunks)
-  - Clear dependencies and priority levels (P0-P3)
-  - Acceptance criteria and exit conditions
-  - Risk identification and mitigation
-
-#### `code-implementer`
-
-- **Purpose**: Clean, secure code implementation following conventions
-- **Tools**: Read, Write, Edit, MultiEdit, Bash, Grep, Glob, LS
-- **Principles**:
-  - SOLID principles and design patterns
-  - Security by default (input validation, parameterized queries)
-  - Performance conscious implementation
-  - Convention adherence to project patterns
-
-#### `test-specialist`
-
-- **Purpose**: Comprehensive test suite creation
-- **Tools**: Read, Write, Edit, MultiEdit, Bash, Grep, Glob, mcp**zen**testgen
-- **Focus**:
-  - Behavior-driven testing (not implementation)
-  - Edge case coverage
-  - AAA pattern (Arrange, Act, Assert)
-  - Test pyramid approach (unit > integration > E2E)
-
-#### `validation-expert`
-
-- **Purpose**: Multi-dimensional code validation
-- **Tools**: Read, Grep, Glob, Bash, mcp**zen**codereview, mcp**zen**secaudit,
-  mcp**zen**analyze
-- **Validation Scope**:
-  - Code quality (structure, complexity, maintainability)
-  - Security (OWASP, injection prevention, auth)
-  - Performance (algorithms, resource usage, queries)
-  - Best practices compliance
-
-## 📚 USER GUIDE - Intelligent Model Routing
-
-### Understanding Complexity-Based Model Selection
-
-QDIRECTOR automatically analyzes your tasks and routes them to the optimal model
-based on complexity. This ensures you get the best balance of quality, speed,
-and cost.
-
-#### 🎯 Complexity Keywords & Model Selection
-
-**SIMPLE TASKS → Claude 3.7 Sonnet (Token-Efficient)** Keywords that trigger
-simple routing:
-
-- `utility`, `helper`, `function`, `component`
-- `convert`, `format`, `validate` (simple)
-- `button`, `modal`, `form`, `tooltip`
-- `config`, `constant`, `interface`
-
-Examples:
+# Claude Code Configuration 🚀
+
+> A comprehensive enhancement system for Claude Code with automated workflows,
+> intelligent orchestration, and quality assurance.
+
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)]()
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Token Efficient](https://img.shields.io/badge/token%20efficient-beta-orange.svg)]()
+
+## 📋 Table of Contents
+
+- [🚀 Quickstart](#-quickstart)
+- [📚 Commands Reference](#-commands-reference)
+  - [Planning & Sprint Management](#-planning--sprint-management)
+  - [Development](#-development)
+  - [Validation & Quality](#-validation--quality)
+  - [Utilities](#-utilities)
+- [🔄 Common Workflows](#-common-workflows)
+- [🎯 Best Practices](#-best-practices)
+- [💡 Tips & Tricks](#-tips--tricks)
+- [🛠️ Configuration](#️-configuration)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [📖 Additional Resources](#-additional-resources)
+## 🚀 Quickstart
+
+Get up and running with Claude Code Configuration in under 5 minutes.
+
+### Prerequisites
+
+- **Git** installed on your system
+- **Claude Code** CLI installed and authenticated
+- **macOS** (current configuration is optimized for macOS)
+- Optional: `gofmt`, `prettier`, and `pre-commit` for formatting features
+
+### Installation
 
 ```bash
-"Create a date formatting utility"           # → Claude 3.7 Sonnet
-"Add a button component"                     # → Claude 3.7 Sonnet
-"Write a helper function to validate email"  # → Claude 3.7 Sonnet
+# 1. Clone the configuration repository to your home directory
+git clone git@github.com:saintskeeper/claude-code-configs.git ~/.claude
+
+# 2. Make scripts executable
+chmod +x ~/.claude/setup-local.sh ~/.claude/test-hooks.sh
+
+# 3. Install git hooks for automated workflows (recommended)
+~/.claude/setup-local.sh
 ```
 
-**MODERATE TASKS → Claude 4 Sonnet** Keywords that trigger moderate routing:
+### First Command
 
-- `api`, `service`, `integration`, `middleware`
-- `authentication`, `authorization`, `database schema`
-- `cache`, `queue`, `websocket`, `graphql`
-- `business logic`, `workflow`, `state management`
-
-Examples:
+Test that everything is working:
 
 ```bash
-"Implement REST API with authentication"     # → Claude 4 Sonnet
-"Create caching service with Redis"          # → Claude 4 Sonnet
-"Build user authentication middleware"       # → Claude 4 Sonnet
+# Run a simple validation to ensure Claude commands are accessible
+claude /rules-of-theroad
+
+# Test the hooks functionality
+~/.claude/test-hooks.sh
 ```
 
-**COMPLEX TASKS → Claude 4 Opus** Keywords that trigger complex routing:
+### Verification
 
-- `architect`, `design system`, `refactor entire`
-- `migrate`, `distributed`, `concurrent`, `parallel`
-- `real-time`, `blockchain`, `machine learning`
-- `performance critical`, `security critical`
-- `custom algorithm`, `parser`, `compiler`
+✅ You're ready when you see:
 
-Examples:
+- "✅ Post-checkout hook installed!" after running setup
+- "✅ Hook test complete!" after running the test script
+- Claude responds to slash commands like `/qcheck-enhanced`
+
+### What's Next?
+
+- **Enable token-efficient mode** (saves 14-70% on API costs):
+
+  ```bash
+  ~/.claude/scripts/token-efficient-config.sh enable
+  ```
+
+- **Try your first enhanced workflow**:
+
+  ```bash
+  # Create a simple utility function with auto-validation
+  /qcode Create a date formatting utility function
+  ```
+
+- **Explore the command reference**: See all available commands with
+  `/enhanced-quick-reference`
+
+💡 **Tip**: The system automatically routes tasks to the optimal AI model based
+on complexity. Simple tasks use efficient models, while complex architecture
+work uses more powerful ones.
+## 📚 Commands Reference
+
+Claude Code commands are organized by workflow to help you accomplish your
+development tasks efficiently. Each command is designed for specific stages of
+your development process.
+
+### 🎯 Planning & Sprint Management
+
+#### `/qnew-enhanced` - Sprint Planning Generator
+
+**Purpose**: Generate structured sprint plans with clear tasks, dependencies,
+and exit criteria **Usage**: `/qnew-enhanced [project requirements]` **Model**:
+`gemini-2.5-pro` or `o3` for comprehensive planning **Example**:
 
 ```bash
-"Design distributed caching system"          # → Claude 4 Opus
-"Refactor entire payment architecture"       # → Claude 4 Opus
-"Implement concurrent data processing"       # → Claude 4 Opus
+/qnew-enhanced Create authentication system with OAuth and JWT
+# Generates: sprint-2024-01-15-authentication.md with 8 prioritized tasks
 ```
 
-#### 🔧 Manual Complexity Analysis
+#### `/qplan-enhanced` - Technical Validation & Refinement
 
-Test task complexity before execution:
+**Purpose**: Validate sprint plans against codebase patterns and technical
+feasibility **Usage**: `/qplan-enhanced --sprint [sprint-file]` **Model**: `pro`
+or Claude Opus for analysis **Options**:
+
+- `--sprint`: Path to sprint plan file
+- Analyzes code patterns, validates dependencies, identifies risks
+
+**Example**:
 
 ```bash
-# Analyze complexity
-~/.claude/scripts/code-complexity-analyzer.sh analyze "your task description"
-
-# Get model recommendation
-~/.claude/scripts/code-complexity-analyzer.sh recommend "your task description" true
+/qplan-enhanced --sprint sprint-2024-01-15-authentication.md
+# Output: Enhanced task definitions with codebase context and risk mitigation
 ```
 
-#### 💡 Pro Tips for Task Description
+#### `/qdirector-enhanced` - Master Orchestration System
 
-1. **Be Specific**: More details help accurate routing
-2. **Use Keywords**: Include complexity indicators
-3. **Mention Scale**: "entire system" vs "single function"
-4. **State Requirements**: "high-performance" or "simple utility"
+**Purpose**: Orchestrate complex multi-task workflows with intelligent retry and
+validation **Usage**: `/qdirector-enhanced [task description]` **Features**:
 
-### Token-Efficient Mode Benefits
+- Parallel task execution
+- Automatic validation
+- Smart retry with model escalation
+- Human-in-the-loop for critical decisions
 
-When enabled, simple tasks automatically use Claude 3.7 Sonnet with:
+**Example**:
 
-- **14-70% token reduction**
-- **Faster response times**
-- **Lower API costs**
-- **Maintained quality**
+```bash
+/qdirector-enhanced build complete authentication system with OAuth, JWT, and 2FA
+# Orchestrates: Sprint planning → Implementation → Testing → Validation
+```
 
-Enable token-efficient mode:
+### 💻 Development
+
+#### `/qcode` - Code Implementation
+
+**Purpose**: Implement features following project standards and best practices
+**Usage**: Automatically invoked by QDIRECTOR or used directly **Model**:
+Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
+
+- Pre-commit hook execution
+- Race condition testing (Go)
+- Type checking (TypeScript)
+- Automatic formatting
+
+**Example**:
+
+```bash
+/qcode implement user profile service with avatar upload
+# Runs: pre-commit hooks → implementation → testing → formatting
+```
+
+#### `/qtest` - Comprehensive Test Generation
+
+**Purpose**: Create thorough test suites with edge case coverage **Usage**:
+`/qtest generate [type] --file [path]` **Model**: `o3-mini` or
+`gemini-2.5-flash` **Options**:
+
+- `unit` - Unit tests for functions/methods
+- `integration` - Component interaction tests
+- `e2e` - End-to-end user workflows
+- `edge-cases` - Boundary and error scenarios
+
+**Example**:
+
+```bash
+/qtest generate unit --file src/auth/jwt.service.ts
+# Creates: Comprehensive unit tests with 90%+ coverage
+```
+
+### ✅ Validation & Quality
+
+#### `/qcheck-enhanced` - Comprehensive Code Validation
+
+**Purpose**: Validate code against best practices and security standards
+**Usage**: Automatically triggered after code generation **Output**: Structured
+YAML report with:
+
+- Must-fix issues (blocking)
+- Should-fix issues (recommended)
+- Consider items (optional)
+- Retry recommendations
+
+**Example**:
+
+```yaml
+validation_report:
+  pass_rate: 75%
+  must_fix:
+    - issue: "SQL injection vulnerability"
+      location: "AuthService.ts:45"
+  ready_for_merge: false
+```
+
+#### `/qcheckf-enhanced` - Function-Level Validation
+
+**Purpose**: Deep analysis of function quality, complexity, and maintainability
+**Usage**: `/qcheckf [function-name]` or `--file [path]` **Metrics**:
+
+- Cyclomatic complexity (target: ≤10)
+- Line count (target: ≤50)
+- Parameter count (target: ≤3)
+- Single responsibility adherence
+
+**Example**:
+
+```bash
+/qcheckf processPayment
+# Output: Complexity score: 12, Recommendation: refactor
+```
+
+#### `/qcheckt-enhanced` - Test Quality Validation
+
+**Purpose**: Ensure tests are comprehensive, maintainable, and effective
+**Usage**: `/qcheckt [test-file]` or `--dir [directory]` **Metrics**:
+
+- Line coverage (target: ≥80%)
+- Branch coverage (target: ≥75%)
+- Test structure (AAA pattern)
+- Mock quality
+
+**Example**:
+
+```bash
+/qcheckt PaymentService.test.ts
+# Output: Coverage: 85%, Issues: missing timeout tests
+```
+
+#### `/qvalidate-framework` - Unified Validation System
+
+**Purpose**: Orchestrate all validation commands for comprehensive quality
+assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
+
+- `quick`: Fast validation for development (~30s)
+- `standard`: Comprehensive pre-commit validation (~2min)
+- `deep`: Full analysis with security scanning (~5min)
+
+**Example**:
+
+```bash
+/qvalidate --mode standard --task-id AUTH_IMPL
+# Runs: syntax → functions → tests → integration → security
+```
+
+### 🔧 Utilities
+
+#### `/qgit` - Git Operations
+
+**Purpose**: Add, commit with semantic messages, and push changes **Usage**:
+`/qgit [commit message]` **Features**:
+
+- Semantic commit format (feat/fix/chore)
+- Pre-commit validation
+- No Claude attribution in commits
+
+**Example**:
+
+```bash
+/qgit feat: implement JWT authentication service
+# Stages all changes → Creates semantic commit → Pushes to remote
+```
+
+#### `/qux` - UX Testing Scenarios
+
+**Purpose**: Generate comprehensive user testing scenarios **Usage**: `/qux`
+after implementing a feature **Output**: Prioritized list of test scenarios from
+user perspective
+
+**Example**:
+
+```bash
+/qux
+# Output: 15 prioritized test scenarios for authentication flow
+```
+
+#### `/qprompt` - Prompt Template Helper
+
+**Purpose**: Structure requests using token-efficient patterns **Usage**:
+`/qprompt [task-type] - [description]` **Task Types**:
+
+- `simple` - Direct execution
+- `analyze` - Code review/analysis
+- `implement` - Feature development
+- `test` - Test generation
+- `plan` - Sprint planning
+
+**Example**:
+
+```bash
+/qprompt analyze - review auth.service.ts for security vulnerabilities
+# Formats request with optimal structure for analysis
+```
+
+#### `/qtoken-efficient` - Token Optimization Management
+
+**Purpose**: Enable/disable Anthropic's beta token-efficient mode **Usage**:
+`/qtoken-efficient [enable|disable|status]` **Benefits**: 14-70% token reduction
+with Claude 3.7 Sonnet **Note**: Beta feature - not compatible with Claude 4
+models
+
+**Example**:
 
 ```bash
 ~/.claude/scripts/token-efficient-config.sh enable
+# Activates token-efficient mode for compatible operations
 ```
 
-### Model Routing Examples
+### 🔄 Workflow Integration
+
+Commands work together in an intelligent workflow:
+
+1. **Planning Phase**
+
+   ```
+   /qnew-enhanced → /qplan-enhanced → /qdirector-enhanced
+   ```
+
+2. **Implementation Phase**
+
+   ```
+   /qcode → automatic /qcheckf-enhanced validation
+   /qtest → automatic /qcheckt-enhanced validation
+   ```
+
+3. **Validation Phase**
+
+   ```
+   /qvalidate-framework orchestrates:
+   → /qcheck-enhanced → /qcheckf-enhanced → /qcheckt-enhanced
+   ```
+
+4. **Completion Phase**
+   ```
+   /qgit with pre-commit /qvalidate-framework
+   ```
+
+### 🤖 Model Selection Strategy
+
+Commands automatically select optimal models based on task complexity:
+
+| Task Type    | Complexity | Primary Model       | Token-Efficient |
+| ------------ | ---------- | ------------------- | --------------- |
+| Planning     | High       | `gemini-2.5-pro`    | No              |
+| Complex Code | High       | `claude-4-opus`     | No              |
+| Simple Code  | Low        | `claude-3-7-sonnet` | Yes             |
+| Testing      | Any        | `o3-mini`           | Yes             |
+| Validation   | Any        | `claude-3-7-sonnet` | Yes             |
+
+### 📊 Validation Severity Levels
+
+- **MUST_FIX**: Blocks completion (security, data corruption, breaking changes)
+- **SHOULD_FIX**: Retry recommended (performance, complexity, poor patterns)
+- **CONSIDER**: Optional improvements (style, minor optimizations)
+
+Each command is designed to work standalone or as part of the orchestrated
+QDIRECTOR workflow, providing flexibility for both automated and manual
+development processes.
+## 🔄 Common Workflows
+
+### Complete Feature Development Flow
 
 ```bash
-# Automatic routing based on complexity:
-/qdirector-enhanced "Create a simple date formatter"
-# → Routes to: Claude 3.7 Sonnet (simple, token-efficient)
+# 1. Plan the sprint
+/qnew-enhanced Create user authentication system with JWT
 
-/qdirector-enhanced "Build authentication API with JWT"
-# → Routes to: Claude 4 Sonnet (moderate complexity)
+# 2. Validate and enrich the plan
+/qplan-enhanced --sprint sprint-2025-01-auth.md
 
-/qdirector-enhanced "Design microservices architecture"
-# → Routes to: Claude 4 Opus (complex, needs deep reasoning)
+# 3. Execute with QDIRECTOR orchestration
+/qdirector-enhanced
+- Load sprint plan
+- Execute tasks with automatic retry
+- Validate outputs at each stage
+
+# 4. Commit changes
+/qgit "feat: implement JWT authentication system"
 ```
 
-### Understanding Model Capabilities
+### Quick Code Review
 
-| Model             | Best For                | Token Efficiency       | Use When                     |
-| ----------------- | ----------------------- | ---------------------- | ---------------------------- |
-| Claude 3.7 Sonnet | Simple tasks, utilities | Yes (14-70% reduction) | Clear, straightforward tasks |
-| Claude 4 Sonnet   | Moderate complexity     | No (works normally)    | APIs, services, integrations |
-| Claude 4 Opus     | Complex architecture    | No (works normally)    | System design, algorithms    |
-| GPT-4.1           | General coding          | No                     | Fallback for moderate tasks  |
-| Gemini 2.5 Flash  | Quick tasks             | No                     | Fast simple tasks            |
+```bash
+# For focused file review
+/qcheckf-enhanced auth_service.go
 
-### Structured Prompts for Efficiency
+# For comprehensive validation
+/qvalidate-framework --path ./src/auth/
 
-Use these templates for optimal results:
-
-**For Simple Tasks:**
-
-```
-Task: [specific action]
-Input: [data/parameters]
-Output: [expected format]
+# For security-focused review
+/qcheck-enhanced --focus security
 ```
 
-**For Complex Tasks:**
+### Test Generation Workflow
 
+```bash
+# Generate tests for specific function
+/qtest --function authenticate --file auth.go
+
+# Validate test quality
+/qcheckt-enhanced auth_test.go
+
+# Run full test suite validation
+/qvalidate-framework --tests-only
 ```
-Implement: [feature]
-Requirements:
-- [requirement 1]
-- [requirement 2]
-Constraints:
-- [constraint 1]
-Architecture: [patterns to follow]
+
+### Documentation Cleanup
+
+```bash
+# Organize AI docs by commit type
+./scripts/qsweep.sh --filter feat
+
+# Enable token-efficient mode
+./scripts/token-efficient-config.sh enable
+
+# Validate configuration
+./scripts/validate-claude.sh
 ```
 
-## 🧪 Experimental Features
+### Parallel Task Execution
 
-### Token-Efficient Tool Use (Beta)
+```yaml
+# In QDIRECTOR
+parallel_tasks:
+  - Task(subagent_type="validation-expert", prompt="Audit auth code")
+  - Task(subagent_type="code-implementer", prompt="Research best practices")
+  - Task(subagent_type="test-specialist", prompt="Plan test strategy")
+```
+## 🎯 Best Practices
 
-Reduces output tokens by 14-70% when using Claude Sonnet 3.7:
+### 1. Safe File Editing
 
-- **Enable**: `~/.claude/scripts/token-efficient-config.sh enable`
-- **Status**: `~/.claude/scripts/token-efficient-config.sh status`
-- **Disable**: `~/.claude/scripts/token-efficient-config.sh disable`
+- **Always use MultiEdit for critical files** like CLAUDE.md to prevent
+  truncation
+- **Test with grep first** to ensure unique string matches before editing
+- **Include context** - match at least 2-3 lines for safer edits
+- **Keep backups** before major configuration changes
 
-Configuration in `settings.json`:
+### 2. Efficient Command Usage
+
+- **Start with planning commands** (`/qnew-enhanced`, `/qplan-enhanced`) before
+  implementation
+- **Use token-efficient mode** for high-volume operations (saves 14-70% tokens)
+- **Leverage parallel execution** in QDIRECTOR for independent tasks
+- **Choose appropriate models** based on task complexity (see model optimization
+  guide)
+
+### 3. Agent Orchestration
+
+- **Single responsibility principle** - each agent excels at one thing
+- **Minimal context passing** - request only necessary information
+- **Structured outputs** - always use QDIRECTOR-compatible formats
+- **Clear error handling** - include retry recommendations
+
+### 4. Hook Configuration
+
+- **Language-specific formatters** automatically run on file edits
+- **Validation hooks** ensure CLAUDE.md integrity after changes
+- **Branch creation hooks** trigger automatic documentation cleanup
+- **Test all hooks** with `test-hooks.sh` before relying on them
+
+### 5. Sprint Management
+
+- **Task sizing** - keep tasks to 2-4 hour implementation windows
+- **Clear dependencies** - make task relationships explicit
+- **Exit criteria** - define measurable success conditions
+- **Priority tagging** - use P0-P3 levels consistently
+## 💡 Tips & Tricks
+
+### Performance Optimization
+
+- **Cache agent outputs** between retry attempts to save tokens
+- **Run independent tasks in parallel** using QDIRECTOR
+- **Use flash models** for simple tasks, reserve pro models for complex analysis
+- **Enable token-efficient mode** for 14-70% reduction in token usage
+
+### Advanced Agent Usage
+
+- **Chain agents intelligently**: planning → implementation → testing →
+  validation
+- **Share minimal context** between agents to preserve tokens
+- **Use agent-specific models** configured in QDIRECTOR for optimal performance
+- **Create custom agents** by adding markdown files to `/agents/` directory
+
+### Smart Model Selection
+
+```yaml
+# Complexity-based routing
+simple_task: "gemini-2.5-flash"
+code_generation: "gpt-4.1"
+deep_analysis: "gemini-2.5-pro"
+security_audit: "o3"
+comprehensive_planning: "o3" or "gemini-2.5-pro"
+```
+
+### Efficient Sprint Planning
+
+- **Break down epics** into 2-week sprints maximum
+- **Front-load risky tasks** to identify blockers early
+- **Define clear interfaces** between components for parallel work
+- **Include buffer time** for validation and iteration
+
+### Code Quality Shortcuts
+
+```bash
+# Quick quality check before commit
+alias qqa='./scripts/validate-claude.sh && /qvalidate-framework --quick'
+
+# Auto-organize AI docs after session
+alias qclean='./scripts/qsweep.sh --auto'
+
+# Full validation pipeline
+alias qfull='/qvalidate-framework --comprehensive'
+```
+
+### Context Management
+
+- **Use .claudeignore** to exclude irrelevant files from context
+- **Reference specific files** in prompts rather than "check the codebase"
+- **Keep CLAUDE.md focused** - move project-specific rules to local .claude/
+- **Use grep/glob first** to find files, then read only what's needed
+
+### Debugging Commands
+
+- **Add --verbose flag** to see detailed agent reasoning
+- **Use --dry-run** to preview what would be executed
+- **Check intermediate outputs** in task working directories
+- **Enable debug logging** in QDIRECTOR for state machine visibility
+
+### Integration Tips
+
+- **Linear Integration**: Set project context with prep commands
+- **CI/CD**: Use validation commands in pre-commit hooks
+- **IDE Integration**: Map commands to keyboard shortcuts
+- **Team Workflows**: Share sprint plans via version control
+## 🛠️ Configuration
+
+### Essential Settings
+
+The system works out-of-the-box, but you can customize behavior through
+`settings.json`:
 
 ```json
 {
+  "hooks": {
+    "postToolUse": ["./hooks/post-edit.sh"],
+    "userPromptSubmit": ["./hooks/qsweep.sh"]
+  },
   "env": {
     "CLAUDE_TOKEN_EFFICIENT_MODE": "true",
     "CLAUDE_BETA_HEADER": "token-efficient-tools-2025-02-19"
@@ -352,163 +559,192 @@ Configuration in `settings.json`:
 }
 ```
 
-⚠️ **Limitations**: Only works with Claude Sonnet 3.7, not compatible with
-Claude 4 models.
+### Token-Efficient Mode (Beta)
 
-📖 **Learn More**: See [Beta Features Guide](docs/beta-features-guide.md) for
-detailed information about what beta features mean and how they work.
-
-## 🔧 Templates (`/templates/`)
-
-### `claude-code-ai-assistant-template.md`
-
-Complete AI assistant architecture template:
-
-- Multi-agent system patterns
-- Tool definitions and orchestration
-- Performance tracking and security
-
-### `CLAUDE.template.md`
-
-Standard project configuration template:
-
-- Linear integration guidelines
-- Implementation best practices
-- Documentation management
-
-## ⚙️ Configuration
-
-### `settings.json`
-
-Hook configuration:
-
-- **PostToolUse**: Formatting after edits, audio notifications
-- **PreToolUse**: Validation before edits
-- **UserPromptSubmit**: Documentation sweep
-- **Stop**: Final cleanup before commits
-
-### `CLAUDE.md`
-
-Global user instructions:
-
-- Custom commit message format
-- macOS environment specification
-- TODO addition guidelines
-
-### `CLAUDE_SAFETY.md`
-
-Safety guidelines for configuration editing:
-
-- MultiEdit usage patterns
-- Validation procedures
-- Recovery processes
-
-## 🚀 Setup
-
-### Quick Start
+Save 14-70% on API costs with Claude 3.7 Sonnet:
 
 ```bash
-# Clone the repository
-git clone git@github.com:saintskeeper/claude-code-configs.git ~/.claude
+# Enable
+~/.claude/scripts/token-efficient-config.sh enable
 
-# Install local git hooks (optional)
-chmod +x ~/.claude/setup-local.sh
-~/.claude/setup-local.sh
+# Check status
+~/.claude/scripts/token-efficient-config.sh status
+
+# Disable
+~/.claude/scripts/token-efficient-config.sh disable
 ```
 
-### Test Installation
+⚠️ **Note**: Only works with Claude 3.7 Sonnet. Other models operate normally.
 
-```bash
-# Test hooks functionality
-chmod +x ~/.claude/test-hooks.sh
-~/.claude/test-hooks.sh
+### CLAUDE.md Customization
+
+Add project-specific instructions to `CLAUDE.md`:
+
+- Commit message formats
+- Code style preferences
+- Project-specific rules
+- Team conventions
+
+### Advanced Configuration
+
+For detailed configuration options:
+
+- **Hooks Documentation**: See `hooks/README.md`
+- **Script Options**: See `scripts/README.md`
+- **Template Customization**: See `templates/README.md`
+## 🔧 Troubleshooting Guide
+
+### CLAUDE.md Gets Truncated
+
+**Problem**: File becomes corrupted or sections disappear after edits
+
+**Solution**:
+
+1. Use MultiEdit instead of Edit for changes
+2. Restore from template: `cp templates/CLAUDE.template.md CLAUDE.md`
+3. Run validation: `./scripts/validate-claude.sh`
+4. Use unique section markers for safer edits
+
+### Hooks Not Running
+
+**Problem**: Post-edit formatting not happening automatically
+
+**Solution**:
+
+1. Check hook installation: `./setup-local.sh`
+2. Verify settings.json has correct hook paths
+3. Test specific hook: `./test-hooks.sh post-edit`
+4. Check file permissions: `chmod +x hooks/*.sh`
+
+### QDIRECTOR Task Failures
+
+**Problem**: Tasks stuck in RETRY state or failing repeatedly
+
+**Solution**:
+
+1. Check task dependencies are properly defined
+2. Verify agent has necessary tool access
+3. Review validation output for specific issues
+4. Use manual retry with different model:
+   ```yaml
+   retry_with_model: "gemini-2.5-pro"
+   additional_context: "Previous attempt failed due to..."
+   ```
+
+### Token Limit Exceeded
+
+**Problem**: Commands failing due to context size
+
+**Solution**:
+
+1. Enable token-efficient mode: `./scripts/token-efficient-config.sh enable`
+2. Use focused commands instead of comprehensive ones
+3. Split large tasks into smaller subtasks
+4. Choose appropriate models for task complexity
+
+### Model Not Available
+
+**Problem**: Specified model returns errors
+
+**Solution**:
+
+1. Check available models: `/qvalidate-framework --list-models`
+2. Verify API keys are configured correctly
+3. Use fallback models in QDIRECTOR configuration
+4. Check model-specific context limits
+
+### Git Hooks Conflict
+
+**Problem**: Local git hooks interfere with Claude hooks
+
+**Solution**:
+
+1. Backup existing hooks: `cp .git/hooks/* .git/hooks.backup/`
+2. Integrate Claude hooks with existing ones
+3. Use hook chaining in .git/hooks scripts
+4. Test combined functionality thoroughly
+## 📖 Additional Resources
+
+### 📚 Detailed Documentation
+
+- **[Repository Structure](docs/repository-structure.md)** - Full directory
+  layout and file purposes
+- **[Agent Architecture](agents/README.md)** - Deep dive into specialized agents
+- **[Hook System](hooks/README.md)** - Advanced hook configuration
+- **[Script Reference](scripts/README.md)** - All utility scripts explained
+- **[Template Guide](templates/README.md)** - Customization templates
+
+### 🔗 External Resources
+
+- **[Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)** -
+  Official docs
+- **[GitHub Repository](https://github.com/saintskeeper/claude-code-configs)** -
+  Source code
+- **[Issue Tracker](https://github.com/saintskeeper/claude-code-configs/issues)** -
+  Report bugs
+- **[Claude Code Updates](https://github.com/anthropics/claude-code/releases)** -
+  Latest features
+
+### 🎓 Learning Resources
+
+- **[Beta Features Guide](docs/beta-features-guide.md)** - Understanding beta
+  features
+- **[Model Capabilities](docs/model-comparison.md)** - Detailed model
+  comparisons
+- **[Security Best Practices](guidelines/security.md)** - Secure coding
+  guidelines
+- **[Performance Optimization](guidelines/performance.md)** - Speed and
+  efficiency tips
+
+### 🤝 Contributing
+
+Want to improve Claude Code Configuration?
+
+1. Fork the repository
+2. Create a feature branch
+3. Follow the contribution guidelines
+4. Submit a pull request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
+
+### 📞 Getting Help
+
+- **Quick questions**: Check [Troubleshooting](#-troubleshooting) first
+- **Bug reports**:
+  [Open an issue](https://github.com/saintskeeper/claude-code-configs/issues)
+- **Feature requests**: Use the issue template
+- **Community**: Join discussions in issues
+
+### 🏛️ Architecture Overview
+
 ```
-
-## 💡 Usage Examples
-
-### Development Workflow
-
-1. Start with `/qplan-enhanced` to validate architectural approach
-2. Use `/qnew-enhanced` for new feature development reminders
-3. Run `/qcheck-enhanced` before major commits
-4. Execute `/qcode` for final validation
-5. Commit with `/qgit` for conventional commit format
-
-### Documentation Management
-
-- Documentation is automatically organized with `qsweep.sh`
-- Use `--id SPE-249` to filter by ticket
-- Use `--type feat` to filter by change type
-- Run `--dry-run` to preview changes
-
-### Code Quality
-
-- All edits are automatically formatted via hooks
-- CLAUDE.md changes are validated for integrity
-- Audio notifications confirm command completion
-
-## 🛡️ Safety Features
-
-- **Pre-edit validation** prevents CLAUDE.md corruption
-- **MultiEdit patterns** for safe large file editing
-- **Section markers** for reliable configuration updates
-- **Backup strategies** for configuration recovery
-
-## 🚀 Enhanced Workflow Example
-
-### Complete Development Cycle with QDIRECTOR
-
-```bash
-# 1. Create sprint plan from requirements
-/qnew-enhanced Build secure user authentication with JWT and OAuth
-
-# 2. Validate and enrich the plan technically
-/qplan-enhanced --sprint sprint-2024-01-auth.md
-
-# 3. Execute with QDIRECTOR orchestration
-/qdirector-enhanced Execute sprint plan in sprint-2024-01-auth.md
-
-# QDIRECTOR automatically:
-# - Spawns specialized agents in parallel
-# - Validates outputs with enhanced commands
-# - Retries with focused context on failures
-# - Tracks progress through state machine
-# - Escalates blockers to human review
+Claude Code Configuration
+├── Commands (User Interface)
+│   ├── Planning & Sprint Management
+│   ├── Development & Testing
+│   └── Validation & Quality
+├── QDIRECTOR (Orchestration Layer)
+│   ├── Task Management
+│   ├── Agent Routing
+│   └── Validation Pipeline
+├── Specialized Agents (Execution Layer)
+│   ├── sprint-planner
+│   ├── code-implementer
+│   ├── test-specialist
+│   └── validation-expert
+└── Infrastructure (Support Layer)
+    ├── Hooks & Automation
+    ├── Scripts & Utilities
+    └── Templates & Config
 ```
-
-### Parallel Agent Execution
-
-```yaml
-# Example of parallel task execution
-parallel_tasks:
-  - Task(subagent_type="code-implementer", prompt="Implement JWT service")
-  - Task(subagent_type="code-implementer", prompt="Create user model")
-  - Task(subagent_type="test-specialist", prompt="Design auth test strategy")
-```
-
-## 📊 Validation Pipeline
-
-```
-Code Generation → Function Validation → Test Validation → Integration Check → Security Scan
-     ↓                    ↓                    ↓                   ↓                ↓
-  /qcode         /qcheckf-enhanced    /qcheckt-enhanced      /qcheck-enhanced   Ready
-```
-
-## 🎯 Key Benefits
-
-1. **Intelligent Orchestration**: QDIRECTOR manages complex workflows with
-   specialized agents
-2. **Automated Quality Assurance**: Multi-layer validation with smart retry
-   logic
-3. **Parallel Execution**: Independent tasks run simultaneously for speed
-4. **Structured Workflows**: From sprint planning to validated implementation
-5. **Safety Mechanisms**: Configuration protection and automatic validation
-6. **Model Optimization**: Right model for each task type
-7. **Continuous Learning**: Metrics tracking for process improvement
 
 ---
 
-_This enhanced system transforms Claude Code into an intelligent development
-orchestrator with specialized agents, comprehensive validation, and automated
-workflows while respecting user preferences for commit messages and
-attribution._
+_Built with ❤️ for the Claude Code community_
+
+## 📘 Real-World Examples
+
+For comprehensive examples demonstrating the power of QDIRECTOR orchestration:
+- **[View All Examples](examples/README.md)** - 10 detailed scenarios
+- **[Migration Guide](MIGRATION-GUIDE.md)** - For existing users
+
