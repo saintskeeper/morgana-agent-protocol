@@ -1,31 +1,37 @@
 # QDIRECTOR Sub-Agents
 
-This directory contains specialized sub-agents for the QDIRECTOR enhanced orchestration system. Each agent is designed with specific expertise and tool access to handle different aspects of the software development lifecycle.
+This directory contains specialized sub-agents for the QDIRECTOR enhanced
+orchestration system. Each agent is designed with specific expertise and tool
+access to handle different aspects of the software development lifecycle.
 
 ## Available Agents
 
 ### 🎯 sprint-planner
-**Purpose**: Decomposes requirements into structured sprint plans  
-**Expertise**: Requirements analysis, task breakdown, dependency mapping  
-**Tools**: Read, Write, TodoWrite, Grep, Glob  
-**Best For**: Initial planning, sprint setup, task prioritization
+
+**Purpose**: Decomposes requirements into structured sprint plans **Expertise**:
+Requirements analysis, task breakdown, dependency mapping **Tools**: Read,
+Write, TodoWrite, Grep, Glob **Best For**: Initial planning, sprint setup, task
+prioritization
 
 ### 💻 code-implementer
-**Purpose**: Implements clean, secure, performant code  
-**Expertise**: Code patterns, security practices, performance optimization  
-**Tools**: Read, Write, Edit, MultiEdit, Bash, Grep, Glob, LS  
-**Best For**: Feature implementation, bug fixes, refactoring
+
+**Purpose**: Implements clean, secure, performant code **Expertise**: Code
+patterns, security practices, performance optimization **Tools**: Read, Write,
+Edit, MultiEdit, Bash, Grep, Glob, LS **Best For**: Feature implementation, bug
+fixes, refactoring
 
 ### 🔍 validation-expert
-**Purpose**: Comprehensive code quality and security validation  
-**Expertise**: Security audits, code review, performance analysis  
-**Tools**: Read, Grep, Glob, Bash, mcp__zen__codereview, mcp__zen__secaudit, mcp__zen__analyze  
-**Best For**: Pre-commit validation, security reviews, quality gates
+
+**Purpose**: Comprehensive code quality and security validation **Expertise**:
+Security audits, code review, performance analysis **Tools**: Read, Grep, Glob,
+Bash, mcp**zen**codereview, mcp**zen**secaudit, mcp**zen**analyze **Best For**:
+Pre-commit validation, security reviews, quality gates
 
 ### 🧪 test-specialist
-**Purpose**: Creates comprehensive test suites with edge case coverage  
-**Expertise**: Test patterns, coverage strategies, edge case identification  
-**Tools**: Read, Write, Edit, MultiEdit, Bash, Grep, Glob, mcp__zen__testgen  
+
+**Purpose**: Creates comprehensive test suites with edge case coverage
+**Expertise**: Test patterns, coverage strategies, edge case identification
+**Tools**: Read, Write, Edit, MultiEdit, Bash, Grep, Glob, mcp**zen**testgen
 **Best For**: Test creation, coverage improvement, regression prevention
 
 ## Usage with QDIRECTOR
@@ -48,7 +54,7 @@ request:
   task_id: "AUTH_001"
   context: "minimal_relevant"
   constraints: ["security_critical"]
-  
+
 response:
   status: "completed"
   outputs: ["sprint-plan.yaml"]
@@ -65,6 +71,7 @@ To create a new agent:
 4. Ensure output formats are QDIRECTOR-compatible
 
 Example structure:
+
 ```markdown
 ---
 name: your-agent-name
@@ -86,6 +93,7 @@ Agent instructions here...
 ## Integration with Other Commands
 
 These agents enhance other q-commands:
+
 - `/qnew-enhanced` → Uses sprint-planner
 - `/qcode` → Uses code-implementer
 - `/qtest` → Uses test-specialist
@@ -97,3 +105,19 @@ These agents enhance other q-commands:
 - Use appropriate models per agent (configured in QDIRECTOR)
 - Cache agent outputs for reuse across retry attempts
 - Monitor token usage and optimize context passing
+
+## Token-Efficient Mode
+
+When token-efficient mode is enabled
+(`~/.claude/scripts/token-efficient-config.sh enable`):
+
+- Agents automatically benefit from 14-70% token reduction
+- Works with Claude 3.7 Sonnet models
+- No changes needed to agent configurations
+- QDIRECTOR handles model routing automatically
+
+Ideal for:
+
+- High-volume agent workflows
+- Cost-sensitive operations
+- Faster response times needed

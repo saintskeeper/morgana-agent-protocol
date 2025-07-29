@@ -29,6 +29,14 @@ Validates CLAUDE.md integrity after edits:
 - Validates required sections
 - Prevents configuration corruption
 
+### `token-efficient-config.sh`
+
+Manages the token-efficient tool use beta feature:
+
+- Enable/disable token-efficient mode
+- Check current status and compatibility
+- Reduces output tokens by 14-70% with Claude Sonnet 3.7
+
 ### `qsweep.sh`
 
 Organizes AI documentation with conventional commit patterns:
@@ -126,11 +134,6 @@ Auto-formats Go files:
   - Triggers `/qcheckf-enhanced` automatically
   - Models: `gpt-4.1` or `gemini-2.5-flash`
 
-- **`/qtest`** - Test generation with validation
-
-  - Triggers `/qcheckt-enhanced` automatically
-  - Models: `o3-mini` or `gemini-2.5-flash`
-
 - **`/qgit`** - Git operations with pre-commit validation
   - Runs `/qvalidate-framework --mode standard`
   - Semantic commit messages
@@ -188,6 +191,33 @@ The QDIRECTOR system leverages specialized agents for focused tasks:
   - Security (OWASP, injection prevention, auth)
   - Performance (algorithms, resource usage, queries)
   - Best practices compliance
+
+## 🧪 Experimental Features
+
+### Token-Efficient Tool Use (Beta)
+
+Reduces output tokens by 14-70% when using Claude Sonnet 3.7:
+
+- **Enable**: `~/.claude/scripts/token-efficient-config.sh enable`
+- **Status**: `~/.claude/scripts/token-efficient-config.sh status`
+- **Disable**: `~/.claude/scripts/token-efficient-config.sh disable`
+
+Configuration in `settings.json`:
+
+```json
+{
+  "experimental": {
+    "tokenEfficientTools": {
+      "enabled": false,
+      "betaHeader": "token-efficient-tools-2025-02-19",
+      "compatibleModels": ["claude-3-7-sonnet-20250219"]
+    }
+  }
+}
+```
+
+⚠️ **Limitations**: Only works with Claude Sonnet 3.7, not compatible with
+Claude 4 models.
 
 ## 🔧 Templates (`/templates/`)
 
@@ -259,9 +289,9 @@ chmod +x ~/.claude/test-hooks.sh
 
 ### Development Workflow
 
-1. Start with `/qplan` to validate architectural approach
-2. Use `/qnew` for new feature development reminders
-3. Run `/qcheck` before major commits
+1. Start with `/qplan-enhanced` to validate architectural approach
+2. Use `/qnew-enhanced` for new feature development reminders
+3. Run `/qcheck-enhanced` before major commits
 4. Execute `/qcode` for final validation
 5. Commit with `/qgit` for conventional commit format
 

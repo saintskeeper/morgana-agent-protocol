@@ -132,20 +132,18 @@ silence_sounds() {
             
             # Extract all sound hooks from both files and merge
             jq -s '
-                # Function to extract sound commands
+                # Function to extract sound commands with paths
                 def extract_sounds:
-                    [.. | 
-                        if type == "object" and has("command") then
-                            if .command | type == "string" and contains("afplay") then
-                                {path: path, value: .}
-                            else empty end
-                        elif type == "string" and contains("afplay") then
-                            {path: path, value: .}
-                        elif type == "array" then
-                            to_entries[] | 
-                            if .value | type == "string" and contains("afplay") then
-                                {path: (path + [.key]), value: .value}
-                            else empty end
+                    [paths(scalars) as $p | 
+                        getpath($p) as $val |
+                        if ($val | type == "string" and contains("afplay")) then
+                            {path: $p, value: $val}
+                        else empty end
+                    ] + 
+                    [paths(objects) as $p | 
+                        getpath($p) as $obj |
+                        if ($obj | type == "object" and has("command") and (.command | type == "string" and contains("afplay"))) then
+                            {path: $p, value: $obj}
                         else empty end
                     ];
                 
