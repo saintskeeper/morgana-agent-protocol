@@ -111,7 +111,8 @@ Track each task through states:
 **/qgit**
 
 - **Purpose**: Version control operations
-- **Model**: `flash` or Claude Haiku
+- **Model**: `flash` or `claude-3-7-sonnet-20250219` (supports token-efficient
+  mode)
 - **Pre-commit**: Runs `/qvalidate-framework --mode standard`
 - **Format**: Semantic commit messages
 
@@ -120,19 +121,22 @@ Track each task through states:
 **Quick Reference Table:**
 
 ```
-Task Type           | Primary Model      | Fallback Model     | Context Window
--------------------|-------------------|-------------------|---------------
-Sprint Planning     | gemini-2.5-pro    | o3               | 1M / 200K
-Architecture/Design | gemini-2.5-pro    | o3               | 1M / 200K
-Complex Planning    | o3                | gemini-2.5-pro    | 200K / 1M
-Implementation      | gpt-4.1           | gemini-2.5-flash  | 1M / 1M
-Simple Coding       | gemini-2.5-flash  | o3-mini          | 1M / 200K
-Test Generation     | o3-mini           | gemini-2.5-flash  | 200K / 1M
-Quick Tasks         | gemini-2.5-flash  | o3-mini          | 1M / 200K
-Critical Decisions  | o3-pro            | o3               | 200K / 200K
-Documentation       | gemini-2.5-flash  | o3-mini          | 1M / 200K
-Validation          | gemini-2.5-flash  | o3-mini          | 1M / 200K
+Task Type           | Primary Model      | Fallback Model     | Context Window | Token-Efficient
+-------------------|-------------------|-------------------|---------------|----------------
+Sprint Planning     | gemini-2.5-pro    | o3               | 1M / 200K     | No
+Architecture/Design | gemini-2.5-pro    | o3               | 1M / 200K     | No
+Complex Planning    | o3                | gemini-2.5-pro    | 200K / 1M     | No
+Implementation      | gpt-4.1           | gemini-2.5-flash  | 1M / 1M       | No
+Simple Coding       | gemini-2.5-flash  | claude-3-7-sonnet | 1M / 200K     | Yes*
+Test Generation     | claude-3-7-sonnet | gemini-2.5-flash  | 200K / 1M     | Yes*
+Quick Tasks         | claude-3-7-sonnet | o3-mini          | 200K / 200K   | Yes*
+Critical Decisions  | o3-pro            | o3               | 200K / 200K   | No
+Documentation       | claude-3-7-sonnet | o3-mini          | 200K / 200K   | Yes*
+Validation          | claude-3-7-sonnet | gemini-2.5-flash  | 200K / 1M     | Yes*
 ```
+
+\*Token-efficient mode available with Claude 3.7 Sonnet when enabled via
+settings
 
 ### 5. Enhanced Execution Pattern with Parallel Agents
 
@@ -144,9 +148,9 @@ For Each Sprint Task:
      - Prepare validation criteria
 
   2. Execute with Specialized Agents (PARALLEL when possible):
-     - For PLANNING tasks: 
+     - For PLANNING tasks:
        * Task(subagent_type="sprint-planner", prompt="decompose {requirement}")
-     - For IMPL tasks: 
+     - For IMPL tasks:
        * Task(subagent_type="code-implementer", prompt="implement {feature}")
        * Task(subagent_type="test-specialist", prompt="create tests for {feature}")
      - For VALIDATION tasks:
@@ -251,10 +255,10 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
      Task(subagent_type="code-implementer", prompt="Implement user model"),
      Task(subagent_type="code-implementer", prompt="Create auth middleware")
    ]
-   
+
    # Wait for core implementation
    await TASK_GROUP_1
-   
+
    # Then parallel testing and validation
    TASK_GROUP_2 = [
      Task(subagent_type="test-specialist", prompt="Create JWT service tests"),
@@ -266,7 +270,7 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
    - Task(subagent_type="validation-expert", prompt="Run comprehensive validation")
    - If issues found, targeted retry with specific agent
    - Example: validation_expert finds SQL injection
-     * Retry: Task(subagent_type="code-implementer", 
+     * Retry: Task(subagent_type="code-implementer",
                    prompt="Fix SQL injection in user.service.ts:45",
                    context=validation_report)
 
@@ -285,13 +289,13 @@ sprint_planner_output:
     - id: "AUTH_001"
       title: "Implement JWT service"
       acceptance_criteria: [...]
-      
+
 # Code implementer receives focused context
 code_implementer_input:
   task: "AUTH_001"
   context: "minimal_from_sprint_plan"
   constraints: ["use_existing_crypto_lib", "follow_project_patterns"]
-  
+
 # Validation expert receives all outputs
 validation_expert_input:
   artifacts: ["jwt.service.ts", "auth.middleware.ts", "tests/**"]
@@ -362,19 +366,21 @@ command_flow:
 ### Parallel Execution Guidelines
 
 1. **Identify Independent Tasks**
+
    ```yaml
    # Good: These can run in parallel
    parallel_safe:
      - implement_user_model
      - implement_auth_service
      - create_database_schema
-   
+
    # Bad: These have dependencies
    sequential_required:
      - create_user_model → implement_user_service → test_user_endpoints
    ```
 
 2. **Optimal Batch Sizes**
+
    - 3-5 parallel agents for most tasks
    - Up to 7 for investigation/research phases
    - Limit to 2-3 for resource-intensive operations
@@ -395,7 +401,7 @@ task_to_agent_mapping:
   code_review: "validation-expert"
   security_audit: "validation-expert"
   performance_analysis: "validation-expert"
-  documentation: "code-implementer"  # with doc-specific prompt
+  documentation: "code-implementer" # with doc-specific prompt
 ```
 
 ### Agent Communication Protocol
@@ -408,15 +414,15 @@ agent_request:
     parent_task: "AUTH_SYSTEM"
     priority: "P0"
     retry_attempt: 0
-    
+
   context:
-    mode: "minimal"  # minimal|standard|full
+    mode: "minimal" # minimal|standard|full
     relevant_files: ["src/auth/**"]
     previous_outputs: ["sprint-plan.yaml"]
-    constraints: 
+    constraints:
       - "use_existing_jwt_library"
       - "follow_project_security_standards"
-      
+
   task:
     description: "Implement JWT token generation service"
     acceptance_criteria:
@@ -426,7 +432,7 @@ agent_request:
     success_metrics:
       - "All tests pass"
       - "Security validation score > 90"
-      
+
 # Standard response format from agents
 agent_response:
   metadata:
@@ -434,9 +440,9 @@ agent_response:
     agent: "code-implementer"
     model_used: "gpt-4.1"
     duration_ms: 4500
-    
-  status: "completed"  # completed|failed|blocked|partial
-  
+
+  status: "completed" # completed|failed|blocked|partial
+
   outputs:
     created_files:
       - "src/services/jwt.service.ts"
@@ -444,16 +450,16 @@ agent_response:
     modified_files:
       - "src/config/auth.config.ts"
     validation_ready: true
-    
+
   metrics:
     lines_of_code: 245
     test_coverage: 94
     complexity_score: 6.2
-    
+
   issues_found:
     - severity: "low"
       description: "Consider caching token generation"
-      
+
   next_agents:
     recommended:
       - agent: "test-specialist"
@@ -462,16 +468,50 @@ agent_response:
         reason: "Security validation required"
 ```
 
+## Token-Efficient Mode Integration
+
+When token-efficient mode is enabled in settings.json, QDIRECTOR automatically:
+
+1. **Model Selection**: Prioritizes Claude 3.7 Sonnet for compatible tasks
+2. **Token Savings**: Reduces output tokens by 14-70% on average
+3. **Performance**: Maintains quality while improving latency
+
+### Enabling Token-Efficient Mode
+
+```bash
+# Enable globally
+~/.claude/scripts/token-efficient-config.sh enable
+
+# Check status
+~/.claude/scripts/token-efficient-config.sh status
+```
+
+### Task Routing with Token Efficiency
+
+When enabled, QDIRECTOR routes these tasks to Claude 3.7 Sonnet:
+
+- Simple coding tasks
+- Test generation
+- Documentation writing
+- Quick validations
+- Code reviews
+
+Complex planning and critical decisions remain with specialized models (o3,
+gemini-2.5-pro).
+
 ## Important Notes
 
 - **Agent-Based Execution**: Use specialized agents instead of general-purpose
-- **Parallel by Default**: Always consider parallel execution for independent tasks
-- **Context Preservation**: Main QDIRECTOR preserves context, agents get focused slices
+- **Parallel by Default**: Always consider parallel execution for independent
+  tasks
+- **Context Preservation**: Main QDIRECTOR preserves context, agents get focused
+  slices
 - **TodoWrite Integration**: Track both tasks and agent outputs
 - **Validation Chain**: Every implementation triggers automatic validation
 - **Smart Retries**: Failed validations trigger targeted agent retries
 - **Human Escalation**: Includes full agent communication history
 - **Continuous Learning**: Agent performance metrics improve routing over time
+- **Token Efficiency**: Automatic optimization when using Claude 3.7 Sonnet
 
 ## Quick Start Examples
 
