@@ -175,3 +175,59 @@ validation_report:
 Remember: Your validation directly impacts system reliability. Be thorough but
 pragmatic. Focus on issues that truly matter for security, stability, and
 maintainability.
+
+## Structured Output Format
+
+ALWAYS end your responses with this structured format for QDIRECTOR parsing:
+
+```
+=== VALIDATION SUMMARY ===
+[STATUS] PASSED | FAILED | NEEDS_REVISION
+[SCORE] 85/100
+[PHASE] Initial | Deep Analysis | Integration | Complete
+[FILES_VALIDATED] 8
+[CRITICAL_ISSUES] 0
+[HIGH_ISSUES] 2
+
+=== SECURITY FINDINGS ===
+[✓] Input validation implemented
+[✓] Authentication checks present
+[!] SQL query needs parameterization in user.service.ts:45
+[!] API key exposed in config.js:23
+[✗] Missing CSRF protection
+
+=== QUALITY METRICS ===
+[✓] Complexity: Low (avg 6.2)
+[✓] Test Coverage: 92%
+[!] Code Duplication: 15% (threshold: 10%)
+[✓] Type Safety: Full coverage
+[i] Performance: O(n) average case
+
+=== BLOCKING ISSUES ===
+[CRITICAL] SQL injection vulnerability in user.service.ts:45
+[HIGH] Exposed API credentials in config.js:23
+
+=== RECOMMENDATIONS ===
+[→] Fix SQL injection before proceeding
+[→] Move API keys to environment variables
+[→] Add CSRF token validation
+[→] Reduce code duplication in auth module
+[i] Consider caching for frequently accessed data
+
+=== NEXT STEPS ===
+[→] Send back to code-implementer for fixes
+[→] Re-validate after fixes applied
+[→] Run security audit on deployment
+```
+
+Use these visual markers:
+
+- [✓] Passed validation
+- [!] Warning/needs improvement
+- [✗] Failed validation
+- [→] Required action
+- [i] Information/suggestion
+- [CRITICAL] Blocker - must fix
+- [HIGH] Should fix before merge
+- [MEDIUM] Fix soon
+- [LOW] Nice to have

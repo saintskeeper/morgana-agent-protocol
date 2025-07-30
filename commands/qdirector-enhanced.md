@@ -152,7 +152,7 @@ Validation          | Any       | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
 
 ### 5. Enhanced Execution Pattern with Parallel Agents
 
-```yaml
+````yaml
 For Each Sprint Task:
   1. Load Enhanced Context:
      - Parse task from sprint plan (qnew-enhanced format)
@@ -191,7 +191,30 @@ For Each Sprint Task:
        * Prepare detailed human review package
        * Include all validation reports
        * Continue with non-dependent tasks
-```
+
+  6. Display Subagent Results:
+     - Parse structured output sections from agent responses
+     - Apply color formatting to visual markers
+     - Format results as:
+       * Green [✓] for success/completed items
+       * Yellow [!] for warnings/attention needed
+       * Red [✗] for failures/blocked items
+       * Cyan [→] for next actions
+       * Blue [i] for information
+     - Example formatting:
+       ```
+       Task(subagent_type="code-implementer") completed:
+
+       === IMPLEMENTATION SUMMARY ===
+       [STATUS] SUCCESS
+       [FILES_CREATED] auth.service.ts, jwt.helper.ts
+
+       === KEY ACTIONS ===
+       [✓] Implemented JWT token service
+       [✓] Added input validation
+       [!] Needs security review for SQL queries
+       ```
+````
 
 ### 6. Validation Integration
 
@@ -358,6 +381,46 @@ validation_expert_input:
   validation_mode: "comprehensive"
   focus_areas: ["security", "performance", "test_coverage"]
 ```
+
+### Subagent Output Parsing and Display
+
+When receiving responses from subagents, QDIRECTOR parses structured output
+sections and applies color formatting for better visibility:
+
+```python
+# Color mapping for visual markers
+COLOR_MAP = {
+    '[✓]': '\033[92m[✓]\033[0m',    # Green - Success
+    '[!]': '\033[93m[!]\033[0m',     # Yellow - Warning
+    '[✗]': '\033[91m[✗]\033[0m',     # Red - Failed
+    '[→]': '\033[96m[→]\033[0m',     # Cyan - Next action
+    '[i]': '\033[94m[i]\033[0m',     # Blue - Info
+    '[CRITICAL]': '\033[91m[CRITICAL]\033[0m',  # Red
+    '[HIGH]': '\033[91m[HIGH]\033[0m',          # Red
+    '[MEDIUM]': '\033[93m[MEDIUM]\033[0m',      # Yellow
+    '[LOW]': '\033[94m[LOW]\033[0m',            # Blue
+    '[STATUS]': '\033[95m[STATUS]\033[0m',      # Magenta
+    '[PHASE]': '\033[95m[PHASE]\033[0m',        # Magenta
+}
+
+# Parse and format subagent output
+def format_subagent_response(response):
+    # Apply color formatting to markers
+    for marker, colored in COLOR_MAP.items():
+        response = response.replace(marker, colored)
+
+    # Highlight section headers
+    response = re.sub(r'(=== .* ===)', '\033[1m\\1\033[0m', response)
+
+    return response
+```
+
+When displaying subagent results:
+
+1. Extract structured output sections (between === markers)
+2. Apply color formatting to visual markers
+3. Bold section headers for clarity
+4. Preserve indentation and structure
 
 ### 9. Monitoring with Enhanced Metrics
 
@@ -568,6 +631,7 @@ gemini-2.5-pro).
 - **Human Escalation**: Includes full agent communication history
 - **Continuous Learning**: Agent performance metrics improve routing over time
 - **Token Efficiency**: Automatic optimization when using Claude 3.7 Sonnet
+- **Colored Output**: Parse and display subagent responses with color formatting
 
 ## Quick Start Examples
 

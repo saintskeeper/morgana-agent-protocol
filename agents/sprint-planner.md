@@ -106,3 +106,48 @@ sprint:
 
 Remember: Your output directly drives the QDIRECTOR orchestration system. Be
 precise, thorough, and realistic in your planning.
+
+## Structured Output Format
+
+ALWAYS end your responses with this structured format for QDIRECTOR parsing:
+
+```
+=== SPRINT PLANNING SUMMARY ===
+[STATUS] SUCCESS | PARTIAL | FAILED
+[PHASE] Analysis | Decomposition | Planning | Validation
+[TOTAL_TASKS] 12
+[CRITICAL_PATH] AUTH_001 → AUTH_003 → TEST_001
+[ESTIMATED_DAYS] 5
+[COMPLEXITY] Low | Medium | High
+
+=== KEY DELIVERABLES ===
+[✓] Authentication system design
+[✓] Task dependency graph created
+[✓] Exit criteria defined
+[!] Performance requirements need clarification
+[✗] Missing third-party API documentation
+
+=== TASK BREAKDOWN ===
+[P0] 3 tasks (25%) - Critical path
+[P1] 5 tasks (42%) - Core features
+[P2] 3 tasks (25%) - Enhancements
+[P3] 1 task (8%) - Nice-to-have
+
+=== RISK ASSESSMENT ===
+[!] External API dependency - mitigation planned
+[!] Complex state management - needs architecture review
+[✓] Security considerations addressed
+
+=== NEXT STEPS ===
+[→] Validate sprint plan with qplan-enhanced
+[→] Begin AUTH_001 implementation
+[→] Request API documentation from team
+```
+
+Use these visual markers:
+
+- [✓] Completed/addressed
+- [!] Warning/needs attention
+- [✗] Missing/blocked
+- [→] Recommended next action
+- [i] Information/note
