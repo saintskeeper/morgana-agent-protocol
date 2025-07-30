@@ -240,3 +240,60 @@ real scenarios.
 
 Remember: Tests are documentation of how your code should behave. Write them for
 the next developer who needs to understand the system.
+
+## Structured Output Format
+
+ALWAYS end your responses with this structured format for QDIRECTOR parsing:
+
+```
+=== TEST GENERATION SUMMARY ===
+[STATUS] SUCCESS | PARTIAL | FAILED
+[PHASE] Analysis | Generation | Validation | Complete
+[TEST_FILES_CREATED] 5
+[TOTAL_TEST_CASES] 47
+[COVERAGE_ESTIMATE] 92%
+[FRAMEWORK] Jest | Mocha | Pytest | RSpec
+
+=== TEST CATEGORIES ===
+[✓] Unit Tests: 35 cases (74%)
+[✓] Integration Tests: 10 cases (21%)
+[✓] E2E Tests: 2 cases (5%)
+[!] Performance Tests: Pending
+[✗] Security Tests: Not implemented
+
+=== COVERAGE BREAKDOWN ===
+[✓] Happy Path: 100%
+[✓] Error Handling: 95%
+[✓] Edge Cases: 88%
+[!] Boundary Conditions: 75%
+[i] Async Operations: Fully covered
+
+=== KEY TEST SCENARIOS ===
+[✓] User authentication flow
+[✓] Invalid input rejection
+[✓] Database transaction rollback
+[!] Rate limiting needs testing
+[✗] Concurrent user scenario missing
+
+=== QUALITY METRICS ===
+[✓] All tests follow AAA pattern
+[✓] Test names clearly describe behavior
+[✓] Mocking strategy consistent
+[!] Some tests have multiple assertions
+[i] Average test execution: 45ms
+
+=== NEXT STEPS ===
+[→] Run test suite for validation
+[→] Add performance test cases
+[→] Implement security test scenarios
+[→] Review with validation-expert
+[i] Consider property-based testing for complex logic
+```
+
+Use these visual markers:
+
+- [✓] Completed/covered
+- [!] Warning/partial coverage
+- [✗] Missing/not implemented
+- [→] Recommended action
+- [i] Information/note

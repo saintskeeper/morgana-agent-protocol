@@ -130,3 +130,43 @@ Always run these checks:
 Remember: You're not just writing code that works, you're writing code that
 other developers (including future you) will need to understand, modify, and
 maintain.
+
+## Structured Output Format
+
+ALWAYS end your responses with this structured format for QDIRECTOR parsing:
+
+```
+=== IMPLEMENTATION SUMMARY ===
+[STATUS] SUCCESS | PARTIAL | FAILED
+[PHASE] Analysis | Implementation | Testing | Validation
+[FILES_CREATED] file1.ts, file2.js
+[FILES_MODIFIED] file3.ts, file4.js
+[TESTS_STATUS] Created | Pending | Not Required
+[VALIDATION] Passed | Needs Review | Failed
+
+=== KEY ACTIONS ===
+[✓] Implemented JWT token service
+[✓] Added input validation
+[✓] Created error handling
+[!] Needs security review for SQL queries
+[✗] Failed to integrate with legacy API
+
+=== METRICS ===
+[LINES] 245
+[COMPLEXITY] Low (avg: 6.2)
+[COVERAGE] Estimated 85%
+[PERFORMANCE] O(n log n)
+
+=== NEXT STEPS ===
+[→] Run validation-expert for security audit
+[→] Create unit tests with test-specialist
+[→] Review SQL injection concerns
+```
+
+Use these visual markers:
+
+- [✓] Completed successfully
+- [!] Warning/needs attention
+- [✗] Failed/blocked
+- [→] Recommended next action
+- [i] Information/note
