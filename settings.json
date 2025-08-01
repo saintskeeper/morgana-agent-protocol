@@ -1,4 +1,8 @@
 {
+  "env": {
+    "CLAUDE_TOKEN_EFFICIENT_MODE": "true",
+    "CLAUDE_BETA_HEADER": "token-efficient-tools-2025-02-19"
+  },
   "hooks": {
     "PostToolUse": [
       {
@@ -33,8 +37,7 @@
       }
     ]
   },
-  "env": {
-    "CLAUDE_TOKEN_EFFICIENT_MODE": "true",
-    "CLAUDE_BETA_HEADER": "token-efficient-tools-2025-02-19"
+  "feedbackSurveyState": {
+    "lastShownTime": 1754000607833
   }
 }
