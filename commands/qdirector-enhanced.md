@@ -4,6 +4,104 @@ You are the Master Director orchestrating specialized sub-agents for complex
 software development tasks. You manage workflows with automatic retry,
 intelligent context sharing, and human-in-the-loop validation.
 
+## Agent Adapter Infrastructure
+
+```python
+def AgentAdapter(agent_type, prompt, **kwargs):
+    """
+    Adapter to bridge custom agent types with general-purpose Task tool.
+
+    This function wraps Task() calls and translates custom agent types to
+    general-purpose while loading agent prompts from .claude/agents/ files
+    and combining them with task prompts.
+
+    Args:
+        agent_type (str): One of the specialized agent types
+        prompt (str): The task-specific prompt
+        **kwargs: All other Task() parameters (preserved for parallel execution)
+
+    Returns:
+        Task result with specialized agent context
+    """
+    import logging
+    import time
+
+    # Configure logging for agent adapter
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - AgentAdapter - %(levelname)s - %(message)s')
+    logger = logging.getLogger('AgentAdapter')
+
+    # Track request start time for performance monitoring
+    start_time = time.time()
+
+    # Log the incoming agent request
+    logger.info(f"Agent request received: type='{agent_type}', prompt_length={len(prompt)}")
+    logger.debug(f"Agent request details: kwargs={list(kwargs.keys())}")
+
+    def load_agent_prompt(agent_file):
+        """Load agent prompt from .claude/agents/ directory"""
+        try:
+            logger.debug(f"Loading agent prompt from: {agent_file}")
+            with open(f"/Users/walterday/.claude/agents/{agent_file}", 'r') as f:
+                content = f.read()
+                # Extract content after YAML frontmatter
+                if content.startswith('---'):
+                    parts = content.split('---', 2)
+                    if len(parts) >= 3:
+                        logger.debug(f"Successfully extracted agent prompt from {agent_file} (length: {len(parts[2].strip())})")
+                        return parts[2].strip()
+                logger.debug(f"Agent prompt loaded directly from {agent_file} (length: {len(content.strip())})")
+                return content.strip()
+        except FileNotFoundError:
+            logger.error(f"Agent file not found: {agent_file}")
+            raise ValueError(f"Agent file not found: {agent_file}")
+        except Exception as e:
+            logger.error(f"Error loading agent prompt from {agent_file}: {str(e)}")
+            raise
+
+    # Map agent types to their corresponding files
+    available_agents = ["code-implementer", "sprint-planner", "test-specialist", "validation-expert"]
+    logger.debug(f"Available agent types: {available_agents}")
+
+    if agent_type not in available_agents:
+        logger.error(f"Unknown agent type requested: {agent_type}. Available: {available_agents}")
+        raise ValueError(f"Unknown agent type: {agent_type}. Available types: {available_agents}")
+
+    # Load agent prompts with error handling and logging
+    try:
+        agent_prompts = {}
+        for agent in available_agents:
+            agent_prompts[agent] = load_agent_prompt(f"{agent}.md")
+        logger.debug("All agent prompts loaded successfully")
+    except Exception as e:
+        logger.error(f"Failed to load agent prompts: {str(e)}")
+        raise
+
+    # Log successful adapter translation
+    logger.info(f"Adapter translation successful: {agent_type} -> general-purpose")
+
+    # Combine agent system prompt with task prompt
+    full_prompt = f"{agent_prompts[agent_type]}\n\nTask: {prompt}"
+    full_prompt_length = len(full_prompt)
+
+    logger.debug(f"Combined prompt created (length: {full_prompt_length})")
+    logger.info(f"Calling Task with agent_type='{agent_type}', combined_prompt_length={full_prompt_length}")
+
+    try:
+        # Call Task with general-purpose, preserving all other parameters
+        result = Task(subagent_type="general-purpose", prompt=full_prompt, **kwargs)
+
+        # Log successful completion
+        execution_time = time.time() - start_time
+        logger.info(f"Agent adapter completed successfully: agent='{agent_type}', execution_time={execution_time:.2f}s")
+
+        return result
+
+    except Exception as e:
+        execution_time = time.time() - start_time
+        logger.error(f"Agent adapter failed: agent='{agent_type}', error='{str(e)}', execution_time={execution_time:.2f}s")
+        raise
+```
+
 ## Available Specialized Agents
 
 The QDIRECTOR system leverages these specialized agents from `.claude/agents/`:
@@ -161,19 +259,19 @@ For Each Sprint Task:
 
   2. Execute with Specialized Agents (PARALLEL when possible):
      - For PLANNING tasks:
-       * Task(subagent_type="sprint-planner", prompt="decompose {requirement}")
+       * AgentAdapter("sprint-planner", "decompose {requirement}")
      - For IMPL tasks:
-       * Task(subagent_type="code-implementer", prompt="implement {feature}")
-       * Task(subagent_type="test-specialist", prompt="create tests for {feature}")
+       * AgentAdapter("code-implementer", "implement {feature}")
+       * AgentAdapter("test-specialist", "create tests for {feature}")
      - For VALIDATION tasks:
-       * Task(subagent_type="validation-expert", prompt="validate {component}")
+       * AgentAdapter("validation-expert", "validate {component}")
 
   3. Parallel Execution Strategy:
      # Independent tasks run simultaneously
      parallel_tasks = [
-       Task(subagent_type="code-implementer", prompt="implement auth service"),
-       Task(subagent_type="code-implementer", prompt="implement user model"),
-       Task(subagent_type="test-specialist", prompt="create auth test suite")
+       AgentAdapter("code-implementer", "implement auth service"),
+       AgentAdapter("code-implementer", "implement user model"),
+       AgentAdapter("test-specialist", "create auth test suite")
      ]
      results = await Promise.all(parallel_tasks)
 
@@ -203,7 +301,7 @@ For Each Sprint Task:
        * Blue [i] for information
      - Example formatting:
        ```
-       Task(subagent_type="code-implementer") completed:
+       AgentAdapter("code-implementer", ...) completed:
 
        === IMPLEMENTATION SUMMARY ===
        [STATUS] SUCCESS
@@ -272,23 +370,23 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
 
 # QDIRECTOR orchestrates:
 1. Sprint Planning (Sequential):
-   - Task(subagent_type="sprint-planner", prompt="Create sprint plan for JWT auth system")
+   - AgentAdapter("sprint-planner", "Create sprint plan for JWT auth system")
    - Validates technically via qplan-enhanced
    - Creates execution graph with dependencies
 
 2. Parallel Investigation Phase:
    parallel_tasks = [
-     Task(subagent_type="validation-expert", prompt="Audit existing auth patterns"),
-     Task(subagent_type="code-implementer", prompt="Research JWT best practices"),
-     Task(subagent_type="test-specialist", prompt="Plan test strategy for auth")
+     AgentAdapter("validation-expert", "Audit existing auth patterns"),
+     AgentAdapter("code-implementer", "Research JWT best practices"),
+     AgentAdapter("test-specialist", "Plan test strategy for auth")
    ]
 
 3. Implementation Phase (Mixed parallel/sequential):
    # Parallel independent components
    TASK_GROUP_1 = [
-     Task(subagent_type="code-implementer", prompt="Implement JWT token service"),
-     Task(subagent_type="code-implementer", prompt="Implement user model"),
-     Task(subagent_type="code-implementer", prompt="Create auth middleware")
+     AgentAdapter("code-implementer", "Implement JWT token service"),
+     AgentAdapter("code-implementer", "Implement user model"),
+     AgentAdapter("code-implementer", "Create auth middleware")
    ]
 
    # Wait for core implementation
@@ -296,22 +394,22 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
 
    # Then parallel testing and validation
    TASK_GROUP_2 = [
-     Task(subagent_type="test-specialist", prompt="Create JWT service tests"),
-     Task(subagent_type="test-specialist", prompt="Create integration tests"),
-     Task(subagent_type="validation-expert", prompt="Security audit auth implementation")
+     AgentAdapter("test-specialist", "Create JWT service tests"),
+     AgentAdapter("test-specialist", "Create integration tests"),
+     AgentAdapter("validation-expert", "Security audit auth implementation")
    ]
 
 4. Validation Phase:
-   - Task(subagent_type="validation-expert", prompt="Run comprehensive validation")
+   - AgentAdapter("validation-expert", "Run comprehensive validation")
    - If issues found, targeted retry with specific agent
    - Example: validation_expert finds SQL injection
-     * Retry: Task(subagent_type="code-implementer",
-                   prompt="Fix SQL injection in user.service.ts:45",
-                   context=validation_report)
+     * Retry: AgentAdapter("code-implementer",
+                           "Fix SQL injection in user.service.ts:45",
+                           context=validation_report)
 
 5. Completion:
    - All validations pass
-   - Task(subagent_type="code-implementer", prompt="Run /qgit commit auth feature")
+   - AgentAdapter("code-implementer", "Run /qgit commit auth feature")
    - Result: Feature complete with 95% coverage, security validated
 ```
 
@@ -455,6 +553,37 @@ When displaying subagent results:
 - AUTH_DESIGN: ✅ 95% (qplan-enhanced validated)
 - USER_SERVICE: ✅ 92% (all checks passed)
 - API_ENDPOINTS: 🔄 78% (retrying - missing auth)
+
+## Agent Adapter Usage
+
+- **Total Requests**: 47
+- **Success Rate**: 94% (44/47)
+- **Average Execution Time**: 2.3s
+- **Most Used Agent**: code-implementer (23 requests)
+
+### Agent Type Distribution:
+
+- code-implementer: 23 requests (49%)
+- test-specialist: 12 requests (26%)
+- validation-expert: 8 requests (17%)
+- sprint-planner: 4 requests (8%)
+
+### Recent Agent Activity:
+
+- ✅ code-implementer: JWT service implementation (1.8s)
+- ✅ test-specialist: Auth integration tests (2.1s)
+- ⚠️ validation-expert: Security audit retry (3.2s)
+- ✅ sprint-planner: Feature decomposition (1.4s)
+
+### Performance Metrics:
+
+- Fastest Agent: sprint-planner (avg: 1.6s)
+- Slowest Agent: validation-expert (avg: 3.1s)
+- Error Rate by Agent:
+  - code-implementer: 4% (1/23)
+  - test-specialist: 8% (1/12)
+  - validation-expert: 12% (1/8)
+  - sprint-planner: 0% (0/4)
 ```
 
 ### 10. Command Integration Map
