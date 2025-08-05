@@ -21,6 +21,7 @@
 - [🛠️ Configuration](#️-configuration)
 - [🔧 Troubleshooting](#-troubleshooting)
 - [📖 Additional Resources](#-additional-resources)
+
 ## 🚀 Quickstart
 
 Get up and running with Claude Code Configuration in under 5 minutes.
@@ -86,6 +87,7 @@ claude /rules-of-theroad
 💡 **Tip**: The system automatically routes tasks to the optimal AI model based
 on complexity. Simple tasks use efficient models, while complex architecture
 work uses more powerful ones.
+
 ## 📚 Commands Reference
 
 Claude Code commands are organized by workflow to help you accomplish your
@@ -250,6 +252,66 @@ assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
 # Runs: syntax → functions → tests → integration → security
 ```
 
+### 🚀 Agent Orchestration with Morgana Protocol
+
+#### Morgana Protocol - Parallel Agent Execution
+
+**Purpose**: Execute multiple specialized agents in parallel with true Go
+concurrency **Features**:
+
+- 🚀 Goroutine-based parallel execution
+- 🔍 OpenTelemetry tracing for observability
+- ⏱️ Per-agent timeout configuration
+- 🧪 Comprehensive integration testing
+- 🐍 Python bridge for Claude Code integration
+
+**Usage**:
+
+```bash
+# Single agent execution
+morgana -- --agent code-implementer --prompt "implement auth service"
+
+# Parallel execution with JSON
+echo '[
+  {"agent_type":"code-implementer","prompt":"implement feature"},
+  {"agent_type":"test-specialist","prompt":"write tests"}
+]' | morgana --parallel
+
+# With configuration file
+morgana --config morgana.yaml -- --agent sprint-planner --prompt "plan sprint"
+```
+
+**Testing the Framework**:
+
+```bash
+# Run all tests including integration tests
+cd morgana-protocol
+make test-all
+
+# Run only integration tests
+make test-integration
+
+# Test specific components
+go test -v -tags=integration ./pkg/task/...
+go test -v -tags=integration ./internal/adapter/...
+
+# Test the Python bridge manually
+python3 scripts/task_bridge.py
+```
+
+**Example Integration Test**:
+
+```bash
+# Set up test environment
+export TEST_MODE=success
+
+# Run integration test suite
+make test-integration
+
+# Check test coverage
+go test -v -tags=integration -cover ./...
+```
+
 ### 🔧 Utilities
 
 #### `/qgit` - Git Operations
@@ -363,6 +425,18 @@ Commands automatically select optimal models based on task complexity:
 Each command is designed to work standalone or as part of the orchestrated
 QDIRECTOR workflow, providing flexibility for both automated and manual
 development processes.
+
+### 🧪 Integration Testing
+
+The Morgana Protocol includes comprehensive integration tests:
+
+| Test Type   | Coverage | Description                                             |
+| ----------- | -------- | ------------------------------------------------------- |
+| Task Client | ✅       | Tests Python bridge execution, timeouts, error handling |
+| Adapter     | ✅       | Tests agent orchestration, concurrent execution         |
+| Bridge      | ✅       | Tests multi-language communication (Go ↔ Python)       |
+| E2E         | ✅       | Tests complete agent workflow with real Task tool       |
+
 ## 🔄 Common Workflows
 
 ### Complete Feature Development Flow
@@ -432,6 +506,7 @@ parallel_tasks:
   - Task(subagent_type="code-implementer", prompt="Research best practices")
   - Task(subagent_type="test-specialist", prompt="Plan test strategy")
 ```
+
 ## 🎯 Best Practices
 
 ### 1. Safe File Editing
@@ -471,6 +546,7 @@ parallel_tasks:
 - **Clear dependencies** - make task relationships explicit
 - **Exit criteria** - define measurable success conditions
 - **Priority tagging** - use P0-P3 levels consistently
+
 ## 💡 Tips & Tricks
 
 ### Performance Optimization
@@ -539,6 +615,7 @@ alias qfull='/qvalidate-framework --comprehensive'
 - **CI/CD**: Use validation commands in pre-commit hooks
 - **IDE Integration**: Map commands to keyboard shortcuts
 - **Team Workflows**: Share sprint plans via version control
+
 ## 🛠️ Configuration
 
 ### Essential Settings
@@ -592,6 +669,7 @@ For detailed configuration options:
 - **Hooks Documentation**: See `hooks/README.md`
 - **Script Options**: See `scripts/README.md`
 - **Template Customization**: See `templates/README.md`
+
 ## 🔧 Troubleshooting Guide
 
 ### CLAUDE.md Gets Truncated
@@ -663,6 +741,7 @@ For detailed configuration options:
 2. Integrate Claude hooks with existing ones
 3. Use hook chaining in .git/hooks scripts
 4. Test combined functionality thoroughly
+
 ## 📖 Additional Resources
 
 ### 📚 Detailed Documentation
@@ -745,6 +824,6 @@ _Built with ❤️ for the Claude Code community_
 ## 📘 Real-World Examples
 
 For comprehensive examples demonstrating the power of QDIRECTOR orchestration:
+
 - **[View All Examples](examples/README.md)** - 10 detailed scenarios
 - **[Migration Guide](MIGRATION-GUIDE.md)** - For existing users
-

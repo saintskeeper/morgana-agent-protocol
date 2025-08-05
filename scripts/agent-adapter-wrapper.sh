@@ -1,29 +1,36 @@
 #!/bin/bash
-# Direct wrapper for Morgana Protocol - no Python needed!
+# Agent Adapter Wrapper - Sources Morgana Protocol adapter functions
 
-MORGANA_BIN="/Users/walterday/.claude/morgana-protocol/dist/morgana"
+# Source the Morgana adapter functions
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$SCRIPT_DIR/morgana-adapter.sh"
 
-# Function that mimics AgentAdapter for qdirector-enhanced.md
-AgentAdapter() {
-    local agent_type="$1"
-    local prompt="$2"
-    
-    # Create JSON task
-    local task_json="[{\"agent_type\":\"$agent_type\",\"prompt\":\"$prompt\"}]"
-    
-    # Call Morgana and extract output
-    echo "$task_json" | "$MORGANA_BIN" | jq -r '.results[0].output'
-}
+# The morgana-adapter.sh provides:
+# - AgentAdapter() function for single agent execution
+# - AgentAdapterParallel() function for parallel execution
+# - morgana_parallel() helper function
 
-# Export the function so it can be used by other scripts
-export -f AgentAdapter
-
-# If called directly, execute the agent
+# If called directly, show usage or execute
 if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ $# -lt 2 ]; then
-        echo "Usage: $0 <agent-type> <prompt>"
+        echo "Agent Adapter Wrapper - Morgana Protocol Integration"
+        echo ""
+        echo "Usage:"
+        echo "  Single agent:    $0 <agent-type> <prompt>"
+        echo "  Source mode:     source $0  # To use AgentAdapter functions"
+        echo ""
+        echo "Available agents:"
+        echo "  - code-implementer"
+        echo "  - sprint-planner"
+        echo "  - test-specialist"
+        echo "  - validation-expert"
+        echo ""
+        echo "Examples:"
+        echo "  $0 code-implementer \"implement user service\""
+        echo "  source $0  # Then use: AgentAdapter \"test-specialist\" \"create tests\""
         exit 1
     fi
     
+    # Execute single agent
     AgentAdapter "$1" "$2"
 fi
