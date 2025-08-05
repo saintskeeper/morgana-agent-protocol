@@ -6,95 +6,118 @@ intelligent context sharing, and human-in-the-loop validation.
 
 ## Agent Adapter Infrastructure
 
+### Morgana Protocol Integration
+
+The QDIRECTOR system now leverages the **Morgana Protocol** for true parallel
+agent execution with Go-based concurrency, OpenTelemetry tracing, and
+comprehensive integration testing.
+
+```bash
+# AgentAdapter function for shell/markdown use
+function AgentAdapter() {
+    local agent_type="$1"
+    local prompt="$2"
+    shift 2
+    local additional_args="$@"
+
+    # Use Morgana Protocol for agent execution
+    morgana -- --agent "$agent_type" --prompt "$prompt" $additional_args
+}
+
+# For parallel execution of multiple agents
+function AgentAdapterParallel() {
+    # Accepts JSON array of tasks via stdin
+    morgana --parallel
+}
+```
+
+### Python Adapter (for backward compatibility)
+
 ```python
 def AgentAdapter(agent_type, prompt, **kwargs):
     """
-    Adapter to bridge custom agent types with general-purpose Task tool.
+    Adapter to execute specialized agents via Morgana Protocol.
 
-    This function wraps Task() calls and translates custom agent types to
-    general-purpose while loading agent prompts from .claude/agents/ files
-    and combining them with task prompts.
+    This function now uses the Morgana binary for agent execution,
+    providing true parallel execution, timeout handling, and telemetry.
 
     Args:
         agent_type (str): One of the specialized agent types
         prompt (str): The task-specific prompt
-        **kwargs: All other Task() parameters (preserved for parallel execution)
+        **kwargs: Additional parameters (timeout, options, etc.)
 
     Returns:
         Task result with specialized agent context
     """
+    import subprocess
+    import json
     import logging
     import time
+    import os
 
-    # Configure logging for agent adapter
+    # Configure logging
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - AgentAdapter - %(levelname)s - %(message)s')
     logger = logging.getLogger('AgentAdapter')
 
-    # Track request start time for performance monitoring
     start_time = time.time()
 
-    # Log the incoming agent request
+    # Log the incoming request
     logger.info(f"Agent request received: type='{agent_type}', prompt_length={len(prompt)}")
-    logger.debug(f"Agent request details: kwargs={list(kwargs.keys())}")
 
-    def load_agent_prompt(agent_file):
-        """Load agent prompt from .claude/agents/ directory"""
-        try:
-            logger.debug(f"Loading agent prompt from: {agent_file}")
-            with open(f"/Users/walterday/.claude/agents/{agent_file}", 'r') as f:
-                content = f.read()
-                # Extract content after YAML frontmatter
-                if content.startswith('---'):
-                    parts = content.split('---', 2)
-                    if len(parts) >= 3:
-                        logger.debug(f"Successfully extracted agent prompt from {agent_file} (length: {len(parts[2].strip())})")
-                        return parts[2].strip()
-                logger.debug(f"Agent prompt loaded directly from {agent_file} (length: {len(content.strip())})")
-                return content.strip()
-        except FileNotFoundError:
-            logger.error(f"Agent file not found: {agent_file}")
-            raise ValueError(f"Agent file not found: {agent_file}")
-        except Exception as e:
-            logger.error(f"Error loading agent prompt from {agent_file}: {str(e)}")
-            raise
-
-    # Map agent types to their corresponding files
+    # Validate agent type
     available_agents = ["code-implementer", "sprint-planner", "test-specialist", "validation-expert"]
-    logger.debug(f"Available agent types: {available_agents}")
-
     if agent_type not in available_agents:
-        logger.error(f"Unknown agent type requested: {agent_type}. Available: {available_agents}")
-        raise ValueError(f"Unknown agent type: {agent_type}. Available types: {available_agents}")
-
-    # Load agent prompts with error handling and logging
-    try:
-        agent_prompts = {}
-        for agent in available_agents:
-            agent_prompts[agent] = load_agent_prompt(f"{agent}.md")
-        logger.debug("All agent prompts loaded successfully")
-    except Exception as e:
-        logger.error(f"Failed to load agent prompts: {str(e)}")
-        raise
-
-    # Log successful adapter translation
-    logger.info(f"Adapter translation successful: {agent_type} -> general-purpose")
-
-    # Combine agent system prompt with task prompt
-    full_prompt = f"{agent_prompts[agent_type]}\n\nTask: {prompt}"
-    full_prompt_length = len(full_prompt)
-
-    logger.debug(f"Combined prompt created (length: {full_prompt_length})")
-    logger.info(f"Calling Task with agent_type='{agent_type}', combined_prompt_length={full_prompt_length}")
+        logger.error(f"Unknown agent type: {agent_type}. Available: {available_agents}")
+        raise ValueError(f"Unknown agent type: {agent_type}")
 
     try:
-        # Call Task with general-purpose, preserving all other parameters
-        result = Task(subagent_type="general-purpose", prompt=full_prompt, **kwargs)
+        # Prepare Morgana command
+        morgana_path = os.path.expanduser("~/.claude/bin/morgana")
+        if not os.path.exists(morgana_path):
+            morgana_path = "morgana"  # Fallback to PATH
 
-        # Log successful completion
+        # Build command arguments
+        cmd = [
+            morgana_path,
+            "--",
+            "--agent", agent_type,
+            "--prompt", prompt
+        ]
+
+        # Add optional parameters
+        if "timeout" in kwargs:
+            cmd.extend(["--timeout", str(kwargs["timeout"])])
+
+        if "options" in kwargs:
+            cmd.extend(["--options", json.dumps(kwargs["options"])])
+
+        logger.debug(f"Executing Morgana command: {' '.join(cmd)}")
+
+        # Execute Morgana
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            check=True
+        )
+
+        # Parse JSON output
+        output = json.loads(result.stdout)
+
         execution_time = time.time() - start_time
-        logger.info(f"Agent adapter completed successfully: agent='{agent_type}', execution_time={execution_time:.2f}s")
+        logger.info(f"Agent completed successfully: agent='{agent_type}', execution_time={execution_time:.2f}s")
 
-        return result
+        return output
+
+    except subprocess.CalledProcessError as e:
+        execution_time = time.time() - start_time
+        logger.error(f"Morgana execution failed: {e.stderr}")
+        logger.error(f"Agent failed: agent='{agent_type}', execution_time={execution_time:.2f}s")
+        raise RuntimeError(f"Agent execution failed: {e.stderr}")
+
+    except json.JSONDecodeError as e:
+        logger.error(f"Failed to parse Morgana output: {e}")
+        raise RuntimeError(f"Invalid agent output format")
 
     except Exception as e:
         execution_time = time.time() - start_time
@@ -102,14 +125,61 @@ def AgentAdapter(agent_type, prompt, **kwargs):
         raise
 ```
 
+### Parallel Execution with Morgana
+
+For parallel agent execution, use the Morgana Protocol's native parallel
+support:
+
+```python
+def AgentAdapterParallel(tasks):
+    """
+    Execute multiple agents in parallel using Morgana Protocol.
+
+    Args:
+        tasks (list): List of task dictionaries with agent_type and prompt
+
+    Returns:
+        List of results from all agents
+    """
+    import subprocess
+    import json
+    import os
+
+    morgana_path = os.path.expanduser("~/.claude/bin/morgana")
+    if not os.path.exists(morgana_path):
+        morgana_path = "morgana"
+
+    # Convert tasks to Morgana format
+    morgana_tasks = json.dumps(tasks)
+
+    # Execute with parallel flag
+    result = subprocess.run(
+        [morgana_path, "--parallel"],
+        input=morgana_tasks,
+        capture_output=True,
+        text=True,
+        check=True
+    )
+
+    return json.loads(result.stdout)
+```
+
 ## Available Specialized Agents
 
-The QDIRECTOR system leverages these specialized agents from `.claude/agents/`:
+The QDIRECTOR system leverages these specialized agents via Morgana Protocol:
 
 - **sprint-planner**: Requirements decomposition and sprint planning
 - **code-implementer**: Clean, secure code implementation
 - **validation-expert**: Comprehensive quality and security validation
 - **test-specialist**: Test suite creation with edge case coverage
+
+### Morgana Protocol Features
+
+- 🚀 **True Parallel Execution**: Go-based concurrency with goroutines
+- 🔍 **OpenTelemetry Tracing**: Full observability of agent execution
+- ⏱️ **Per-Agent Timeouts**: Configurable timeouts for each agent type
+- 🧪 **Integration Testing**: Comprehensive test coverage
+- 🐍 **Python Bridge**: Seamless integration with Claude Code's Task tool
 
 ## Core Workflow Architecture
 
@@ -266,14 +336,19 @@ For Each Sprint Task:
      - For VALIDATION tasks:
        * AgentAdapter("validation-expert", "validate {component}")
 
-  3. Parallel Execution Strategy:
-     # Independent tasks run simultaneously
+  3. Parallel Execution Strategy with Morgana:
+     # Using Morgana Protocol for true Go-based parallelism
      parallel_tasks = [
-       AgentAdapter("code-implementer", "implement auth service"),
-       AgentAdapter("code-implementer", "implement user model"),
-       AgentAdapter("test-specialist", "create auth test suite")
+       {"agent_type": "code-implementer", "prompt": "implement auth service"},
+       {"agent_type": "code-implementer", "prompt": "implement user model"},
+       {"agent_type": "test-specialist", "prompt": "create auth test suite"}
      ]
-     results = await Promise.all(parallel_tasks)
+
+     # Execute in parallel with Morgana
+     results = AgentAdapterParallel(parallel_tasks)
+
+     # Or via command line:
+     echo '[{"agent_type":"code-implementer","prompt":"implement auth service"}]' | morgana --parallel
 
   4. Validate with Framework:
      - Run validation-expert agent on outputs
@@ -375,29 +450,34 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
    - Creates execution graph with dependencies
 
 2. Parallel Investigation Phase:
-   parallel_tasks = [
-     AgentAdapter("validation-expert", "Audit existing auth patterns"),
-     AgentAdapter("code-implementer", "Research JWT best practices"),
-     AgentAdapter("test-specialist", "Plan test strategy for auth")
+   # Using Morgana Protocol for parallel execution
+   tasks = [
+     {"agent_type": "validation-expert", "prompt": "Audit existing auth patterns"},
+     {"agent_type": "code-implementer", "prompt": "Research JWT best practices"},
+     {"agent_type": "test-specialist", "prompt": "Plan test strategy for auth"}
    ]
+   results = AgentAdapterParallel(tasks)
 
 3. Implementation Phase (Mixed parallel/sequential):
-   # Parallel independent components
+   # Parallel independent components with Morgana
    TASK_GROUP_1 = [
-     AgentAdapter("code-implementer", "Implement JWT token service"),
-     AgentAdapter("code-implementer", "Implement user model"),
-     AgentAdapter("code-implementer", "Create auth middleware")
+     {"agent_type": "code-implementer", "prompt": "Implement JWT token service"},
+     {"agent_type": "code-implementer", "prompt": "Implement user model"},
+     {"agent_type": "code-implementer", "prompt": "Create auth middleware"}
    ]
 
-   # Wait for core implementation
-   await TASK_GROUP_1
+   # Execute first group in parallel
+   results_1 = AgentAdapterParallel(TASK_GROUP_1)
 
    # Then parallel testing and validation
    TASK_GROUP_2 = [
-     AgentAdapter("test-specialist", "Create JWT service tests"),
-     AgentAdapter("test-specialist", "Create integration tests"),
-     AgentAdapter("validation-expert", "Security audit auth implementation")
+     {"agent_type": "test-specialist", "prompt": "Create JWT service tests"},
+     {"agent_type": "test-specialist", "prompt": "Create integration tests"},
+     {"agent_type": "validation-expert", "prompt": "Security audit auth implementation"}
    ]
+
+   # Execute second group in parallel
+   results_2 = AgentAdapterParallel(TASK_GROUP_2)
 
 4. Validation Phase:
    - AgentAdapter("validation-expert", "Run comprehensive validation")
@@ -554,12 +634,14 @@ When displaying subagent results:
 - USER_SERVICE: ✅ 92% (all checks passed)
 - API_ENDPOINTS: 🔄 78% (retrying - missing auth)
 
-## Agent Adapter Usage
+## Agent Adapter Usage (Morgana Protocol)
 
 - **Total Requests**: 47
 - **Success Rate**: 94% (44/47)
 - **Average Execution Time**: 2.3s
 - **Most Used Agent**: code-implementer (23 requests)
+- **Parallel Execution**: Enabled via Morgana
+- **Tracing**: OpenTelemetry spans available
 
 ### Agent Type Distribution:
 
@@ -768,9 +850,18 @@ gemini-2.5-pro).
 # Simple feature implementation
 /qdirector-enhanced implement user profile feature
 
-# Complex system with parallel execution
+# Complex system with parallel execution (uses Morgana)
 /qdirector-enhanced build complete authentication system with OAuth, JWT, and 2FA
 
 # Validation-focused workflow
 /qdirector-enhanced audit and secure existing payment system
+
+# Direct Morgana usage for parallel agents
+echo '[
+  {"agent_type": "code-implementer", "prompt": "implement auth service"},
+  {"agent_type": "test-specialist", "prompt": "create auth tests"}
+]' | morgana --parallel
+
+# Single agent with Morgana
+morgana -- --agent code-implementer --prompt "implement user service"
 ```
