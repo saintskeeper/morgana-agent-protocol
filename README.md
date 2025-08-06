@@ -1,7 +1,7 @@
-# Claude Code Configuration 🚀
+# Morgana Agent Protocol 🚀
 
-> A comprehensive enhancement system for Claude Code with automated workflows,
-> intelligent orchestration, and quality assurance.
+> A comprehensive agent orchestration system with parallel execution,
+> intelligent workflows, and quality assurance for modern development teams.
 
 [![Version](https://img.shields.io/badge/version-2.0-blue.svg)]()
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
@@ -21,22 +21,25 @@
 - [🛠️ Configuration](#️-configuration)
 - [🔧 Troubleshooting](#-troubleshooting)
 - [📖 Additional Resources](#-additional-resources)
+
 ## 🚀 Quickstart
 
-Get up and running with Claude Code Configuration in under 5 minutes.
+Get up and running with Morgana Agent Protocol in under 5 minutes.
 
 ### Prerequisites
 
 - **Git** installed on your system
 - **Claude Code** CLI installed and authenticated
+- **Go** 1.21+ for Morgana Protocol binary
+- **Python** 3.8+ for bridge integration
 - **macOS** (current configuration is optimized for macOS)
 - Optional: `gofmt`, `prettier`, and `pre-commit` for formatting features
 
 ### Installation
 
 ```bash
-# 1. Clone the configuration repository to your home directory
-git clone git@github.com:saintskeeper/claude-code-configs.git ~/.claude
+# 1. Clone the Morgana Agent Protocol repository to your home directory
+git clone git@github.com:saintskeeper/morgana-agent-protocol.git ~/.claude
 
 # 2. Make scripts executable
 chmod +x ~/.claude/setup-local.sh ~/.claude/test-hooks.sh
@@ -63,7 +66,7 @@ claude /rules-of-theroad
 
 - "✅ Post-checkout hook installed!" after running setup
 - "✅ Hook test complete!" after running the test script
-- Claude responds to slash commands like `/qcheck-enhanced`
+- Claude responds to slash commands like `/morgana-check`
 
 ### What's Next?
 
@@ -77,7 +80,7 @@ claude /rules-of-theroad
 
   ```bash
   # Create a simple utility function with auto-validation
-  /qcode Create a date formatting utility function
+  /morgana-code Create a date formatting utility function
   ```
 
 - **Explore the command reference**: See all available commands with
@@ -86,30 +89,31 @@ claude /rules-of-theroad
 💡 **Tip**: The system automatically routes tasks to the optimal AI model based
 on complexity. Simple tasks use efficient models, while complex architecture
 work uses more powerful ones.
+
 ## 📚 Commands Reference
 
-Claude Code commands are organized by workflow to help you accomplish your
-development tasks efficiently. Each command is designed for specific stages of
-your development process.
+Morgana Agent Protocol commands are organized by workflow to help you accomplish
+your development tasks efficiently. Each command leverages parallel agent
+execution for maximum efficiency and reliability.
 
 ### 🎯 Planning & Sprint Management
 
-#### `/qnew-enhanced` - Sprint Planning Generator
+#### `/morgana-plan` - Sprint Planning Generator
 
 **Purpose**: Generate structured sprint plans with clear tasks, dependencies,
-and exit criteria **Usage**: `/qnew-enhanced [project requirements]` **Model**:
+and exit criteria **Usage**: `/morgana-plan [project requirements]` **Model**:
 `gemini-2.5-pro` or `o3` for comprehensive planning **Example**:
 
 ```bash
-/qnew-enhanced Create authentication system with OAuth and JWT
+/morgana-plan Create authentication system with OAuth and JWT
 # Generates: sprint-2024-01-15-authentication.md with 8 prioritized tasks
 ```
 
-#### `/qplan-enhanced` - Technical Validation & Refinement
+#### `/morgana-validate` - Technical Validation & Refinement
 
 **Purpose**: Validate sprint plans against codebase patterns and technical
-feasibility **Usage**: `/qplan-enhanced --sprint [sprint-file]` **Model**: `pro`
-or Claude Opus for analysis **Options**:
+feasibility **Usage**: `/morgana-validate --sprint [sprint-file]` **Model**:
+`pro` or Claude Opus for analysis **Options**:
 
 - `--sprint`: Path to sprint plan file
 - Analyzes code patterns, validates dependencies, identifies risks
@@ -117,14 +121,14 @@ or Claude Opus for analysis **Options**:
 **Example**:
 
 ```bash
-/qplan-enhanced --sprint sprint-2024-01-15-authentication.md
+/morgana-validate --sprint sprint-2024-01-15-authentication.md
 # Output: Enhanced task definitions with codebase context and risk mitigation
 ```
 
-#### `/qdirector-enhanced` - Master Orchestration System
+#### `/morgana-director` - Master Orchestration System
 
 **Purpose**: Orchestrate complex multi-task workflows with intelligent retry and
-validation **Usage**: `/qdirector-enhanced [task description]` **Features**:
+validation **Usage**: `/morgana-director [task description]` **Features**:
 
 - Parallel task execution
 - Automatic validation
@@ -134,16 +138,16 @@ validation **Usage**: `/qdirector-enhanced [task description]` **Features**:
 **Example**:
 
 ```bash
-/qdirector-enhanced build complete authentication system with OAuth, JWT, and 2FA
+/morgana-director build complete authentication system with OAuth, JWT, and 2FA
 # Orchestrates: Sprint planning → Implementation → Testing → Validation
 ```
 
 ### 💻 Development
 
-#### `/qcode` - Code Implementation
+#### `/morgana-code` - Code Implementation
 
 **Purpose**: Implement features following project standards and best practices
-**Usage**: Automatically invoked by QDIRECTOR or used directly **Model**:
+**Usage**: Automatically invoked by MORGANA-DIRECTOR or used directly **Model**:
 Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
 
 - Pre-commit hook execution
@@ -154,14 +158,14 @@ Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
 **Example**:
 
 ```bash
-/qcode implement user profile service with avatar upload
+/morgana-code implement user profile service with avatar upload
 # Runs: pre-commit hooks → implementation → testing → formatting
 ```
 
-#### `/qtest` - Comprehensive Test Generation
+#### `/morgana-test` - Comprehensive Test Generation
 
 **Purpose**: Create thorough test suites with edge case coverage **Usage**:
-`/qtest generate [type] --file [path]` **Model**: `o3-mini` or
+`/morgana-test generate [type] --file [path]` **Model**: `o3-mini` or
 `gemini-2.5-flash` **Options**:
 
 - `unit` - Unit tests for functions/methods
@@ -172,13 +176,13 @@ Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
 **Example**:
 
 ```bash
-/qtest generate unit --file src/auth/jwt.service.ts
+/morgana-test generate unit --file src/auth/jwt.service.ts
 # Creates: Comprehensive unit tests with 90%+ coverage
 ```
 
 ### ✅ Validation & Quality
 
-#### `/qcheck-enhanced` - Comprehensive Code Validation
+#### `/morgana-check` - Comprehensive Code Validation
 
 **Purpose**: Validate code against best practices and security standards
 **Usage**: Automatically triggered after code generation **Output**: Structured
@@ -200,10 +204,11 @@ validation_report:
   ready_for_merge: false
 ```
 
-#### `/qcheckf-enhanced` - Function-Level Validation
+#### `/morgana-check-function` - Function-Level Validation
 
 **Purpose**: Deep analysis of function quality, complexity, and maintainability
-**Usage**: `/qcheckf [function-name]` or `--file [path]` **Metrics**:
+**Usage**: `/morgana-check-function [function-name]` or `--file [path]`
+**Metrics**:
 
 - Cyclomatic complexity (target: ≤10)
 - Line count (target: ≤50)
@@ -213,14 +218,15 @@ validation_report:
 **Example**:
 
 ```bash
-/qcheckf processPayment
+/morgana-check-function processPayment
 # Output: Complexity score: 12, Recommendation: refactor
 ```
 
-#### `/qcheckt-enhanced` - Test Quality Validation
+#### `/morgana-check-tests` - Test Quality Validation
 
 **Purpose**: Ensure tests are comprehensive, maintainable, and effective
-**Usage**: `/qcheckt [test-file]` or `--dir [directory]` **Metrics**:
+**Usage**: `/morgana-check-tests [test-file]` or `--dir [directory]`
+**Metrics**:
 
 - Line coverage (target: ≥80%)
 - Branch coverage (target: ≥75%)
@@ -230,14 +236,15 @@ validation_report:
 **Example**:
 
 ```bash
-/qcheckt PaymentService.test.ts
+/morgana-check-tests PaymentService.test.ts
 # Output: Coverage: 85%, Issues: missing timeout tests
 ```
 
-#### `/qvalidate-framework` - Unified Validation System
+#### `/morgana-validate-all` - Unified Validation System
 
 **Purpose**: Orchestrate all validation commands for comprehensive quality
-assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
+assurance **Usage**: `/morgana-validate-all --mode [quick|standard|deep]`
+**Modes**:
 
 - `quick`: Fast validation for development (~30s)
 - `standard`: Comprehensive pre-commit validation (~2min)
@@ -246,16 +253,76 @@ assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
 **Example**:
 
 ```bash
-/qvalidate --mode standard --task-id AUTH_IMPL
+/morgana-validate-all --mode standard --task-id AUTH_IMPL
 # Runs: syntax → functions → tests → integration → security
+```
+
+### 🚀 Agent Orchestration with Morgana Protocol
+
+#### Morgana Protocol - Parallel Agent Execution
+
+**Purpose**: Execute multiple specialized agents in parallel with true Go
+concurrency **Features**:
+
+- 🚀 Goroutine-based parallel execution
+- 🔍 OpenTelemetry tracing for observability
+- ⏱️ Per-agent timeout configuration
+- 🧪 Comprehensive integration testing
+- 🐍 Python bridge for Claude Code integration
+
+**Usage**:
+
+```bash
+# Single agent execution
+morgana -- --agent code-implementer --prompt "implement auth service"
+
+# Parallel execution with JSON
+echo '[
+  {"agent_type":"code-implementer","prompt":"implement feature"},
+  {"agent_type":"test-specialist","prompt":"write tests"}
+]' | morgana --parallel
+
+# With configuration file
+morgana --config morgana.yaml -- --agent sprint-planner --prompt "plan sprint"
+```
+
+**Testing Morgana Protocol**:
+
+```bash
+# Run all Morgana Protocol tests
+cd ~/.claude/tests/morgana
+./test-morgana-integration.sh
+
+# Test director workflow
+./test-morgana-director-workflow.sh
+
+# Test specific agent execution
+./test-qdirector-morgana.sh
+
+# Test the Python bridge integration
+cd ../../
+morgana -- --agent code-implementer --prompt "test integration"
+```
+
+**Example Integration Test**:
+
+```bash
+# Set up test environment
+export TEST_MODE=success
+
+# Run integration test suite
+make test-integration
+
+# Check test coverage
+go test -v -tags=integration -cover ./...
 ```
 
 ### 🔧 Utilities
 
-#### `/qgit` - Git Operations
+#### `/morgana-commit` - Git Operations
 
 **Purpose**: Add, commit with semantic messages, and push changes **Usage**:
-`/qgit [commit message]` **Features**:
+`/morgana-commit [commit message]` **Features**:
 
 - Semantic commit format (feat/fix/chore)
 - Pre-commit validation
@@ -264,7 +331,7 @@ assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
 **Example**:
 
 ```bash
-/qgit feat: implement JWT authentication service
+/morgana-commit feat: implement JWT authentication service
 # Stages all changes → Creates semantic commit → Pushes to remote
 ```
 
@@ -320,26 +387,26 @@ Commands work together in an intelligent workflow:
 1. **Planning Phase**
 
    ```
-   /qnew-enhanced → /qplan-enhanced → /qdirector-enhanced
+   /morgana-plan → /morgana-validate → /morgana-director
    ```
 
 2. **Implementation Phase**
 
    ```
-   /qcode → automatic /qcheckf-enhanced validation
-   /qtest → automatic /qcheckt-enhanced validation
+   /morgana-code → automatic /morgana-check-function validation
+   /morgana-test → automatic /morgana-check-tests validation
    ```
 
 3. **Validation Phase**
 
    ```
-   /qvalidate-framework orchestrates:
-   → /qcheck-enhanced → /qcheckf-enhanced → /qcheckt-enhanced
+   /morgana-validate-all orchestrates:
+   → /morgana-check → /morgana-check-function → /morgana-check-tests
    ```
 
 4. **Completion Phase**
    ```
-   /qgit with pre-commit /qvalidate-framework
+   /morgana-commit with pre-commit /morgana-validate-all
    ```
 
 ### 🤖 Model Selection Strategy
@@ -361,40 +428,52 @@ Commands automatically select optimal models based on task complexity:
 - **CONSIDER**: Optional improvements (style, minor optimizations)
 
 Each command is designed to work standalone or as part of the orchestrated
-QDIRECTOR workflow, providing flexibility for both automated and manual
+MORGANA-DIRECTOR workflow, providing flexibility for both automated and manual
 development processes.
+
+### 🧪 Integration Testing
+
+The Morgana Protocol includes comprehensive integration tests:
+
+| Test Type   | Coverage | Description                                             |
+| ----------- | -------- | ------------------------------------------------------- |
+| Task Client | ✅       | Tests Python bridge execution, timeouts, error handling |
+| Adapter     | ✅       | Tests agent orchestration, concurrent execution         |
+| Bridge      | ✅       | Tests multi-language communication (Go ↔ Python)       |
+| E2E         | ✅       | Tests complete agent workflow with real Task tool       |
+
 ## 🔄 Common Workflows
 
 ### Complete Feature Development Flow
 
 ```bash
 # 1. Plan the sprint
-/qnew-enhanced Create user authentication system with JWT
+/morgana-plan Create user authentication system with JWT
 
 # 2. Validate and enrich the plan
-/qplan-enhanced --sprint sprint-2025-01-auth.md
+/morgana-validate --sprint sprint-2025-01-auth.md
 
-# 3. Execute with QDIRECTOR orchestration
-/qdirector-enhanced
+# 3. Execute with MORGANA-DIRECTOR orchestration
+/morgana-director
 - Load sprint plan
 - Execute tasks with automatic retry
 - Validate outputs at each stage
 
 # 4. Commit changes
-/qgit "feat: implement JWT authentication system"
+/morgana-commit "feat: implement JWT authentication system"
 ```
 
 ### Quick Code Review
 
 ```bash
 # For focused file review
-/qcheckf-enhanced auth_service.go
+/morgana-check-function auth_service.go
 
 # For comprehensive validation
-/qvalidate-framework --path ./src/auth/
+/morgana-validate-all --path ./src/auth/
 
 # For security-focused review
-/qcheck-enhanced --focus security
+/morgana-check --focus security
 ```
 
 ### Test Generation Workflow
@@ -432,6 +511,7 @@ parallel_tasks:
   - Task(subagent_type="code-implementer", prompt="Research best practices")
   - Task(subagent_type="test-specialist", prompt="Plan test strategy")
 ```
+
 ## 🎯 Best Practices
 
 ### 1. Safe File Editing
@@ -471,6 +551,7 @@ parallel_tasks:
 - **Clear dependencies** - make task relationships explicit
 - **Exit criteria** - define measurable success conditions
 - **Priority tagging** - use P0-P3 levels consistently
+
 ## 💡 Tips & Tricks
 
 ### Performance Optimization
@@ -539,6 +620,7 @@ alias qfull='/qvalidate-framework --comprehensive'
 - **CI/CD**: Use validation commands in pre-commit hooks
 - **IDE Integration**: Map commands to keyboard shortcuts
 - **Team Workflows**: Share sprint plans via version control
+
 ## 🛠️ Configuration
 
 ### Essential Settings
@@ -592,6 +674,7 @@ For detailed configuration options:
 - **Hooks Documentation**: See `hooks/README.md`
 - **Script Options**: See `scripts/README.md`
 - **Template Customization**: See `templates/README.md`
+
 ## 🔧 Troubleshooting Guide
 
 ### CLAUDE.md Gets Truncated
@@ -663,6 +746,7 @@ For detailed configuration options:
 2. Integrate Claude hooks with existing ones
 3. Use hook chaining in .git/hooks scripts
 4. Test combined functionality thoroughly
+
 ## 📖 Additional Resources
 
 ### 📚 Detailed Documentation
@@ -678,9 +762,9 @@ For detailed configuration options:
 
 - **[Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)** -
   Official docs
-- **[GitHub Repository](https://github.com/saintskeeper/claude-code-configs)** -
+- **[GitHub Repository](https://github.com/saintskeeper/morgana-agent-protocol)** -
   Source code
-- **[Issue Tracker](https://github.com/saintskeeper/claude-code-configs/issues)** -
+- **[Issue Tracker](https://github.com/saintskeeper/morgana-agent-protocol/issues)** -
   Report bugs
 - **[Claude Code Updates](https://github.com/anthropics/claude-code/releases)** -
   Latest features
@@ -698,7 +782,7 @@ For detailed configuration options:
 
 ### 🤝 Contributing
 
-Want to improve Claude Code Configuration?
+Want to improve Morgana Agent Protocol?
 
 1. Fork the repository
 2. Create a feature branch
@@ -711,21 +795,21 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 - **Quick questions**: Check [Troubleshooting](#-troubleshooting) first
 - **Bug reports**:
-  [Open an issue](https://github.com/saintskeeper/claude-code-configs/issues)
+  [Open an issue](https://github.com/saintskeeper/morgana-agent-protocol/issues)
 - **Feature requests**: Use the issue template
 - **Community**: Join discussions in issues
 
 ### 🏛️ Architecture Overview
 
 ```
-Claude Code Configuration
+Morgana Agent Protocol
 ├── Commands (User Interface)
 │   ├── Planning & Sprint Management
 │   ├── Development & Testing
 │   └── Validation & Quality
-├── QDIRECTOR (Orchestration Layer)
-│   ├── Task Management
-│   ├── Agent Routing
+├── Morgana Director (Orchestration Layer)
+│   ├── Parallel Task Execution
+│   ├── Agent Routing & Load Balancing
 │   └── Validation Pipeline
 ├── Specialized Agents (Execution Layer)
 │   ├── sprint-planner
@@ -733,18 +817,18 @@ Claude Code Configuration
 │   ├── test-specialist
 │   └── validation-expert
 └── Infrastructure (Support Layer)
-    ├── Hooks & Automation
-    ├── Scripts & Utilities
-    └── Templates & Config
+    ├── Go Binary & Python Bridge
+    ├── OpenTelemetry Tracing
+    └── Scripts & Utilities
 ```
 
 ---
 
-_Built with ❤️ for the Claude Code community_
+_Built with ❤️ for the Morgana Agent Protocol community_
 
 ## 📘 Real-World Examples
 
 For comprehensive examples demonstrating the power of QDIRECTOR orchestration:
+
 - **[View All Examples](examples/README.md)** - 10 detailed scenarios
 - **[Migration Guide](MIGRATION-GUIDE.md)** - For existing users
-

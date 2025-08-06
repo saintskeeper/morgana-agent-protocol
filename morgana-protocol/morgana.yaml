@@ -1,0 +1,78 @@
+# Morgana Protocol Configuration
+# This file configures the behavior of the Morgana agent orchestrator
+
+# Agent configuration
+agents:
+  # Directory containing agent prompt files
+  prompt_dir: ~/.claude/agents
+
+  # Default timeout for agent execution
+  default_timeout: 2m
+
+  # Agent-specific timeouts (override default)
+  timeouts:
+    code-implementer: 5m # Code generation might take longer
+    test-specialist: 3m # Test generation is usually faster
+    validation-expert: 2m # Validation is typically quick
+    sprint-planner: 1m # Planning should be fast
+
+  # Retry configuration for failed agents
+  retry:
+    enabled: true
+    max_attempts: 3
+    initial_backoff: 1s
+    max_backoff: 30s
+    multiplier: 2.0
+
+# Execution configuration
+execution:
+  # Maximum number of concurrent agent executions
+  max_concurrency: 5
+
+  # Default execution mode: sequential or parallel
+  default_mode: sequential
+
+  # Queue size for parallel execution
+  queue_size: 100
+
+# Telemetry configuration
+telemetry:
+  # Enable or disable telemetry
+  enabled: true
+
+  # Exporter type: stdout, otlp, or none
+  exporter: stdout
+
+  # OTLP collector endpoint (for otlp exporter)
+  otlp_endpoint: localhost:4317
+
+  # Service name for telemetry
+  service_name: morgana-protocol
+
+  # Environment: production, staging, or development
+  environment: production
+
+  # Sampling rate (0.0 to 1.0)
+  # 0.1 = 10% of traces are sampled
+  sampling_rate: 0.1
+
+# Task client configuration
+task_client:
+  # Path to Python bridge script (auto-discovered if empty)
+  bridge_path: ""
+
+  # Python executable to use
+  python_path: python3
+
+  # Enable mock mode (for testing without Claude Code)
+  mock_mode: false
+
+  # Command execution timeout
+  timeout: 5m
+# Environment variable overrides:
+# - MORGANA_AGENT_DIR: Override agents.prompt_dir
+# - MORGANA_MAX_CONCURRENCY: Override execution.max_concurrency
+# - MORGANA_OTEL_EXPORTER: Override telemetry.exporter
+# - MORGANA_OTEL_ENDPOINT: Override telemetry.otlp_endpoint
+# - MORGANA_BRIDGE_PATH: Override task_client.bridge_path
+# - MORGANA_MOCK_MODE: Set to "true" to enable mock mode
