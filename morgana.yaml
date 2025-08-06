@@ -1,11 +1,12 @@
+# Morgana Protocol Configuration with Model Selection Support
 agents:
   prompt_dir: ~/.claude/agents
   default_timeout: 2m
   timeouts:
-    code-implementer: 5m
-    test-specialist: 3m
-    validation-expert: 2m
-    sprint-planner: 2m
+    code-implementer: 5m    # Code generation might take longer
+    test-specialist: 3m     # Test generation is usually faster
+    validation-expert: 2m   # Validation is typically quick
+    sprint-planner: 2m      # Planning should be fast
 
 execution:
   max_concurrency: 5
@@ -13,13 +14,18 @@ execution:
   queue_size: 100
 
 telemetry:
-  enabled: false
-  exporter: none
+  enabled: true           # Enable to track model usage
+  exporter: stdout        # stdout for local development
   service_name: morgana-protocol
   environment: local
+  sampling_rate: 0.1      # 10% sampling for local dev
 
 task_client:
   bridge_path: ~/.claude/scripts/task_bridge.py
   python_path: python3
   mock_mode: false
-  timeout: 30s
+  timeout: 5m             # Increased for complex model operations
+
+# Model Selection Configuration (built into agents)
+# Default: claude-3-7-sonnet-20250219 (token-efficient)
+# Escalation rules are defined in individual agent files
