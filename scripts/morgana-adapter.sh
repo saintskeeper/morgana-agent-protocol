@@ -143,7 +143,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     fi
 else
     # Script is being sourced
-    echo "✅ Morgana Protocol adapter functions loaded" >&2
+    echo "🧙‍♂️ Morgana Protocol adapter functions loaded" >&2
     echo "   - AgentAdapter: Execute single agent" >&2
     echo "   - AgentAdapterParallel: Execute multiple agents in parallel" >&2
     echo "   - morgana_parallel: Helper for parallel execution" >&2

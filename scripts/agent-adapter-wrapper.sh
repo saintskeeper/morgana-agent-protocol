@@ -7,7 +7,7 @@ source "$SCRIPT_DIR/morgana-adapter.sh"
 
 # Show initialization status when sourced (not executed directly)
 if [ "${BASH_SOURCE[0]}" != "${0}" ]; then
-    echo "🔧 Morgana Agent Adapter Wrapper loaded" >&2
+    echo "⚡ Morgana Agent Adapter Wrapper loaded" >&2
     echo "   Ready for Claude Code REPL usage" >&2
 fi
 
