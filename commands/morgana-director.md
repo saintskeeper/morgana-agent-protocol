@@ -166,7 +166,8 @@ def AgentAdapterParallel(tasks):
 
 ## Available Specialized Agents
 
-The QDIRECTOR system leverages these specialized agents via Morgana Protocol:
+The Morgana Protocol system leverages these specialized agents via Morgana
+Protocol:
 
 - **sprint-planner**: Requirements decomposition and sprint planning
 - **code-implementer**: Clean, secure code implementation
@@ -185,7 +186,7 @@ The QDIRECTOR system leverages these specialized agents via Morgana Protocol:
 
 ### 1. Sprint Planning Integration
 
-When given a sprint plan (from /qnew-enhanced and /qplan-enhanced):
+When given a sprint plan (from /morgana-plan and /morgana-validate):
 
 1. **Import Sprint Context**
 
@@ -217,20 +218,20 @@ Track each task through states:
 
 #### Sprint Planning Phase
 
-**/qnew-enhanced**
+**/morgana-plan**
 
 - **Purpose**: Generate structured sprint plans
 - **Model**: `gemini-2.5-pro` or `o3` for comprehensive planning
 - **Output**: QDIRECTOR-compatible sprint plan with dependencies and exit
   criteria
-- **Usage**: `/qnew-enhanced Create authentication system with JWT and OAuth`
+- **Usage**: `/morgana-plan Create authentication system with JWT and OAuth`
 
-**/qplan-enhanced**
+**/morgana-validate**
 
 - **Purpose**: Validate and refine sprint plans technically
 - **Model**: `pro` or Claude Opus for analysis
 - **Output**: Enhanced task definitions with codebase context
-- **Usage**: `/qplan-enhanced --sprint sprint-2024-01-auth.md`
+- **Usage**: `/morgana-validate --sprint sprint-2024-01-auth.md`
 
 #### Implementation Phase
 
@@ -238,37 +239,37 @@ Track each task through states:
 
 - **Purpose**: Implementation and coding
 - **Model**: `gpt-4.1` or `gemini-2.5-flash` based on complexity
-- **Validation**: Auto-triggers `/qcheckf-enhanced` after generation
+- **Validation**: Auto-triggers `/morgana-check-function` after generation
 - **Usage**: Spawned by QDIRECTOR with task context
 
 **/qtest**
 
 - **Purpose**: Test generation
 - **Model**: `o3-mini` or `gemini-2.5-flash`
-- **Validation**: Auto-triggers `/qcheckt-enhanced` after generation
+- **Validation**: Auto-triggers `/morgana-check-tests` after generation
 - **Usage**: Spawned after implementation completes
 
 #### Validation Phase (Auto-triggered)
 
-**/qcheck-enhanced**
+**/morgana-check**
 
 - **Purpose**: Comprehensive code validation
 - **Output**: Structured validation report with retry recommendations
 - **Blocking Issues**: Security, breaking changes, critical bugs
 
-**/qcheckf-enhanced**
+**/morgana-check-function**
 
 - **Purpose**: Function-level quality analysis
 - **Output**: Complexity metrics, refactoring needs
 - **Focus**: Single responsibility, error handling, performance
 
-**/qcheckt-enhanced**
+**/morgana-check-tests**
 
 - **Purpose**: Test quality and coverage validation
 - **Output**: Coverage gaps, test effectiveness metrics
 - **Standards**: AAA pattern, independence, behavior testing
 
-**/qvalidate-framework**
+**/morgana-validate-all**
 
 - **Purpose**: Orchestrate all validations
 - **Output**: Unified score and recommendations
@@ -276,12 +277,12 @@ Track each task through states:
 
 #### Completion Phase
 
-**/qgit**
+**/morgana-commit**
 
 - **Purpose**: Version control operations
 - **Model**: `flash` or `claude-3-7-sonnet-20250219` (supports token-efficient
   mode)
-- **Pre-commit**: Runs `/qvalidate-framework --mode standard`
+- **Pre-commit**: Runs `/morgana-validate-all --mode standard`
 - **Format**: Semantic commit messages
 
 ### 4. Model Selection Strategy
@@ -323,8 +324,8 @@ Validation          | Any       | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
 ````yaml
 For Each Sprint Task:
   1. Load Enhanced Context:
-     - Parse task from sprint plan (qnew-enhanced format)
-     - Load technical context (qplan-enhanced annotations)
+     - Parse task from sprint plan (morgana-plan format)
+     - Load technical context (morgana-validate annotations)
      - Prepare validation criteria
 
   2. Execute with Specialized Agents (PARALLEL when possible):
@@ -396,17 +397,17 @@ For Each Sprint Task:
 ```yaml
 validation_triggers:
   post_code_generation:
-    - command: "/qcheckf-enhanced"
+    - command: "/morgana-check-function"
     - parse: function_validation report
     - decide: continue or retry
 
   post_test_generation:
-    - command: "/qcheckt-enhanced"
+    - command: "/morgana-check-tests"
     - parse: test_validation report
     - decide: coverage adequate?
 
   pre_task_completion:
-    - command: "/qvalidate-framework --mode standard"
+    - command: "/morgana-validate-all --mode standard"
     - parse: unified_validation_report
     - decide: ready_for_merge?
 
@@ -422,12 +423,12 @@ validation_triggers:
 
 ```
 Project Context (Persistent)
-├── Sprint Plan (from qnew-enhanced)
-├── Technical Validation (from qplan-enhanced)
+├── Sprint Plan (from morgana-plan)
+├── Technical Validation (from morgana-validate)
 ├── Architecture Decisions
 ├── Codebase Conventions
-├── Test Standards (from qcheckt-enhanced)
-└── Validation History (from qvalidate-framework)
+├── Test Standards (from morgana-check-tests)
+└── Validation History (from morgana-validate-all)
 
 Task Context (Scoped)
 ├── Enhanced Task Definition
@@ -441,12 +442,12 @@ Task Context (Scoped)
 
 ```bash
 # User starts with requirements
-User: /qnew-enhanced Build a secure authentication system with JWT tokens and OAuth2
+User: /morgana-plan Build a secure authentication system with JWT tokens and OAuth2
 
 # QDIRECTOR orchestrates:
 1. Sprint Planning (Sequential):
    - AgentAdapter("sprint-planner", "Create sprint plan for JWT auth system")
-   - Validates technically via qplan-enhanced
+   - Validates technically via morgana-validate
    - Creates execution graph with dependencies
 
 2. Parallel Investigation Phase:
@@ -489,7 +490,7 @@ User: /qnew-enhanced Build a secure authentication system with JWT tokens and OA
 
 5. Completion:
    - All validations pass
-   - AgentAdapter("code-implementer", "Run /qgit commit auth feature")
+   - AgentAdapter("code-implementer", "Run /morgana-commit commit auth feature")
    - Result: Feature complete with 95% coverage, security validated
 ```
 
@@ -630,7 +631,7 @@ When displaying subagent results:
 
 ## Recent Validations
 
-- AUTH_DESIGN: ✅ 95% (qplan-enhanced validated)
+- AUTH_DESIGN: ✅ 95% (morgana-validate validated)
 - USER_SERVICE: ✅ 92% (all checks passed)
 - API_ENDPOINTS: 🔄 78% (retrying - missing auth)
 
@@ -673,21 +674,21 @@ When displaying subagent results:
 ```yaml
 command_flow:
   planning:
-    - /qnew-enhanced → generates sprint plan
-    - /qplan-enhanced → validates and enriches
+    - /morgana-plan → generates sprint plan
+    - /morgana-validate → validates and enriches
 
   execution:
     - /qcode → implementation
     - /qtest → test generation
 
   validation:
-    - /qcheckf-enhanced → function quality
-    - /qcheckt-enhanced → test quality
-    - /qcheck-enhanced → integration quality
-    - /qvalidate-framework → unified validation
+    - /morgana-check-function → function quality
+    - /morgana-check-tests → test quality
+    - /morgana-check → integration quality
+    - /morgana-validate-all → unified validation
 
   completion:
-    - /qgit → version control
+    - /morgana-commit → version control
     - mcp__zen__precommit → final checks
 ```
 

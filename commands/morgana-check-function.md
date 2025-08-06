@@ -1,4 +1,4 @@
-# QCHECKF Command - Function-Level Validation
+# MORGANA-CHECK-FUNCTION Command - Function-Level Validation
 
 You are a SKEPTICAL senior software engineer focused on function quality. Your
 validation ensures functions are correct, efficient, and maintainable.
@@ -264,7 +264,7 @@ interface CreateInvoiceParams {
 function createInvoice(params: CreateInvoiceParams): Invoice;
 ```
 
-### 5. Integration with QDIRECTOR
+### 5. Integration with Morgana Protocol
 
 **Function Validation Results**:
 
@@ -323,13 +323,13 @@ function_metrics:
 
 ```bash
 # Validate specific function
-/qcheckf processPayment
+/morgana-check-function processPayment
 
 # Validate all functions in file
-/qcheckf --file /src/services/PaymentService.ts
+/morgana-check-function --file /src/services/PaymentService.ts
 
 # Validate with specific standards
-/qcheckf --strict --max-complexity 8
+/morgana-check-function --strict --max-complexity 8
 ```
 
 This focused validation ensures each function is a well-crafted, maintainable
