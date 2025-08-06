@@ -1,7 +1,7 @@
-# Claude Code Configuration 🚀
+# Morgana Agent Protocol 🚀
 
-> A comprehensive enhancement system for Claude Code with automated workflows,
-> intelligent orchestration, and quality assurance.
+> A comprehensive agent orchestration system with parallel execution,
+> intelligent workflows, and quality assurance for modern development teams.
 
 [![Version](https://img.shields.io/badge/version-2.0-blue.svg)]()
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
@@ -24,20 +24,22 @@
 
 ## 🚀 Quickstart
 
-Get up and running with Claude Code Configuration in under 5 minutes.
+Get up and running with Morgana Agent Protocol in under 5 minutes.
 
 ### Prerequisites
 
 - **Git** installed on your system
 - **Claude Code** CLI installed and authenticated
+- **Go** 1.21+ for Morgana Protocol binary
+- **Python** 3.8+ for bridge integration
 - **macOS** (current configuration is optimized for macOS)
 - Optional: `gofmt`, `prettier`, and `pre-commit` for formatting features
 
 ### Installation
 
 ```bash
-# 1. Clone the configuration repository to your home directory
-git clone git@github.com:saintskeeper/claude-code-configs.git ~/.claude
+# 1. Clone the Morgana Agent Protocol repository to your home directory
+git clone git@github.com:saintskeeper/morgana-agent-protocol.git ~/.claude
 
 # 2. Make scripts executable
 chmod +x ~/.claude/setup-local.sh ~/.claude/test-hooks.sh
@@ -90,9 +92,9 @@ work uses more powerful ones.
 
 ## 📚 Commands Reference
 
-Claude Code commands are organized by workflow to help you accomplish your
-development tasks efficiently. Each command is designed for specific stages of
-your development process.
+Morgana Agent Protocol commands are organized by workflow to help you accomplish
+your development tasks efficiently. Each command leverages parallel agent
+execution for maximum efficiency and reliability.
 
 ### 🎯 Planning & Sprint Management
 
@@ -284,22 +286,22 @@ echo '[
 morgana --config morgana.yaml -- --agent sprint-planner --prompt "plan sprint"
 ```
 
-**Testing the Framework**:
+**Testing Morgana Protocol**:
 
 ```bash
-# Run all tests including integration tests
-cd morgana-protocol
-make test-all
+# Run all Morgana Protocol tests
+cd ~/.claude/tests/morgana
+./test-morgana-integration.sh
 
-# Run only integration tests
-make test-integration
+# Test director workflow
+./test-morgana-director-workflow.sh
 
-# Test specific components
-go test -v -tags=integration ./pkg/task/...
-go test -v -tags=integration ./internal/adapter/...
+# Test specific agent execution
+./test-qdirector-morgana.sh
 
-# Test the Python bridge manually
-python3 scripts/task_bridge.py
+# Test the Python bridge integration
+cd ../../
+morgana -- --agent code-implementer --prompt "test integration"
 ```
 
 **Example Integration Test**:
@@ -760,9 +762,9 @@ For detailed configuration options:
 
 - **[Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)** -
   Official docs
-- **[GitHub Repository](https://github.com/saintskeeper/claude-code-configs)** -
+- **[GitHub Repository](https://github.com/saintskeeper/morgana-agent-protocol)** -
   Source code
-- **[Issue Tracker](https://github.com/saintskeeper/claude-code-configs/issues)** -
+- **[Issue Tracker](https://github.com/saintskeeper/morgana-agent-protocol/issues)** -
   Report bugs
 - **[Claude Code Updates](https://github.com/anthropics/claude-code/releases)** -
   Latest features
@@ -780,7 +782,7 @@ For detailed configuration options:
 
 ### 🤝 Contributing
 
-Want to improve Claude Code Configuration?
+Want to improve Morgana Agent Protocol?
 
 1. Fork the repository
 2. Create a feature branch
@@ -793,21 +795,21 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions.
 
 - **Quick questions**: Check [Troubleshooting](#-troubleshooting) first
 - **Bug reports**:
-  [Open an issue](https://github.com/saintskeeper/claude-code-configs/issues)
+  [Open an issue](https://github.com/saintskeeper/morgana-agent-protocol/issues)
 - **Feature requests**: Use the issue template
 - **Community**: Join discussions in issues
 
 ### 🏛️ Architecture Overview
 
 ```
-Claude Code Configuration
+Morgana Agent Protocol
 ├── Commands (User Interface)
 │   ├── Planning & Sprint Management
 │   ├── Development & Testing
 │   └── Validation & Quality
-├── QDIRECTOR (Orchestration Layer)
-│   ├── Task Management
-│   ├── Agent Routing
+├── Morgana Director (Orchestration Layer)
+│   ├── Parallel Task Execution
+│   ├── Agent Routing & Load Balancing
 │   └── Validation Pipeline
 ├── Specialized Agents (Execution Layer)
 │   ├── sprint-planner
@@ -815,14 +817,14 @@ Claude Code Configuration
 │   ├── test-specialist
 │   └── validation-expert
 └── Infrastructure (Support Layer)
-    ├── Hooks & Automation
-    ├── Scripts & Utilities
-    └── Templates & Config
+    ├── Go Binary & Python Bridge
+    ├── OpenTelemetry Tracing
+    └── Scripts & Utilities
 ```
 
 ---
 
-_Built with ❤️ for the Claude Code community_
+_Built with ❤️ for the Morgana Agent Protocol community_
 
 ## 📘 Real-World Examples
 
