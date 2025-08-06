@@ -16,9 +16,12 @@ import (
 
 // Task represents an agent task request
 type Task struct {
-	AgentType string                 `json:"agent_type"`
-	Prompt    string                 `json:"prompt"`
-	Options   map[string]interface{} `json:"options,omitempty"`
+	AgentType  string                 `json:"agent_type"`
+	Prompt     string                 `json:"prompt"`
+	Options    map[string]interface{} `json:"options,omitempty"`
+	RetryCount int                    `json:"retry_count,omitempty"`
+	ModelHint  string                 `json:"model_hint,omitempty"`
+	Complexity string                 `json:"complexity,omitempty"`
 }
 
 // Result represents the output from an agent task
@@ -34,6 +37,7 @@ type Adapter struct {
 	tracer         trace.Tracer
 	defaultTimeout time.Duration
 	timeouts       map[string]time.Duration
+	modelSelector  *ModelSelector
 	mu             sync.RWMutex
 }
 
@@ -45,6 +49,7 @@ func New(promptLoader *prompt.Loader, taskClient *task.Client, tracer trace.Trac
 		tracer:         tracer,
 		defaultTimeout: 2 * time.Minute,
 		timeouts:       make(map[string]time.Duration),
+		modelSelector:  NewModelSelector(),
 	}
 }
 
@@ -76,6 +81,15 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	// Start main span
 	attrs := telemetry.AgentAttributes(task.AgentType, fmt.Sprintf("%p", &task))
 	attrs = append(attrs, attribute.String("timeout", timeout.String()))
+	if task.RetryCount > 0 {
+		attrs = append(attrs, attribute.Int("retry_count", task.RetryCount))
+	}
+	if task.ModelHint != "" {
+		attrs = append(attrs, attribute.String("model_hint", task.ModelHint))
+	}
+	if task.Complexity != "" {
+		attrs = append(attrs, attribute.String("complexity", task.Complexity))
+	}
 	ctx, span := a.tracer.Start(ctx, "agent.execute",
 		trace.WithAttributes(attrs...),
 	)
@@ -117,19 +131,38 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 	loadSpan.End()
 
+	// Select appropriate model based on task context
+	selectedModel := a.modelSelector.SelectModel(task)
+	modelCapabilities := a.modelSelector.GetModelCapabilities(selectedModel)
+
+	// Add model information to options for Task tool
+	options := task.Options
+	if options == nil {
+		options = make(map[string]interface{})
+	}
+	options["model"] = selectedModel
+	options["model_capabilities"] = modelCapabilities
+
 	// Combine agent system prompt with task prompt
 	fullPrompt := fmt.Sprintf("%s\n\nTask: %s", agentPrompt, task.Prompt)
 	span.SetAttributes(
 		telemetry.PromptAttributes(len(fullPrompt), false)...,
+	)
+	span.SetAttributes(
+		attribute.String("model.selected", selectedModel),
+		attribute.Bool("model.token_efficient", modelCapabilities["token_efficient"].(bool)),
+		attribute.String("model.reasoning_level", modelCapabilities["reasoning_level"].(string)),
+		attribute.String("model.cost_tier", modelCapabilities["cost_tier"].(string)),
 	)
 
 	// Execute via Task tool with general-purpose type
 	ctx, execSpan := a.tracer.Start(ctx, "agent.task_execution",
 		trace.WithAttributes(
 			attribute.String("task.type", "general-purpose"),
+			attribute.String("task.model", selectedModel),
 		),
 	)
-	result, err := a.taskClient.RunWithContext(ctx, "general-purpose", fullPrompt, task.Options)
+	result, err := a.taskClient.RunWithContext(ctx, "general-purpose", fullPrompt, options)
 	execTime := time.Since(startTime)
 	execSpan.SetAttributes(
 		attribute.Int64("execution.duration_ms", execTime.Milliseconds()),
