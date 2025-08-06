@@ -29,7 +29,7 @@ fi
 
 echo ""
 echo -e "${BLUE}Test 2: Check AgentAdapter functions${NC}"
-if source ~/.claude/scripts/morgana-adapter.sh 2>/dev/null; then
+if source ../../scripts/morgana-adapter.sh 2>/dev/null; then
     echo -e "${GREEN}✅ Morgana adapter functions loaded${NC}"
     
     if command -v AgentAdapter >/dev/null 2>&1; then
@@ -49,17 +49,17 @@ fi
 
 echo ""
 echo -e "${BLUE}Test 3: Check morgana-director command exists${NC}"
-if [ -f ~/.claude/commands/morgana-director.md ]; then
+if [ -f ../../commands/morgana-director.md ]; then
     echo -e "${GREEN}✅ morgana-director.md exists${NC}"
     
     # Check if it contains the key integration points
-    if grep -q "AgentAdapter" ~/.claude/commands/morgana-director.md; then
+    if grep -q "AgentAdapter" ../../commands/morgana-director.md; then
         echo -e "${GREEN}✅ Contains AgentAdapter integration${NC}"
     else
         echo -e "${YELLOW}⚠️  Missing AgentAdapter integration${NC}"
     fi
     
-    if grep -q "Morgana Protocol" ~/.claude/commands/morgana-director.md; then
+    if grep -q "Morgana Protocol" ../../commands/morgana-director.md; then
         echo -e "${GREEN}✅ Contains Morgana Protocol references${NC}"
     else
         echo -e "${YELLOW}⚠️  Missing Morgana Protocol references${NC}"
@@ -96,8 +96,8 @@ echo "$test_json" | jq . 2>/dev/null && echo -e "${GREEN}✅ Valid JSON format${
 
 echo ""
 echo -e "${BLUE}Test 6: Check integration test results${NC}"
-if [ -f ~/.claude/morgana-protocol/Makefile ]; then
-    cd ~/.claude/morgana-protocol
+if [ -f ../../morgana-protocol/Makefile ]; then
+    cd ../../morgana-protocol
     echo "Running quick integration test check..."
     
     # Check if integration tests exist and can run

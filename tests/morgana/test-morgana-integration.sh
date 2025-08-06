@@ -13,13 +13,13 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Check if we're in the right directory
-if [ ! -d "morgana-protocol" ]; then
+if [ ! -d "../../morgana-protocol" ]; then
     echo -e "${RED}❌ Error: morgana-protocol directory not found${NC}"
-    echo "Please run this script from the ~/.claude directory"
+    echo "Please run this script from the ~/.claude/tests/morgana directory"
     exit 1
 fi
 
-cd morgana-protocol
+cd ../../morgana-protocol
 
 echo -e "${BLUE}📦 Installing dependencies...${NC}"
 make deps
@@ -100,4 +100,4 @@ echo -e "\n${GREEN}✨ To debug tests:${NC}"
 echo "  export TEST_MODE=timeout"
 echo "  go test -v -tags=integration -run TestAdapterTimeout ./internal/adapter"
 
-cd ..
+cd - >/dev/null

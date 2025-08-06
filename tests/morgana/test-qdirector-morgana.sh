@@ -14,7 +14,7 @@ NC='\033[0m' # No Color
 
 # Source the agent adapter functions
 echo -e "${BLUE}Loading Morgana adapter functions...${NC}"
-source ~/.claude/scripts/agent-adapter-wrapper.sh
+source ../../scripts/agent-adapter-wrapper.sh
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✅ Adapter functions loaded successfully${NC}"
@@ -67,7 +67,7 @@ echo -e "${BLUE}Test 3: QDIRECTOR Command Compatibility${NC}"
 echo ""
 
 # Test the Python adapter exists
-if [ -f ~/.claude/scripts/agent_adapter.py ]; then
+if [ -f ../../scripts/agent_adapter.py ]; then
     echo -e "${GREEN}✅ Python adapter exists (for backward compatibility)${NC}"
 else
     echo -e "${YELLOW}⚠️  Python adapter not found (optional)${NC}"
