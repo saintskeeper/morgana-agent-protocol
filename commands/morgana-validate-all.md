@@ -1,12 +1,12 @@
-# QVALIDATE Framework - Unified Validation System
+# MORGANA-VALIDATE-ALL Framework - Unified Validation System
 
-Orchestrates all validation commands (QCHECK, QCHECKF, QCHECKT) for
-comprehensive quality assurance.
+Orchestrates all validation commands (MORGANA-CHECK, MORGANA-CHECK-FUNCTION,
+MORGANA-CHECK-TESTS) for comprehensive quality assurance.
 
 ## Purpose
 
-Provide a unified validation interface that QDIRECTOR can use to validate task
-completion across code, functions, and tests.
+Provide a unified validation interface that Morgana Protocol can use to validate
+task completion across code, functions, and tests.
 
 ## Unified Validation Architecture
 
@@ -20,15 +20,15 @@ validation_pipeline:
       blocking: true
 
     - name: "function_analysis"
-      command: "/qcheckf"
+      command: "/morgana-check-function"
       blocking: true
 
     - name: "test_validation"
-      command: "/qcheckt"
+      command: "/morgana-check-tests"
       blocking: true
 
     - name: "integration_check"
-      command: "/qcheck"
+      command: "/morgana-check"
       blocking: true
 
     - name: "security_scan"
@@ -43,15 +43,15 @@ validation_score:
   components:
     code_quality:
       weight: 0.3
-      sources: ["/qcheck"]
+      sources: ["/morgana-check"]
 
     function_quality:
       weight: 0.25
-      sources: ["/qcheckf"]
+      sources: ["/morgana-check-function"]
 
     test_quality:
       weight: 0.25
-      sources: ["/qcheckt"]
+      sources: ["/morgana-check-tests"]
 
     coverage:
       weight: 0.2
@@ -77,18 +77,18 @@ unified_validation_report:
     coverage_delta: +5%
 
   blocking_issues:
-    - source: "qcheck"
+    - source: "morgana-check"
       issue: "SQL injection vulnerability"
       severity: "CRITICAL"
       location: "AuthService.ts:45"
 
-    - source: "qcheckt"
+    - source: "morgana-check-tests"
       issue: "Missing error case tests"
       severity: "HIGH"
       impact: "Core auth flow uncovered"
 
   non_blocking_issues:
-    - source: "qcheckf"
+    - source: "morgana-check-function"
       issue: "High complexity"
       severity: "MEDIUM"
       suggestion: "Refactor processLogin()"
@@ -276,10 +276,10 @@ validation_metrics:
         - "Update developer guidelines"
 ```
 
-### 9. Integration with QDIRECTOR
+### 9. Integration with Morgana Protocol
 
 ```yaml
-qdirector_integration:
+morgana_protocol_integration:
   validation_triggers:
     - after_code_generation
     - before_task_completion
@@ -311,19 +311,19 @@ qdirector_integration:
 
 ```bash
 # Run full validation pipeline
-/qvalidate --mode standard
+/morgana-validate-all --mode standard
 
 # Quick validation during development
-/qvalidate --mode quick --file AuthService.ts
+/morgana-validate-all --mode quick --file AuthService.ts
 
 # Deep validation before deployment
-/qvalidate --mode deep --include-security
+/morgana-validate-all --mode deep --include-security
 
-# Validate specific task for QDIRECTOR
-/qvalidate --task-id AUTH_IMPL --format qdirector
+# Validate specific task for Morgana Protocol
+/morgana-validate-all --task-id AUTH_IMPL --format morgana
 
 # Generate validation report
-/qvalidate --report --output validation-report.yaml
+/morgana-validate-all --report --output validation-report.yaml
 ```
 
 ## Benefits
@@ -332,7 +332,7 @@ qdirector_integration:
 2. **Efficiency**: Parallel validation where possible
 3. **Intelligence**: Smart retry recommendations
 4. **Learning**: Continuous improvement from patterns
-5. **Integration**: Seamless QDIRECTOR compatibility
+5. **Integration**: Seamless Morgana Protocol compatibility
 
 This unified framework ensures comprehensive quality validation while
 maintaining fast feedback loops for development.

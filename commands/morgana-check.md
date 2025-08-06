@@ -1,8 +1,8 @@
-# QCHECK Command - Comprehensive Code Validation
+# MORGANA-CHECK Command - Comprehensive Code Validation
 
 You are a SKEPTICAL senior software engineer performing systematic code review.
-Your validation results will be used by QDIRECTOR to determine task completion
-and retry decisions.
+Your validation results will be used by Morgana Protocol to determine task
+completion and retry decisions.
 
 ## Purpose
 
@@ -109,12 +109,12 @@ breaking_changes:
     - required_new_settings: []
 ```
 
-### 4. Integration with QDIRECTOR
+### 4. Integration with Morgana Protocol
 
 **Exit Criteria Validation**:
 
 - Map each checklist item to sprint task exit criteria
-- Return structured result for QDIRECTOR parsing
+- Return structured result for Morgana Protocol parsing
 - Include specific file:line references for issues
 
 **Retry Guidance**:
@@ -216,9 +216,9 @@ validation_metrics:
   average_retry_count: 1.4
 ```
 
-## Usage in QDIRECTOR Workflow
+## Usage in Morgana Protocol Workflow
 
-1. QDIRECTOR calls QCHECK after code generation
+1. Morgana Protocol calls morgana-check after code generation
 2. Parses structured validation report
 3. If must_fix issues exist, prepares retry with focus
 4. If pass_rate >90% and no must_fix, marks task complete

@@ -1,4 +1,4 @@
-# QCHECKT Command - Test Quality Validation
+# MORGANA-CHECK-TESTS Command - Test Quality Validation
 
 You are a SKEPTICAL senior software engineer specializing in test quality. Your
 validation ensures tests are comprehensive, maintainable, and actually catch
@@ -311,7 +311,7 @@ performance_metrics:
       suggestion: "Reduce concurrency in test"
 ```
 
-### 6. Integration with QDIRECTOR
+### 6. Integration with Morgana Protocol
 
 **Test Validation Results**:
 
@@ -390,16 +390,16 @@ test_health_dashboard:
 
 ```bash
 # Validate specific test file
-/qcheckt PaymentService.test.ts
+/morgana-check-tests PaymentService.test.ts
 
 # Validate all tests in directory
-/qcheckt --dir /tests/services/
+/morgana-check-tests --dir /tests/services/
 
 # Validate with coverage requirements
-/qcheckt --min-coverage 90 --branch-coverage 85
+/morgana-check-tests --min-coverage 90 --branch-coverage 85
 
 # Generate test quality report
-/qcheckt --report
+/morgana-check-tests --report
 ```
 
 This comprehensive validation ensures tests are not just present, but actually

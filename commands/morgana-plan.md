@@ -1,12 +1,12 @@
-# QNEW Command - Sprint Planning Generator
+# MORGANA-PLAN Command - Sprint Planning Generator
 
 Understand all BEST PRACTICES listed in CLAUDE.md. Your code SHOULD ALWAYS
 follow these best practices.
 
 ## Purpose
 
-Generate structured sprint plans that can be executed by QDIRECTOR with clear
-tasks, dependencies, and exit criteria.
+Generate structured sprint plans that can be executed by Morgana Protocol with
+clear tasks, dependencies, and exit criteria.
 
 ## Workflow
 
@@ -137,7 +137,7 @@ Save the sprint plan as `sprint-[date]-[feature].md` and inform user:
 ```
 User: Create a sprint plan for user authentication with OAuth and JWT
 
-QNEW:
+MORGANA-PLAN:
 1. Analyzes requirements
 2. Creates 8 tasks:
    - AUTH_DESIGN (architecture)
@@ -150,14 +150,14 @@ QNEW:
    - AUTH_DEPLOY (deployment)
 3. Defines dependencies and exit criteria
 4. Saves as sprint-2024-01-15-authentication.md
-5. Ready for QDIRECTOR execution
+5. Ready for Morgana Protocol execution
 ```
 
-## Integration with QPLAN
+## Integration with MORGANA-VALIDATE
 
 After generating initial sprint plan:
 
-- Use `/qplan` to validate technical approach
+- Use `/morgana-validate` to validate technical approach
 - Refine task definitions based on codebase analysis
 - Adjust dependencies if conflicts found
 - Update complexity estimates with actual code context

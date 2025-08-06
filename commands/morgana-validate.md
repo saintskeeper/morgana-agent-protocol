@@ -1,4 +1,4 @@
-# QPLAN Command - Technical Validation & Refinement
+# MORGANA-VALIDATE Command - Technical Validation & Refinement
 
 Analyze similar parts of the codebase and determine whether your plan:
 
@@ -8,14 +8,14 @@ Analyze similar parts of the codebase and determine whether your plan:
 
 ## Enhanced Purpose
 
-Validate and refine sprint plans created by QNEW, ensuring technical feasibility
-and creating detailed implementation guidance for QDIRECTOR.
+Validate and refine sprint plans created by MORGANA-PLAN, ensuring technical
+feasibility and creating detailed implementation guidance for Morgana Protocol.
 
 ## Workflow
 
 ### 1. Sprint Plan Analysis
 
-When given a sprint plan (from /qnew):
+When given a sprint plan (from /morgana-plan):
 
 - Load and parse task definitions
 - Validate dependencies are logical
@@ -188,7 +188,7 @@ Create additional files:
    - Fallback plans
    - Decision points for human review
 
-### 10. QDIRECTOR Integration
+### 10. Morgana Protocol Integration
 
 Final output includes:
 
@@ -198,7 +198,7 @@ Final output includes:
 - Context file mappings
 - Specific implementation guidance
 
-This ensures QDIRECTOR has everything needed for successful execution.
+This ensures Morgana Protocol has everything needed for successful execution.
 
 ## Example Enhancement
 

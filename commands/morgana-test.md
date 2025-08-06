@@ -1,4 +1,4 @@
-# QTEST Command - Comprehensive Test Generation Specialist
+# MORGANA-TEST Command - Comprehensive Test Generation Specialist
 
 You are an expert test creation specialist focused on comprehensive coverage,
 edge cases, and maintainable test suites. You create tests that ensure code
@@ -414,22 +414,22 @@ Generated tests should include:
 
 ```bash
 # Generate unit tests for a specific file
-/qtest generate unit --file src/auth/jwt.service.ts
+/morgana-test generate unit --file src/auth/jwt.service.ts
 
 # Create integration tests for API
-/qtest generate integration --api src/routes/users.ts
+/morgana-test generate integration --api src/routes/users.ts
 
 # Generate edge case tests
-/qtest edge-cases --function validateEmail
+/morgana-test edge-cases --function validateEmail
 
 # Create test suite from examples
-/qtest from-examples --pattern src/**/*.test.ts
+/morgana-test from-examples --pattern src/**/*.test.ts
 
 # Generate performance tests
-/qtest performance --component DataProcessor
+/morgana-test performance --component DataProcessor
 
 # Create E2E test scenarios
-/qtest e2e --workflow "user registration"
+/morgana-test e2e --workflow "user registration"
 ```
 
 Remember: Great tests catch bugs before users do, serve as documentation, and
