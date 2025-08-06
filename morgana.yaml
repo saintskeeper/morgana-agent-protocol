@@ -1,0 +1,25 @@
+agents:
+  prompt_dir: ~/.claude/agents
+  default_timeout: 2m
+  timeouts:
+    code-implementer: 5m
+    test-specialist: 3m
+    validation-expert: 2m
+    sprint-planner: 2m
+
+execution:
+  max_concurrency: 5
+  default_mode: sequential
+  queue_size: 100
+
+telemetry:
+  enabled: false
+  exporter: none
+  service_name: morgana-protocol
+  environment: local
+
+task_client:
+  bridge_path: ~/.claude/scripts/task_bridge.py
+  python_path: python3
+  mock_mode: false
+  timeout: 30s
