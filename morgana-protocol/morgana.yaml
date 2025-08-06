@@ -69,6 +69,114 @@ task_client:
 
   # Command execution timeout
   timeout: 5m
+
+# TUI (Terminal User Interface) configuration
+tui:
+  # Enable TUI mode
+  enabled: true
+
+  # Performance configuration
+  performance:
+    # Target refresh rate (e.g., "16ms" for 60fps)
+    refresh_rate: 16ms
+
+    # Maximum log lines to keep in memory
+    max_log_lines: 10000
+
+    # Enable performance optimizations
+    optimized_rendering: true
+
+    # Target FPS (frames per second)
+    target_fps: 60
+
+  # Visual configuration
+  visual:
+    # Color theme configuration
+    theme:
+      # Theme name: dark, light, or custom
+      name: dark
+
+      # Base colors (hex format)
+      primary: "#7C3AED" # Violet
+      secondary: "#06B6D4" # Cyan
+      success: "#10B981" # Emerald
+      warning: "#F59E0B" # Amber
+      error: "#EF4444" # Red
+      info: "#3B82F6" # Blue
+
+      # UI element colors
+      background: "#0F172A" # Slate 900
+      foreground: "#F1F5F9" # Slate 100
+      border: "#334155" # Slate 700
+      highlight: "#1E293B" # Slate 800
+      muted: "#64748B" # Slate 500
+
+      # Progress bar colors
+      progress_bar:
+        complete: "#10B981" # Success color
+        incomplete: "#64748B" # Muted color
+        background: "#334155" # Border color
+
+      # Agent-specific colors
+      agent_colors:
+        code-implementer: "#10B981" # Green
+        sprint-planner: "#3B82F6" # Blue
+        test-specialist: "#F59E0B" # Amber
+        validation-expert: "#EF4444" # Red
+        default: "#64748B" # Slate
+
+    # Show debug information panel
+    show_debug_info: false
+
+    # Show timestamps in logs
+    show_timestamps: true
+
+    # Use compact display mode
+    compact_mode: false
+
+    # Minimum terminal size requirements
+    min_width: 80
+    min_height: 24
+
+  # Feature flags
+  features:
+    # Enable log filtering capabilities
+    enable_filtering: true
+
+    # Enable log search functionality
+    enable_search: true
+
+    # Enable export functionality
+    enable_export: false
+
+    # Enable keyboard shortcuts
+    enable_keyboard_shortcuts: true
+
+    # Enable mouse interaction
+    enable_mouse: true
+
+    # Enable auto-scroll for logs
+    enable_auto_scroll: true
+
+  # Event system configuration
+  events:
+    # Buffer size for event processing
+    buffer_size: 1000
+
+    # Event subscription filters (empty = subscribe to all)
+    subscription_filters: []
+
+    # Enable event batching for performance
+    enable_batching: true
+
+    # Batch size for event processing
+    batch_size: 50
+
+    # Batch timeout for event processing
+    batch_timeout: 100ms
+
+    # Event processing timeout
+    processing_timeout: 5s
 # Environment variable overrides:
 # - MORGANA_AGENT_DIR: Override agents.prompt_dir
 # - MORGANA_MAX_CONCURRENCY: Override execution.max_concurrency
@@ -76,3 +184,10 @@ task_client:
 # - MORGANA_OTEL_ENDPOINT: Override telemetry.otlp_endpoint
 # - MORGANA_BRIDGE_PATH: Override task_client.bridge_path
 # - MORGANA_MOCK_MODE: Set to "true" to enable mock mode
+# - MORGANA_TUI_ENABLED: Set to "true" or "false" to enable/disable TUI
+# - MORGANA_TUI_REFRESH_RATE: Override tui.performance.refresh_rate (e.g., "16ms")
+# - MORGANA_TUI_MAX_LOG_LINES: Override tui.performance.max_log_lines (integer)
+# - MORGANA_TUI_BUFFER_SIZE: Override tui.events.buffer_size (integer)
+# - MORGANA_TUI_THEME: Override tui.visual.theme.name ("dark", "light", "custom")
+# - MORGANA_TUI_COMPACT_MODE: Set to "true" to enable compact display mode
+# - MORGANA_TUI_SHOW_DEBUG: Set to "true" to show debug information
