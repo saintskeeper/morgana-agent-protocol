@@ -3,48 +3,49 @@
 ## Workflow Overview
 
 ```
-1. Plan Sprint    → /qnew-enhanced + /qplan-enhanced
-2. Execute Tasks  → /qdirector-enhanced (orchestrates all below)
-3. Validate Code  → /qcheck-enhanced, /qcheckf-enhanced, /qcheckt-enhanced
-4. Unified Check  → /qvalidate-framework
-5. Commit Changes → /qgit (with pre-commit validation)
+1. Plan Sprint    → /morgana-plan + /morgana-validate
+2. Execute Tasks  → /morgana-director (orchestrates all below)
+3. Validate Code  → /morgana-check, /morgana-check-function, /morgana-check-tests
+4. Unified Check  → /morgana-validate-all
+5. Commit Changes → /morgana-commit (with pre-commit validation)
 ```
 
 ## Command Summary
 
 ### Planning Commands
 
-- **`/qnew-enhanced`** - Generate sprint plans with tasks, dependencies, exit
+- **`/morgana-plan`** - Generate sprint plans with tasks, dependencies, exit
   criteria
-- **`/qplan-enhanced`** - Validate technical feasibility, enrich with codebase
+- **`/morgana-validate`** - Validate technical feasibility, enrich with codebase
   context
 
-### Execution (via QDIRECTOR)
+### Execution (via MORGANA-DIRECTOR)
 
-- **`/qdirector-enhanced`** - Master orchestrator with retry logic and
-  validation
-- **`/qcode`** - Implementation (auto-validates with qcheckf-enhanced)
-- **`/qtest`** - Test generation (auto-validates with qcheckt-enhanced)
+- **`/morgana-director`** - Master orchestrator with retry logic and validation
+- **`/morgana-code`** - Implementation (auto-validates with
+  morgana-check-function)
+- **`/morgana-test`** - Test generation (auto-validates with
+  morgana-check-tests)
 
 ### Validation Commands
 
-- **`/qcheck-enhanced`** - Comprehensive code validation (security, performance,
+- **`/morgana-check`** - Comprehensive code validation (security, performance,
   quality)
-- **`/qcheckf-enhanced`** - Function-level analysis (complexity, design,
+- **`/morgana-check-function`** - Function-level analysis (complexity, design,
   efficiency)
-- **`/qcheckt-enhanced`** - Test quality validation (coverage, patterns,
+- **`/morgana-check-tests`** - Test quality validation (coverage, patterns,
   effectiveness)
-- **`/qvalidate-framework`** - Unified validation orchestration
+- **`/morgana-validate-all`** - Unified validation orchestration
 
 ### Completion
 
-- **`/qgit`** - Semantic commits (runs validation pipeline pre-commit)
+- **`/morgana-commit`** - Semantic commits (runs validation pipeline pre-commit)
 
 ## Key Features
 
 ### Structured Output
 
-All enhanced commands output YAML for QDIRECTOR parsing:
+All enhanced commands output YAML for MORGANA-DIRECTOR parsing:
 
 ```yaml
 validation_report:
@@ -80,13 +81,13 @@ Syntax → Functions → Tests → Integration → Security
 
 ```bash
 # 1. Create sprint plan
-/qnew-enhanced Build secure user authentication with JWT
+/morgana-plan Build secure user authentication with JWT
 
 # 2. Validate and enrich plan
-/qplan-enhanced --sprint sprint-2024-01-auth.md
+/morgana-validate --sprint sprint-2024-01-auth.md
 
 # 3. Execute with director
-/qdirector-enhanced Execute sprint plan in sprint-2024-01-auth.md
+/morgana-director Execute sprint plan in sprint-2024-01-auth.md
 
 # Director automatically:
 # - Spawns agents with enhanced commands
