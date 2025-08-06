@@ -64,7 +64,7 @@ claude /rules-of-theroad
 
 - "✅ Post-checkout hook installed!" after running setup
 - "✅ Hook test complete!" after running the test script
-- Claude responds to slash commands like `/qcheck-enhanced`
+- Claude responds to slash commands like `/morgana-check`
 
 ### What's Next?
 
@@ -78,7 +78,7 @@ claude /rules-of-theroad
 
   ```bash
   # Create a simple utility function with auto-validation
-  /qcode Create a date formatting utility function
+  /morgana-code Create a date formatting utility function
   ```
 
 - **Explore the command reference**: See all available commands with
@@ -96,22 +96,22 @@ your development process.
 
 ### 🎯 Planning & Sprint Management
 
-#### `/qnew-enhanced` - Sprint Planning Generator
+#### `/morgana-plan` - Sprint Planning Generator
 
 **Purpose**: Generate structured sprint plans with clear tasks, dependencies,
-and exit criteria **Usage**: `/qnew-enhanced [project requirements]` **Model**:
+and exit criteria **Usage**: `/morgana-plan [project requirements]` **Model**:
 `gemini-2.5-pro` or `o3` for comprehensive planning **Example**:
 
 ```bash
-/qnew-enhanced Create authentication system with OAuth and JWT
+/morgana-plan Create authentication system with OAuth and JWT
 # Generates: sprint-2024-01-15-authentication.md with 8 prioritized tasks
 ```
 
-#### `/qplan-enhanced` - Technical Validation & Refinement
+#### `/morgana-validate` - Technical Validation & Refinement
 
 **Purpose**: Validate sprint plans against codebase patterns and technical
-feasibility **Usage**: `/qplan-enhanced --sprint [sprint-file]` **Model**: `pro`
-or Claude Opus for analysis **Options**:
+feasibility **Usage**: `/morgana-validate --sprint [sprint-file]` **Model**:
+`pro` or Claude Opus for analysis **Options**:
 
 - `--sprint`: Path to sprint plan file
 - Analyzes code patterns, validates dependencies, identifies risks
@@ -119,14 +119,14 @@ or Claude Opus for analysis **Options**:
 **Example**:
 
 ```bash
-/qplan-enhanced --sprint sprint-2024-01-15-authentication.md
+/morgana-validate --sprint sprint-2024-01-15-authentication.md
 # Output: Enhanced task definitions with codebase context and risk mitigation
 ```
 
-#### `/qdirector-enhanced` - Master Orchestration System
+#### `/morgana-director` - Master Orchestration System
 
 **Purpose**: Orchestrate complex multi-task workflows with intelligent retry and
-validation **Usage**: `/qdirector-enhanced [task description]` **Features**:
+validation **Usage**: `/morgana-director [task description]` **Features**:
 
 - Parallel task execution
 - Automatic validation
@@ -136,16 +136,16 @@ validation **Usage**: `/qdirector-enhanced [task description]` **Features**:
 **Example**:
 
 ```bash
-/qdirector-enhanced build complete authentication system with OAuth, JWT, and 2FA
+/morgana-director build complete authentication system with OAuth, JWT, and 2FA
 # Orchestrates: Sprint planning → Implementation → Testing → Validation
 ```
 
 ### 💻 Development
 
-#### `/qcode` - Code Implementation
+#### `/morgana-code` - Code Implementation
 
 **Purpose**: Implement features following project standards and best practices
-**Usage**: Automatically invoked by QDIRECTOR or used directly **Model**:
+**Usage**: Automatically invoked by MORGANA-DIRECTOR or used directly **Model**:
 Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
 
 - Pre-commit hook execution
@@ -156,14 +156,14 @@ Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
 **Example**:
 
 ```bash
-/qcode implement user profile service with avatar upload
+/morgana-code implement user profile service with avatar upload
 # Runs: pre-commit hooks → implementation → testing → formatting
 ```
 
-#### `/qtest` - Comprehensive Test Generation
+#### `/morgana-test` - Comprehensive Test Generation
 
 **Purpose**: Create thorough test suites with edge case coverage **Usage**:
-`/qtest generate [type] --file [path]` **Model**: `o3-mini` or
+`/morgana-test generate [type] --file [path]` **Model**: `o3-mini` or
 `gemini-2.5-flash` **Options**:
 
 - `unit` - Unit tests for functions/methods
@@ -174,13 +174,13 @@ Complexity-based selection (Claude 3.7 → Claude 4 → GPT-4.1) **Features**:
 **Example**:
 
 ```bash
-/qtest generate unit --file src/auth/jwt.service.ts
+/morgana-test generate unit --file src/auth/jwt.service.ts
 # Creates: Comprehensive unit tests with 90%+ coverage
 ```
 
 ### ✅ Validation & Quality
 
-#### `/qcheck-enhanced` - Comprehensive Code Validation
+#### `/morgana-check` - Comprehensive Code Validation
 
 **Purpose**: Validate code against best practices and security standards
 **Usage**: Automatically triggered after code generation **Output**: Structured
@@ -202,10 +202,11 @@ validation_report:
   ready_for_merge: false
 ```
 
-#### `/qcheckf-enhanced` - Function-Level Validation
+#### `/morgana-check-function` - Function-Level Validation
 
 **Purpose**: Deep analysis of function quality, complexity, and maintainability
-**Usage**: `/qcheckf [function-name]` or `--file [path]` **Metrics**:
+**Usage**: `/morgana-check-function [function-name]` or `--file [path]`
+**Metrics**:
 
 - Cyclomatic complexity (target: ≤10)
 - Line count (target: ≤50)
@@ -215,14 +216,15 @@ validation_report:
 **Example**:
 
 ```bash
-/qcheckf processPayment
+/morgana-check-function processPayment
 # Output: Complexity score: 12, Recommendation: refactor
 ```
 
-#### `/qcheckt-enhanced` - Test Quality Validation
+#### `/morgana-check-tests` - Test Quality Validation
 
 **Purpose**: Ensure tests are comprehensive, maintainable, and effective
-**Usage**: `/qcheckt [test-file]` or `--dir [directory]` **Metrics**:
+**Usage**: `/morgana-check-tests [test-file]` or `--dir [directory]`
+**Metrics**:
 
 - Line coverage (target: ≥80%)
 - Branch coverage (target: ≥75%)
@@ -232,14 +234,15 @@ validation_report:
 **Example**:
 
 ```bash
-/qcheckt PaymentService.test.ts
+/morgana-check-tests PaymentService.test.ts
 # Output: Coverage: 85%, Issues: missing timeout tests
 ```
 
-#### `/qvalidate-framework` - Unified Validation System
+#### `/morgana-validate-all` - Unified Validation System
 
 **Purpose**: Orchestrate all validation commands for comprehensive quality
-assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
+assurance **Usage**: `/morgana-validate-all --mode [quick|standard|deep]`
+**Modes**:
 
 - `quick`: Fast validation for development (~30s)
 - `standard`: Comprehensive pre-commit validation (~2min)
@@ -248,7 +251,7 @@ assurance **Usage**: `/qvalidate --mode [quick|standard|deep]` **Modes**:
 **Example**:
 
 ```bash
-/qvalidate --mode standard --task-id AUTH_IMPL
+/morgana-validate-all --mode standard --task-id AUTH_IMPL
 # Runs: syntax → functions → tests → integration → security
 ```
 
@@ -314,10 +317,10 @@ go test -v -tags=integration -cover ./...
 
 ### 🔧 Utilities
 
-#### `/qgit` - Git Operations
+#### `/morgana-commit` - Git Operations
 
 **Purpose**: Add, commit with semantic messages, and push changes **Usage**:
-`/qgit [commit message]` **Features**:
+`/morgana-commit [commit message]` **Features**:
 
 - Semantic commit format (feat/fix/chore)
 - Pre-commit validation
@@ -326,7 +329,7 @@ go test -v -tags=integration -cover ./...
 **Example**:
 
 ```bash
-/qgit feat: implement JWT authentication service
+/morgana-commit feat: implement JWT authentication service
 # Stages all changes → Creates semantic commit → Pushes to remote
 ```
 
@@ -382,26 +385,26 @@ Commands work together in an intelligent workflow:
 1. **Planning Phase**
 
    ```
-   /qnew-enhanced → /qplan-enhanced → /qdirector-enhanced
+   /morgana-plan → /morgana-validate → /morgana-director
    ```
 
 2. **Implementation Phase**
 
    ```
-   /qcode → automatic /qcheckf-enhanced validation
-   /qtest → automatic /qcheckt-enhanced validation
+   /morgana-code → automatic /morgana-check-function validation
+   /morgana-test → automatic /morgana-check-tests validation
    ```
 
 3. **Validation Phase**
 
    ```
-   /qvalidate-framework orchestrates:
-   → /qcheck-enhanced → /qcheckf-enhanced → /qcheckt-enhanced
+   /morgana-validate-all orchestrates:
+   → /morgana-check → /morgana-check-function → /morgana-check-tests
    ```
 
 4. **Completion Phase**
    ```
-   /qgit with pre-commit /qvalidate-framework
+   /morgana-commit with pre-commit /morgana-validate-all
    ```
 
 ### 🤖 Model Selection Strategy
@@ -423,7 +426,7 @@ Commands automatically select optimal models based on task complexity:
 - **CONSIDER**: Optional improvements (style, minor optimizations)
 
 Each command is designed to work standalone or as part of the orchestrated
-QDIRECTOR workflow, providing flexibility for both automated and manual
+MORGANA-DIRECTOR workflow, providing flexibility for both automated and manual
 development processes.
 
 ### 🧪 Integration Testing
@@ -443,32 +446,32 @@ The Morgana Protocol includes comprehensive integration tests:
 
 ```bash
 # 1. Plan the sprint
-/qnew-enhanced Create user authentication system with JWT
+/morgana-plan Create user authentication system with JWT
 
 # 2. Validate and enrich the plan
-/qplan-enhanced --sprint sprint-2025-01-auth.md
+/morgana-validate --sprint sprint-2025-01-auth.md
 
-# 3. Execute with QDIRECTOR orchestration
-/qdirector-enhanced
+# 3. Execute with MORGANA-DIRECTOR orchestration
+/morgana-director
 - Load sprint plan
 - Execute tasks with automatic retry
 - Validate outputs at each stage
 
 # 4. Commit changes
-/qgit "feat: implement JWT authentication system"
+/morgana-commit "feat: implement JWT authentication system"
 ```
 
 ### Quick Code Review
 
 ```bash
 # For focused file review
-/qcheckf-enhanced auth_service.go
+/morgana-check-function auth_service.go
 
 # For comprehensive validation
-/qvalidate-framework --path ./src/auth/
+/morgana-validate-all --path ./src/auth/
 
 # For security-focused review
-/qcheck-enhanced --focus security
+/morgana-check --focus security
 ```
 
 ### Test Generation Workflow

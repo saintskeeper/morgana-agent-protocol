@@ -1,10 +1,8 @@
-# QCODE Command
+# /qcode Command (Deprecated)
 
-1. Run all pre-commit hooks first
-2. Implement your plan following all DEF-* rules
-3. Ensure new tests pass AND existing tests still pass
-4. For Go: run `go test -race ./...` to check for race conditions
-5. For Next.js: run `npm run typecheck` before any build
-6. Run containerized integration tests if modifying API contracts
-7. Run `prettier` on newly created files
-8. Run `turbo typecheck lint`
+⚠️ **This command has been renamed to `/morgana-code`**
+
+Please update your workflows to use the new command name.
+This alias will be removed in a future version.
+
+[→ Go to /morgana-code](/commands/morgana-code.md)
