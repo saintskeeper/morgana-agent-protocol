@@ -78,16 +78,19 @@ tui:
   # Performance configuration
   performance:
     # Target refresh rate (e.g., "16ms" for 60fps)
-    refresh_rate: 16ms
+    # Reduced to 50ms (20fps) for smoother, less flickery updates
+    refresh_rate: 50ms
 
     # Maximum log lines to keep in memory
-    max_log_lines: 10000
+    # Reduced for better performance
+    max_log_lines: 1000
 
     # Enable performance optimizations
     optimized_rendering: true
 
     # Target FPS (frames per second)
-    target_fps: 60
+    # Reduced for smoother experience
+    target_fps: 20
 
   # Visual configuration
   visual:
