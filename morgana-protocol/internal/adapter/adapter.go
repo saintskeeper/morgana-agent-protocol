@@ -159,7 +159,11 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 	loadSpan.End()
 
+	// Publish successful prompt load event
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "prompt_loaded", "Agent prompt loaded successfully", 0.4, time.Since(startTime)))
+
 	// Select appropriate model based on task context
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "model_selection", "Selecting optimal model", 0.5, time.Since(startTime)))
 	selectedModel := a.modelSelector.SelectModel(task)
 	modelCapabilities := a.modelSelector.GetModelCapabilities(selectedModel)
 
@@ -184,7 +188,8 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 
 	// Execute via Task tool with general-purpose type
-	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "execution", "Executing task with selected model", 0.7, time.Since(startTime)))
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "preparing", "Preparing task execution", 0.6, time.Since(startTime)))
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "execution", fmt.Sprintf("Executing with %s", selectedModel), 0.7, time.Since(startTime)))
 	ctx, execSpan := a.tracer.Start(ctx, "agent.task_execution",
 		trace.WithAttributes(
 			attribute.String("task.type", "general-purpose"),
@@ -193,6 +198,9 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 	result, err := a.taskClient.RunWithContext(ctx, "general-purpose", fullPrompt, options)
 	execTime := time.Since(startTime)
+
+	// Publish completion progress
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "processing", "Processing results", 0.9, execTime))
 	execSpan.SetAttributes(
 		attribute.Int64("execution.duration_ms", execTime.Milliseconds()),
 	)

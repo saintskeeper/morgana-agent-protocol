@@ -2,6 +2,7 @@
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 LDFLAGS := -X main.Version=$(VERSION)
 BINARY := morgana
+MONITOR_BINARY := morgana-monitor
 
 # Go parameters
 GOCMD := go
@@ -12,6 +13,7 @@ GOGET := $(GOCMD) get
 
 # Directories
 CMD_DIR := ./cmd/morgana
+MONITOR_CMD_DIR := ./cmd/morgana-monitor
 DIST_DIR := ./dist
 
 .PHONY: all build test clean deps install dev run help
@@ -37,6 +39,7 @@ help:
 dev:
 	@echo "Building for development..."
 	$(GOBUILD) -ldflags="$(LDFLAGS)" -o $(DIST_DIR)/$(BINARY) $(CMD_DIR)
+	$(GOBUILD) -ldflags="$(LDFLAGS)" -o $(DIST_DIR)/$(MONITOR_BINARY) $(MONITOR_CMD_DIR)
 
 # Build for all platforms
 build: build-darwin build-linux build-windows
@@ -48,6 +51,10 @@ build-darwin:
 		-o $(DIST_DIR)/$(BINARY)-darwin-amd64 $(CMD_DIR)
 	GOOS=darwin GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
 		-o $(DIST_DIR)/$(BINARY)-darwin-arm64 $(CMD_DIR)
+	GOOS=darwin GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-darwin-amd64 $(MONITOR_CMD_DIR)
+	GOOS=darwin GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-darwin-arm64 $(MONITOR_CMD_DIR)
 
 build-linux:
 	@echo "Building for Linux..."
@@ -56,12 +63,18 @@ build-linux:
 		-o $(DIST_DIR)/$(BINARY)-linux-amd64 $(CMD_DIR)
 	GOOS=linux GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
 		-o $(DIST_DIR)/$(BINARY)-linux-arm64 $(CMD_DIR)
+	GOOS=linux GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-linux-amd64 $(MONITOR_CMD_DIR)
+	GOOS=linux GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-linux-arm64 $(MONITOR_CMD_DIR)
 
 build-windows:
 	@echo "Building for Windows..."
 	@mkdir -p $(DIST_DIR)
 	GOOS=windows GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
 		-o $(DIST_DIR)/$(BINARY)-windows-amd64.exe $(CMD_DIR)
+	GOOS=windows GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-windows-amd64.exe $(MONITOR_CMD_DIR)
 
 # Run tests
 test:
@@ -100,8 +113,10 @@ install: dev
 	@echo "Installing to ~/.claude/bin..."
 	@mkdir -p ~/.claude/bin
 	@cp $(DIST_DIR)/$(BINARY) ~/.claude/bin/
+	@cp $(DIST_DIR)/$(MONITOR_BINARY) ~/.claude/bin/
 	@chmod +x ~/.claude/bin/$(BINARY)
-	@echo "Installed to ~/.claude/bin/$(BINARY)"
+	@chmod +x ~/.claude/bin/$(MONITOR_BINARY)
+	@echo "Installed to ~/.claude/bin/$(BINARY) and ~/.claude/bin/$(MONITOR_BINARY)"
 
 # Run example
 run: dev

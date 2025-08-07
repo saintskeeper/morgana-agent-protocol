@@ -9,6 +9,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 // Result represents the output from the Task tool
@@ -177,8 +178,17 @@ func (c *Client) buildCommand(agentType, prompt string, options map[string]inter
 
 // mockResponse returns a mock response for testing
 func (c *Client) mockResponse(agentType, prompt string) *Result {
+	// Add realistic delay to allow TUI to show progress
+	// This simulates actual agent processing time
+	// Vary delay based on prompt length for more realistic simulation
+	baseDelay := 1500 * time.Millisecond
+	extraDelay := time.Duration(len(prompt)*2) * time.Millisecond
+	totalDelay := baseDelay + extraDelay
+
+	time.Sleep(totalDelay)
+
 	return &Result{
-		Output: fmt.Sprintf("[MOCK] Executed %s agent with prompt length: %d", agentType, len(prompt)),
+		Output: fmt.Sprintf("[MOCK] Executed %s agent with prompt length: %d (simulated %dms)", agentType, len(prompt), totalDelay.Milliseconds()),
 	}
 }
 
