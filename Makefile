@@ -43,7 +43,13 @@ status:
 # Attach to running TUI session
 attach:
 	@echo "📺 Attaching to Morgana Monitor TUI..."
-	@~/.claude/scripts/morgana-monitor-ctl.sh attach
+	@if [ -S /tmp/morgana.sock ]; then \
+		echo "🔄 Starting TUI client..."; \
+		morgana-monitor --client; \
+	else \
+		echo "❌ Monitor not running. Run 'make up' first"; \
+		exit 1; \
+	fi
 
 # Show morgana-monitor logs
 logs:

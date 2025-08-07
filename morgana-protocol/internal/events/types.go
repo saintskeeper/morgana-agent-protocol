@@ -145,6 +145,12 @@ type AdapterExecutionEvent struct {
 	Error     string        `json:"error,omitempty"`
 }
 
+// GenericEvent represents a generic event for display purposes
+type GenericEvent struct {
+	BaseEvent
+	Data interface{} `json:"data"`
+}
+
 // NewTaskStartedEvent creates a new task started event
 func NewTaskStartedEvent(ctx context.Context, taskID string, agentType string, prompt string, options map[string]interface{}, retryCount int, modelHint string, complexity string, timeout time.Duration) *TaskStartedEvent {
 	return &TaskStartedEvent{

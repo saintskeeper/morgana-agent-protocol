@@ -8,27 +8,37 @@ import (
 	"net"
 	"os"
 	"sync"
+	"time"
 
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/events"
 )
 
 // IPCServer handles Unix domain socket communication for event forwarding
 type IPCServer struct {
-	socketPath string
-	eventBus   events.EventBus
-	listener   net.Listener
-	mu         sync.Mutex
-	clients    map[net.Conn]bool
-	ctx        context.Context
-	cancel     context.CancelFunc
+	socketPath    string
+	eventBus      events.EventBus
+	listener      net.Listener
+	mu            sync.Mutex
+	clients       map[net.Conn]bool
+	ctx           context.Context
+	cancel        context.CancelFunc
+	eventBuffer   []IPCMessage // Circular buffer for event history
+	bufferMutex   sync.RWMutex // Thread-safe access to event buffer
+	maxBufferSize int          // Maximum size of the circular buffer
+	bufferIndex   int          // Current position in circular buffer
+	bufferCount   int          // Number of events currently in buffer
 }
 
 // NewIPCServer creates a new IPC server instance
 func NewIPCServer(socketPath string, eventBus events.EventBus) *IPCServer {
 	return &IPCServer{
-		socketPath: socketPath,
-		eventBus:   eventBus,
-		clients:    make(map[net.Conn]bool),
+		socketPath:    socketPath,
+		eventBus:      eventBus,
+		clients:       make(map[net.Conn]bool),
+		eventBuffer:   make([]IPCMessage, DefaultEventBufferSize),
+		maxBufferSize: DefaultEventBufferSize,
+		bufferIndex:   0,
+		bufferCount:   0,
 	}
 }
 
@@ -139,14 +149,16 @@ func (s *IPCServer) handleConnection(conn net.Conn) {
 
 	log.Printf("New client connected")
 	decoder := json.NewDecoder(conn)
+	encoder := json.NewEncoder(conn)
 
 	for {
 		select {
 		case <-s.ctx.Done():
 			return
 		default:
-			var msg IPCMessage
-			if err := decoder.Decode(&msg); err != nil {
+			// Try to decode as IPCMessage first
+			var rawMsg json.RawMessage
+			if err := decoder.Decode(&rawMsg); err != nil {
 				// Connection closed or decode error
 				if err.Error() != "EOF" {
 					log.Printf("Error decoding message from client: %v", err)
@@ -154,10 +166,48 @@ func (s *IPCServer) handleConnection(conn net.Conn) {
 				return
 			}
 
-			// Reconstruct and publish the event to the monitor's event bus
-			event := s.reconstructEvent(msg)
-			if event != nil {
-				s.eventBus.PublishAsync(event)
+			// Check if it's a request message
+			var req IPCRequest
+			if err := json.Unmarshal(rawMsg, &req); err == nil && req.Type == MessageTypeRequest {
+				// Handle request
+				if reqType, ok := req.Data["request"].(string); ok && reqType == RequestHistory {
+					log.Printf("Client requested event history")
+					// Send buffered events
+					events := s.getBufferedEvents()
+					replay := IPCReplay{
+						Events: events,
+						Count:  len(events),
+					}
+
+					// Wrap in a message
+					replayMsg := IPCMessage{
+						Type:      MessageTypeReplay,
+						Timestamp: time.Now(),
+						Data:      replay,
+					}
+
+					if err := encoder.Encode(replayMsg); err != nil {
+						log.Printf("Error sending replay to client: %v", err)
+					} else {
+						log.Printf("Sent %d buffered events to client", len(events))
+					}
+				}
+			} else {
+				// Regular event message
+				var msg IPCMessage
+				if err := json.Unmarshal(rawMsg, &msg); err != nil {
+					log.Printf("Error parsing message: %v", err)
+					continue
+				}
+
+				// Add the message to the circular buffer before processing
+				s.addToBuffer(msg)
+
+				// Reconstruct and publish the event to the monitor's event bus
+				event := s.reconstructEvent(msg)
+				if event != nil {
+					s.eventBus.PublishAsync(event)
+				}
 			}
 		}
 	}
@@ -266,4 +316,61 @@ func (s *IPCServer) GetClientCount() int {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	return len(s.clients)
+}
+
+// addToBuffer adds an event to the circular buffer in a thread-safe manner
+func (s *IPCServer) addToBuffer(msg IPCMessage) {
+	s.bufferMutex.Lock()
+	defer s.bufferMutex.Unlock()
+
+	// Add the message to the current buffer position
+	s.eventBuffer[s.bufferIndex] = msg
+
+	// Update buffer index (circular wraparound)
+	s.bufferIndex = (s.bufferIndex + 1) % s.maxBufferSize
+
+	// Update buffer count, capped at maxBufferSize
+	if s.bufferCount < s.maxBufferSize {
+		s.bufferCount++
+	}
+}
+
+// getBufferedEvents returns a copy of all buffered events in chronological order
+func (s *IPCServer) getBufferedEvents() []IPCMessage {
+	s.bufferMutex.RLock()
+	defer s.bufferMutex.RUnlock()
+
+	if s.bufferCount == 0 {
+		return []IPCMessage{}
+	}
+
+	// Create a slice to hold the events in chronological order
+	events := make([]IPCMessage, s.bufferCount)
+
+	if s.bufferCount < s.maxBufferSize {
+		// Buffer is not yet full, events are from 0 to bufferIndex-1
+		copy(events, s.eventBuffer[:s.bufferCount])
+	} else {
+		// Buffer is full, need to wrap around
+		// Oldest event is at bufferIndex, newest is at bufferIndex-1
+		oldestIndex := s.bufferIndex
+
+		// Copy from oldest to end of buffer
+		remainingSlots := s.maxBufferSize - oldestIndex
+		copy(events, s.eventBuffer[oldestIndex:])
+
+		// Copy from beginning of buffer to current position
+		if oldestIndex > 0 {
+			copy(events[remainingSlots:], s.eventBuffer[:oldestIndex])
+		}
+	}
+
+	return events
+}
+
+// GetBufferedEventCount returns the number of events currently in the buffer
+func (s *IPCServer) GetBufferedEventCount() int {
+	s.bufferMutex.RLock()
+	defer s.bufferMutex.RUnlock()
+	return s.bufferCount
 }
