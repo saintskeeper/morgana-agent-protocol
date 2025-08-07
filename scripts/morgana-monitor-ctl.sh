@@ -110,7 +110,8 @@ start_monitor() {
     local monitor_pid=""
     if command -v screen >/dev/null 2>&1; then
         # Start in headless mode first, then can attach with TUI
-        screen -dmS morgana-monitor "$monitor_cmd" --headless
+        # Use bash -c to ensure proper execution in screen
+        screen -dmS morgana-monitor bash -c "$monitor_cmd --headless 2>&1 | tee -a $LOG_FILE"
         # Get screen session PID
         monitor_pid=$(screen -list | grep morgana-monitor | awk '{print $1}' | cut -d. -f1)
         echo "🗺 Started in screen session (headless mode)"
@@ -142,7 +143,7 @@ start_monitor() {
     
     # Wait for socket to be created (increased timeout for TUI initialization)
     local wait_count=0
-    local max_wait=60  # 30 seconds total (60 * 0.5s)
+    local max_wait=20  # 10 seconds total (20 * 0.5s) - reduced from 30s
     echo "⏳ Waiting for socket creation..."
     
     while [ $wait_count -lt $max_wait ]; do
@@ -159,24 +160,56 @@ start_monitor() {
             return 0
         fi
         
+        # Check if process is still running
+        if [ -n "$monitor_pid" ] && ! kill -0 "$monitor_pid" 2>/dev/null; then
+            echo "❌ Monitor process died unexpectedly"
+            echo "📝 Check logs at: $LOG_FILE"
+            tail -n 20 "$LOG_FILE" 2>/dev/null
+            rm -f "$PID_FILE"
+            return 1
+        fi
+        
         # Show progress indicator every 2 seconds
         if [ $((wait_count % 4)) -eq 0 ] && [ $wait_count -gt 0 ]; then
             echo "   ⏳ Still waiting... ($((wait_count / 2))s elapsed)"
+            # Check if monitor is actually running but socket creation failed
+            if pgrep -f "morgana-monitor.*--headless" >/dev/null 2>&1; then
+                echo "   ℹ️  Monitor process is running, but socket not created yet"
+            fi
         fi
         
         sleep 0.5
         wait_count=$((wait_count + 1))
     done
     
-    echo "❌ Failed to start morgana monitor (timeout waiting for socket)"
+    echo "⚠️  Socket creation timeout - attempting direct start..."
     
-    # Clean up failed start
-    if kill -0 "$monitor_pid" 2>/dev/null; then
-        kill "$monitor_pid"
+    # Try starting directly without screen/tmux as fallback
+    echo "🔄 Falling back to direct execution..."
+    pkill -f "morgana-monitor.*--headless" 2>/dev/null
+    sleep 1
+    
+    # Start directly in background
+    nohup "$monitor_cmd" --headless >> "$LOG_FILE" 2>&1 &
+    monitor_pid=$!
+    echo $monitor_pid > "$PID_FILE"
+    
+    # Give it a moment to start
+    sleep 2
+    
+    if [ -S "$SOCKET_PATH" ]; then
+        echo "✅ Monitor started successfully with fallback method (PID: $monitor_pid)"
+        echo "📋 Socket: $SOCKET_PATH"
+        echo "📝 Logs: $LOG_FILE"
+        return 0
+    else
+        echo "❌ Failed to start morgana monitor"
+        echo "📝 Last log entries:"
+        tail -n 20 "$LOG_FILE" 2>/dev/null
+        kill "$monitor_pid" 2>/dev/null
+        rm -f "$PID_FILE"
+        return 1
     fi
-    rm -f "$PID_FILE"
-    
-    return 1
 }
 
 # Stop the monitor daemon

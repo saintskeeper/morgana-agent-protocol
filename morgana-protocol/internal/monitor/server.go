@@ -200,6 +200,9 @@ func (s *IPCServer) handleConnection(conn net.Conn) {
 					continue
 				}
 
+				// Log received event
+				log.Printf("Received event: %s (task: %s)", msg.Type, msg.TaskID)
+
 				// Add the message to the circular buffer before processing
 				s.addToBuffer(msg)
 

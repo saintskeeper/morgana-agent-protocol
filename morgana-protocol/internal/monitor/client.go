@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 	"sync"
 
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/events"
@@ -100,6 +101,9 @@ func (c *IPCClient) forwardEvent(event events.Event) {
 	defer c.mu.Unlock()
 
 	if !c.connected || c.encoder == nil {
+		if os.Getenv("MORGANA_DEBUG") == "true" {
+			log.Printf("Event not forwarded - not connected or no encoder")
+		}
 		return
 	}
 
@@ -109,6 +113,11 @@ func (c *IPCClient) forwardEvent(event events.Event) {
 		TaskID:    event.TaskID(),
 		Timestamp: event.Timestamp(),
 		Data:      event, // Send the entire event as data
+	}
+
+	// Log event forwarding in debug mode
+	if os.Getenv("MORGANA_DEBUG") == "true" {
+		log.Printf("Forwarding event: %s (task: %s)", event.Type(), event.TaskID())
 	}
 
 	// Send message to monitor daemon
