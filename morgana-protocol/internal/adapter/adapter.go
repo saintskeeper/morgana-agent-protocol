@@ -6,6 +6,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/events"
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/prompt"
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/telemetry"
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/pkg/task"
@@ -35,6 +36,7 @@ type Adapter struct {
 	promptLoader   *prompt.Loader
 	taskClient     *task.Client
 	tracer         trace.Tracer
+	eventBus       events.EventBus
 	defaultTimeout time.Duration
 	timeouts       map[string]time.Duration
 	modelSelector  *ModelSelector
@@ -47,10 +49,18 @@ func New(promptLoader *prompt.Loader, taskClient *task.Client, tracer trace.Trac
 		promptLoader:   promptLoader,
 		taskClient:     taskClient,
 		tracer:         tracer,
+		eventBus:       nil, // Will be set via SetEventBus
 		defaultTimeout: 2 * time.Minute,
 		timeouts:       make(map[string]time.Duration),
 		modelSelector:  NewModelSelector(),
 	}
+}
+
+// SetEventBus sets the event bus for publishing events
+func (a *Adapter) SetEventBus(eventBus events.EventBus) {
+	a.mu.Lock()
+	defer a.mu.Unlock()
+	a.eventBus = eventBus
 }
 
 // SetTimeouts configures timeouts from config
@@ -73,6 +83,13 @@ func (a *Adapter) getTimeout(agentType string) time.Duration {
 
 // Execute runs a task with the appropriate agent type
 func (a *Adapter) Execute(ctx context.Context, task Task) Result {
+	// Generate or get task ID
+	taskID := events.GetTaskIDFromContext(ctx)
+	if taskID == "" {
+		taskID = events.GenerateTaskID()
+		ctx = events.SetTaskIDInContext(ctx, taskID)
+	}
+
 	// Create timeout context
 	timeout := a.getTimeout(task.AgentType)
 	ctx, cancel := context.WithTimeout(ctx, timeout)
@@ -96,7 +113,11 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	defer span.End()
 
 	startTime := time.Now()
+
+	// Publish task started event
+	a.publishEvent(events.NewTaskStartedEvent(ctx, taskID, task.AgentType, task.Prompt, task.Options, task.RetryCount, task.ModelHint, task.Complexity, timeout))
 	// Validate agent type
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "validation", "Validating agent type", 0.1, time.Since(startTime)))
 	_, validateSpan := a.tracer.Start(ctx, "agent.validate")
 	validAgents := []string{"code-implementer", "sprint-planner", "test-specialist", "validation-expert"}
 	if !contains(validAgents, task.AgentType) {
@@ -106,6 +127,9 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 		validateSpan.End()
 		span.RecordError(err)
 		span.SetStatus(codes.Error, "Validation failed")
+
+		// Publish task failed event
+		a.publishEvent(events.NewTaskFailedEvent(ctx, taskID, task.AgentType, err.Error(), time.Since(startTime), "validation", task.RetryCount))
 		return Result{
 			Error: err.Error(),
 		}
@@ -114,6 +138,7 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	validateSpan.End()
 
 	// Load agent prompt
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "prompt_load", "Loading agent prompt", 0.3, time.Since(startTime)))
 	ctx, loadSpan := a.tracer.Start(ctx, "agent.load_prompt")
 	agentPrompt, err := a.promptLoader.Load(task.AgentType)
 	if err != nil {
@@ -122,6 +147,9 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 		loadSpan.End()
 		span.RecordError(err)
 		span.SetStatus(codes.Error, "Prompt loading failed")
+
+		// Publish task failed event
+		a.publishEvent(events.NewTaskFailedEvent(ctx, taskID, task.AgentType, fmt.Sprintf("loading agent prompt: %v", err), time.Since(startTime), "prompt_load", task.RetryCount))
 		return Result{
 			Error: fmt.Sprintf("loading agent prompt: %v", err),
 		}
@@ -131,7 +159,11 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 	loadSpan.End()
 
+	// Publish successful prompt load event
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "prompt_loaded", "Agent prompt loaded successfully", 0.4, time.Since(startTime)))
+
 	// Select appropriate model based on task context
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "model_selection", "Selecting optimal model", 0.5, time.Since(startTime)))
 	selectedModel := a.modelSelector.SelectModel(task)
 	modelCapabilities := a.modelSelector.GetModelCapabilities(selectedModel)
 
@@ -156,6 +188,8 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 
 	// Execute via Task tool with general-purpose type
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "preparing", "Preparing task execution", 0.6, time.Since(startTime)))
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "execution", fmt.Sprintf("Executing with %s", selectedModel), 0.7, time.Since(startTime)))
 	ctx, execSpan := a.tracer.Start(ctx, "agent.task_execution",
 		trace.WithAttributes(
 			attribute.String("task.type", "general-purpose"),
@@ -164,6 +198,9 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 	result, err := a.taskClient.RunWithContext(ctx, "general-purpose", fullPrompt, options)
 	execTime := time.Since(startTime)
+
+	// Publish completion progress
+	a.publishEvent(events.NewTaskProgressEvent(ctx, taskID, task.AgentType, "processing", "Processing results", 0.9, execTime))
 	execSpan.SetAttributes(
 		attribute.Int64("execution.duration_ms", execTime.Milliseconds()),
 	)
@@ -177,6 +214,9 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 		span.SetAttributes(
 			telemetry.ResultAttributes(false, 0, execTime.Milliseconds())...,
 		)
+
+		// Publish task failed event
+		a.publishEvent(events.NewTaskFailedEvent(ctx, taskID, task.AgentType, fmt.Sprintf("executing task: %v", err), execTime, "execution", task.RetryCount))
 		return Result{
 			Error: fmt.Sprintf("executing task: %v", err),
 		}
@@ -190,8 +230,22 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 	)
 	span.SetStatus(codes.Ok, "Agent execution completed")
 
+	// Publish task completed event
+	a.publishEvent(events.NewTaskCompletedEvent(ctx, taskID, task.AgentType, result.Output, execTime, selectedModel))
+
 	return Result{
 		Output: result.Output,
+	}
+}
+
+// publishEvent publishes an event to the event bus if available
+func (a *Adapter) publishEvent(event events.Event) {
+	a.mu.RLock()
+	eventBus := a.eventBus
+	a.mu.RUnlock()
+
+	if eventBus != nil {
+		eventBus.PublishAsync(event)
 	}
 }
 

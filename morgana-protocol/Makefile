@@ -2,6 +2,7 @@
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 LDFLAGS := -X main.Version=$(VERSION)
 BINARY := morgana
+MONITOR_BINARY := morgana-monitor
 
 # Go parameters
 GOCMD := go
@@ -12,6 +13,7 @@ GOGET := $(GOCMD) get
 
 # Directories
 CMD_DIR := ./cmd/morgana
+MONITOR_CMD_DIR := ./cmd/morgana-monitor
 DIST_DIR := ./dist
 
 .PHONY: all build test clean deps install dev run help
@@ -23,13 +25,33 @@ all: test build
 help:
 	@echo "Morgana Protocol - Agent Orchestration System"
 	@echo ""
-	@echo "Available targets:"
+	@echo "Build targets:"
 	@echo "  make build       - Build for all platforms"
 	@echo "  make dev         - Build for current platform only"
-	@echo "  make test        - Run all tests"
 	@echo "  make clean       - Clean build artifacts"
+	@echo ""
+	@echo "Install targets:"
+	@echo "  make install     - Install to ~/.claude/bin"
+	@echo "  sudo make install-system - Install to /usr/local/bin"
+	@echo ""
+	@echo "Test targets:"
+	@echo "  make test        - Run unit tests"
+	@echo "  make test-coverage - Run tests with coverage report"
+	@echo "  make test-integration - Run integration tests"
+	@echo "  make test-all    - Run all tests"
+	@echo ""
+	@echo "Monitor targets:"
+	@echo "  make up          - Start monitor in headless mode"
+	@echo "  make down        - Stop monitor daemon"
+	@echo "  make attach      - Attach TUI to running monitor"
+	@echo "  make status      - Check monitor status"
+	@echo "  make monitor     - Build and start monitor"
+	@echo ""
+	@echo "Development targets:"
 	@echo "  make deps        - Download dependencies"
-	@echo "  make install     - Install locally to ~/.claude/bin"
+	@echo "  make fmt         - Format code"
+	@echo "  make lint        - Lint code"
+	@echo "  make mocks       - Generate mocks for testing"
 	@echo "  make run         - Run with example"
 	@echo ""
 
@@ -37,6 +59,7 @@ help:
 dev:
 	@echo "Building for development..."
 	$(GOBUILD) -ldflags="$(LDFLAGS)" -o $(DIST_DIR)/$(BINARY) $(CMD_DIR)
+	$(GOBUILD) -ldflags="$(LDFLAGS)" -o $(DIST_DIR)/$(MONITOR_BINARY) $(MONITOR_CMD_DIR)
 
 # Build for all platforms
 build: build-darwin build-linux build-windows
@@ -48,6 +71,10 @@ build-darwin:
 		-o $(DIST_DIR)/$(BINARY)-darwin-amd64 $(CMD_DIR)
 	GOOS=darwin GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
 		-o $(DIST_DIR)/$(BINARY)-darwin-arm64 $(CMD_DIR)
+	GOOS=darwin GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-darwin-amd64 $(MONITOR_CMD_DIR)
+	GOOS=darwin GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-darwin-arm64 $(MONITOR_CMD_DIR)
 
 build-linux:
 	@echo "Building for Linux..."
@@ -56,12 +83,18 @@ build-linux:
 		-o $(DIST_DIR)/$(BINARY)-linux-amd64 $(CMD_DIR)
 	GOOS=linux GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
 		-o $(DIST_DIR)/$(BINARY)-linux-arm64 $(CMD_DIR)
+	GOOS=linux GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-linux-amd64 $(MONITOR_CMD_DIR)
+	GOOS=linux GOARCH=arm64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-linux-arm64 $(MONITOR_CMD_DIR)
 
 build-windows:
 	@echo "Building for Windows..."
 	@mkdir -p $(DIST_DIR)
 	GOOS=windows GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
 		-o $(DIST_DIR)/$(BINARY)-windows-amd64.exe $(CMD_DIR)
+	GOOS=windows GOARCH=amd64 $(GOBUILD) -ldflags="$(LDFLAGS)" \
+		-o $(DIST_DIR)/$(MONITOR_BINARY)-windows-amd64.exe $(MONITOR_CMD_DIR)
 
 # Run tests
 test:
@@ -100,8 +133,20 @@ install: dev
 	@echo "Installing to ~/.claude/bin..."
 	@mkdir -p ~/.claude/bin
 	@cp $(DIST_DIR)/$(BINARY) ~/.claude/bin/
+	@cp $(DIST_DIR)/$(MONITOR_BINARY) ~/.claude/bin/
 	@chmod +x ~/.claude/bin/$(BINARY)
-	@echo "Installed to ~/.claude/bin/$(BINARY)"
+	@chmod +x ~/.claude/bin/$(MONITOR_BINARY)
+	@echo "Installed to ~/.claude/bin/$(BINARY) and ~/.claude/bin/$(MONITOR_BINARY)"
+
+# Install to /usr/local/bin (requires sudo)
+install-system: dev
+	@echo "Installing to /usr/local/bin (requires sudo)..."
+	@mkdir -p /usr/local/bin
+	@cp $(DIST_DIR)/$(BINARY) /usr/local/bin/
+	@cp $(DIST_DIR)/$(MONITOR_BINARY) /usr/local/bin/
+	@chmod +x /usr/local/bin/$(BINARY)
+	@chmod +x /usr/local/bin/$(MONITOR_BINARY)
+	@echo "Installed to /usr/local/bin/$(BINARY) and /usr/local/bin/$(MONITOR_BINARY)"
 
 # Run example
 run: dev
@@ -129,3 +174,34 @@ mocks:
 	@echo "Generating mocks..."
 	mockgen -source=internal/adapter/adapter.go -destination=internal/adapter/mocks/adapter_mock.go
 	mockgen -source=pkg/task/client.go -destination=pkg/task/mocks/client_mock.go
+
+# Monitor control targets
+up:
+	@echo "🚀 Starting Morgana Monitor in headless mode..."
+	@$(DIST_DIR)/$(MONITOR_BINARY) --headless > /tmp/morgana-monitor.log 2>&1 &
+	@echo "✅ Monitor started (PID: $$!)"
+	@echo "📝 Logs: /tmp/morgana-monitor.log"
+
+down:
+	@echo "🛑 Stopping Morgana Monitor..."
+	@pkill -f $(MONITOR_BINARY) 2>/dev/null || echo "Monitor not running"
+	@rm -f /tmp/morgana.sock
+	@echo "✅ Monitor stopped"
+
+attach:
+	@echo "📺 Attaching to Morgana Monitor TUI..."
+	@echo "   Press Q, Esc, or Ctrl+C to disconnect gracefully"
+	@$(DIST_DIR)/$(MONITOR_BINARY) --client || echo "❌ Failed to attach. Is monitor running? Try 'make up' first"
+	@stty sane 2>/dev/null || true
+
+status:
+	@if pgrep -f $(MONITOR_BINARY) > /dev/null; then \
+		echo "✅ Morgana Monitor is running"; \
+		echo "Socket: /tmp/morgana.sock"; \
+		ls -la /tmp/morgana.sock 2>/dev/null || echo "⚠️  Socket not found"; \
+	else \
+		echo "❌ Morgana Monitor is not running"; \
+	fi
+
+monitor: dev up
+	@echo "Monitor started in headless mode. Use 'make attach' to view TUI"
