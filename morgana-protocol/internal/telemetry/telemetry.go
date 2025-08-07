@@ -181,3 +181,43 @@ func ErrorAttributes(err error) []attribute.KeyValue {
 		attribute.String("error.message", err.Error()),
 	}
 }
+
+// TUIAttributes returns attributes for TUI-related spans
+func TUIAttributes(mode string, layout string, fps float64) []attribute.KeyValue {
+	return []attribute.KeyValue{
+		attribute.String("tui.mode", mode),
+		attribute.String("tui.layout", layout),
+		attribute.Float64("tui.fps", fps),
+		attribute.String("tui.framework", "bubbletea"),
+	}
+}
+
+// EventBusAttributes returns attributes for event bus telemetry
+func EventBusAttributes(eventType string, published int64, dropped int64, queueSize int) []attribute.KeyValue {
+	return []attribute.KeyValue{
+		attribute.String("events.type", eventType),
+		attribute.Int64("events.published", published),
+		attribute.Int64("events.dropped", dropped),
+		attribute.Int("events.queue_size", queueSize),
+		attribute.Float64("events.drop_rate", float64(dropped)/float64(published)*100),
+	}
+}
+
+// PerformanceAttributes returns performance-related attributes
+func PerformanceAttributes(cpuPercent float64, memoryMB float64, throughputPerSec float64) []attribute.KeyValue {
+	return []attribute.KeyValue{
+		attribute.Float64("performance.cpu_percent", cpuPercent),
+		attribute.Float64("performance.memory_mb", memoryMB),
+		attribute.Float64("performance.throughput_per_sec", throughputPerSec),
+	}
+}
+
+// MonitoringAttributes returns monitoring system attributes
+func MonitoringAttributes(componentsActive int, eventsProcessed int64, uptime time.Duration) []attribute.KeyValue {
+	return []attribute.KeyValue{
+		attribute.Int("monitoring.components_active", componentsActive),
+		attribute.Int64("monitoring.events_processed", eventsProcessed),
+		attribute.Int64("monitoring.uptime_seconds", int64(uptime.Seconds())),
+		attribute.String("monitoring.integration", "event-driven"),
+	}
+}
