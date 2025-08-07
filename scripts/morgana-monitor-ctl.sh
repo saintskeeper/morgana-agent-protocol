@@ -109,17 +109,19 @@ start_monitor() {
     # Start monitor with proper terminal support
     local monitor_pid=""
     if command -v screen >/dev/null 2>&1; then
-        # Use screen for proper terminal emulation
-        screen -dmS morgana-monitor "$monitor_cmd"
+        # Start in headless mode first, then can attach with TUI
+        screen -dmS morgana-monitor "$monitor_cmd" --headless
         # Get screen session PID
         monitor_pid=$(screen -list | grep morgana-monitor | awk '{print $1}' | cut -d. -f1)
-        echo "🗺 Started in screen session (use: screen -r morgana-monitor)"
+        echo "🗺 Started in screen session (headless mode)"
+        echo "📺 To view TUI: make attach or screen -r morgana-monitor"
     elif command -v tmux >/dev/null 2>&1; then
-        # Use tmux for proper terminal emulation
-        tmux new-session -d -s morgana-monitor "$monitor_cmd"
+        # Use tmux for proper terminal emulation with headless mode
+        tmux new-session -d -s morgana-monitor "$monitor_cmd" --headless
         # Get tmux session PID
         monitor_pid=$(tmux list-sessions -F '#{session_name} #{pane_pid}' | grep morgana-monitor | awk '{print $2}')
-        echo "🗺 Started in tmux session (use: tmux attach -t morgana-monitor)"
+        echo "🗺 Started in tmux session (headless mode)"
+        echo "📺 To view TUI: make attach or tmux attach -t morgana-monitor"
     else
         # Fallback approaches
         if command -v script >/dev/null 2>&1; then

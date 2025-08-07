@@ -822,6 +822,111 @@ Morgana Agent Protocol
     └── Scripts & Utilities
 ```
 
+### 🔄 Execution Flow with Claude REPL
+
+This diagram shows how Morgana Protocol integrates with a running Claude Code
+session:
+
+```mermaid
+graph TB
+    subgraph "Claude Code Environment"
+        REPL["Claude REPL<br/>(Interactive Session)"]
+        TASK["Task() Function<br/>(Built-in)"]
+    end
+
+    subgraph "User Shell"
+        USER["User Command<br/>$ morgana --agent code-implementer<br/>--prompt 'implement auth'"]
+        WRAPPER["Shell Wrapper<br/>(agent-adapter-wrapper.sh)"]
+    end
+
+    subgraph "Morgana Protocol Core"
+        CLI["morgana CLI<br/>(Go Binary)"]
+        ADAPTER["Adapter<br/>(Agent Type → Task)"]
+        ORCH["Orchestrator<br/>(Sequential/Parallel)"]
+        CLIENT["Task Client<br/>(Go)"]
+    end
+
+    subgraph "Python Bridge Layer"
+        BRIDGE["task_bridge.py<br/>(Python Script)"]
+    end
+
+    subgraph "Event & Monitoring System"
+        EVENTBUS["Event Bus<br/>(5M events/sec)"]
+        IPC["IPC Client<br/>(Unix Socket)"]
+        MONITOR["morgana-monitor<br/>(Daemon Process)"]
+        TUI["TUI Display<br/>(Real-time Updates)"]
+    end
+
+    subgraph "Observability Stack"
+        OTEL["OpenTelemetry<br/>(Tracing)"]
+        JAEGER["Jaeger UI<br/>(:16686)"]
+        PROM["Prometheus<br/>(:9090)"]
+        GRAFANA["Grafana<br/>(:3000)"]
+    end
+
+    %% Main execution flow
+    USER -->|1. Execute| CLI
+    WRAPPER -.->|Source| USER
+    CLI -->|2. Parse & Validate| ADAPTER
+    ADAPTER -->|3. Load Prompt<br/>Template| ADAPTER
+    ADAPTER -->|4. Select Model<br/>(complexity-based)| ADAPTER
+    ADAPTER -->|5. Create Task| ORCH
+    ORCH -->|6. Execute| CLIENT
+    CLIENT -->|7. Shell Out<br/>(JSON via stdin)| BRIDGE
+    BRIDGE -->|8. Call Task()<br/>'general-purpose'| TASK
+    TASK -->|9. Execute in<br/>Claude Code| REPL
+    REPL -->|10. Return Result| TASK
+    TASK -->|11. JSON Response| BRIDGE
+    BRIDGE -->|12. stdout| CLIENT
+    CLIENT -->|13. Parse Result| ORCH
+    ORCH -->|14. Return| ADAPTER
+    ADAPTER -->|15. Output| CLI
+
+    %% Event flow
+    ADAPTER -.->|Publish Events| EVENTBUS
+    ORCH -.->|Task Events| EVENTBUS
+    EVENTBUS -.->|Forward| IPC
+    IPC -.->|Unix Socket<br/>/tmp/morgana.sock| MONITOR
+    MONITOR -.->|Update| TUI
+
+    %% Telemetry flow
+    ADAPTER -.->|Spans| OTEL
+    ORCH -.->|Traces| OTEL
+    OTEL -.->|Export| JAEGER
+    OTEL -.->|Metrics| PROM
+    PROM -.->|Visualize| GRAFANA
+
+    %% Parallel execution branch
+    ORCH -->|Parallel Mode| POOL["Goroutine Pool<br/>(Max 5 concurrent)"]
+    POOL -->|Multiple Tasks| CLIENT
+
+    style REPL fill:#e1f5fe
+    style TASK fill:#e1f5fe
+    style BRIDGE fill:#fff3e0
+    style EVENTBUS fill:#f3e5f5
+    style TUI fill:#f3e5f5
+    style MONITOR fill:#f3e5f5
+```
+
+#### Key Flow Points:
+
+1. **Task Execution Pipeline**: User invokes `morgana` → Go validates & loads
+   agent template → Shells to Python bridge → Calls Claude's Task() → Returns
+   result
+
+2. **Python Bridge (Current Bottleneck)**: Each task spawns new Python process
+   with JSON serialization overhead. Acceptable for current use but limits
+   high-frequency operations.
+
+3. **Event System**: Real-time event bus forwards to monitor daemon via Unix
+   socket, enabling live TUI updates across multiple instances.
+
+4. **Observability**: Full OpenTelemetry tracing with Jaeger UI, Prometheus
+   metrics, and Grafana dashboards for comprehensive monitoring.
+
+5. **Parallel Execution**: Goroutine pool (default 5) manages concurrent tasks,
+   each still requiring separate Python process.
+
 ---
 
 _Built with ❤️ for the Morgana Agent Protocol community_

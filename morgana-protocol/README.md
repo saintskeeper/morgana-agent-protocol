@@ -150,6 +150,8 @@ make test-all
 
 ## Monitoring
 
+### Distributed Tracing
+
 Start the monitoring stack to visualize agent execution:
 
 ```bash
@@ -161,6 +163,90 @@ docker-compose up -d
 # - Grafana: http://localhost:3000
 # - Prometheus: http://localhost:9090
 ```
+
+### TUI Monitor
+
+Morgana includes a built-in Terminal User Interface (TUI) for real-time
+monitoring of agent execution with event buffering and replay capabilities.
+
+#### Starting the Monitor
+
+```bash
+# Build the monitor
+make dev
+
+# Start monitor in headless mode (runs as daemon)
+make up
+
+# Check monitor status
+make status
+
+# Attach TUI client to view events
+make attach
+
+# Stop the monitor
+make down
+```
+
+#### Event Buffering & Replay
+
+The monitor features a circular event buffer that stores the last 1000 events in
+memory. This enables:
+
+- **Late-joining clients**: Connect to a running monitor and receive historical
+  events
+- **No data loss**: Events are buffered even when no TUI is attached
+- **Headless operation**: Monitor runs as a daemon, collecting events for later
+  viewing
+- **Multiple clients**: Multiple TUI clients can connect and receive the same
+  event stream
+
+#### Architecture
+
+```
+┌─────────────┐     Unix Socket      ┌──────────────┐
+│   Morgana   │ ──────────────────> │   Monitor    │
+│   Process   │     (IPC Client)     │   Daemon     │
+└─────────────┘                      │              │
+                                     │ ┌──────────┐ │
+                                     │ │  Event   │ │
+                                     │ │  Buffer  │ │
+                                     │ │ (1000)   │ │
+                                     │ └──────────┘ │
+                                     └──────────────┘
+                                            │
+                                      Unix Socket
+                                            │
+                                     ┌──────────────┐
+                                     │  TUI Client  │
+                                     │   (attach)   │
+                                     └──────────────┘
+```
+
+#### Usage Examples
+
+```bash
+# Start monitor and run parallel tasks
+make up
+echo '[
+  {"agent_type":"code-implementer","prompt":"Task 1"},
+  {"agent_type":"test-specialist","prompt":"Task 2"}
+]' | ./dist/morgana --parallel
+
+# Later, attach to see what happened
+make attach  # Will show buffered events from earlier execution
+```
+
+#### Protocol Details
+
+The monitor implements a request/response protocol over Unix sockets:
+
+- **Event forwarding**: Real-time event streaming from Morgana processes
+- **History request**: Clients send
+  `{"type":"request","data":{"request":"history"}}`
+- **Replay response**: Server sends buffered events with
+  `{"type":"replay","data":{"events":[...]}}`
+- **Live streaming**: After replay, clients receive new events in real-time
 
 ## Development
 
