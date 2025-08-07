@@ -192,6 +192,7 @@ attach:
 	@echo "📺 Attaching to Morgana Monitor TUI..."
 	@echo "   Press Q, Esc, or Ctrl+C to disconnect gracefully"
 	@$(DIST_DIR)/$(MONITOR_BINARY) --client || echo "❌ Failed to attach. Is monitor running? Try 'make up' first"
+	@stty sane 2>/dev/null || true
 
 status:
 	@if pgrep -f $(MONITOR_BINARY) > /dev/null; then \
