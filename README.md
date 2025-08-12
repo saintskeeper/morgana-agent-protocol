@@ -28,10 +28,13 @@ cd ~/.claude
 # 2. Build and install
 make install-user  # No sudo required, installs to ~/.claude/bin
 
-# 3. Test installation
+# 3. Add to PATH (if needed)
+export PATH=$HOME/.claude/bin:$PATH  # Add to ~/.zshrc or ~/.bashrc
+
+# 4. Test installation
 make test  # Runs a test agent
 
-# 4. Your first agent execution
+# 5. Your first agent execution
 morgana -- --agent code-implementer --prompt "Create a REST API endpoint"
 ```
 

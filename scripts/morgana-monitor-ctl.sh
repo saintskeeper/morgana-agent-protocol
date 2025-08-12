@@ -110,15 +110,15 @@ start_monitor() {
     local monitor_pid=""
     if command -v screen >/dev/null 2>&1; then
         # CRITICAL: Always force headless mode when using screen to prevent TUI attempts
-        # The --headless flag MUST be present to avoid terminal detection issues
-        screen -dmS morgana-monitor bash -c "exec $monitor_cmd --headless >> $LOG_FILE 2>&1"
+        # The -headless flag MUST be present to avoid terminal detection issues
+        screen -dmS morgana-monitor bash -c "exec $monitor_cmd -headless >> $LOG_FILE 2>&1"
         # Get screen session PID
         monitor_pid=$(screen -list | grep morgana-monitor | awk '{print $1}' | cut -d. -f1)
         echo "🗺 Started in screen session (headless mode)"
         echo "📺 To view TUI: make attach or screen -r morgana-monitor"
     elif command -v tmux >/dev/null 2>&1; then
         # Use tmux for proper terminal emulation with headless mode
-        tmux new-session -d -s morgana-monitor "$monitor_cmd --headless"
+        tmux new-session -d -s morgana-monitor "$monitor_cmd -headless"
         # Get tmux session PID
         monitor_pid=$(tmux list-sessions -F '#{session_name} #{pane_pid}' | grep morgana-monitor | awk '{print $2}')
         echo "🗺 Started in tmux session (headless mode)"
@@ -173,7 +173,7 @@ start_monitor() {
         if [ $((wait_count % 4)) -eq 0 ] && [ $wait_count -gt 0 ]; then
             echo "   ⏳ Still waiting... ($((wait_count / 2))s elapsed)"
             # Check if monitor is actually running but socket creation failed
-            if pgrep -f "morgana-monitor.*--headless" >/dev/null 2>&1; then
+            if pgrep -f "morgana-monitor.*-headless" >/dev/null 2>&1; then
                 echo "   ℹ️  Monitor process is running, but socket not created yet"
             fi
         fi
@@ -186,11 +186,11 @@ start_monitor() {
     
     # Try starting directly without screen/tmux as fallback
     echo "🔄 Falling back to direct execution..."
-    pkill -f "morgana-monitor.*--headless" 2>/dev/null
+    pkill -f "morgana-monitor.*-headless" 2>/dev/null
     sleep 1
     
     # Start directly in background
-    nohup "$monitor_cmd" --headless >> "$LOG_FILE" 2>&1 &
+    nohup "$monitor_cmd" -headless >> "$LOG_FILE" 2>&1 &
     monitor_pid=$!
     echo $monitor_pid > "$PID_FILE"
     

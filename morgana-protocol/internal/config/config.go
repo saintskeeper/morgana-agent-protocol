@@ -22,8 +22,7 @@ type Config struct {
 	// Telemetry configuration
 	Telemetry TelemetryConfig `yaml:"telemetry"`
 
-	// Task client configuration
-	TaskClient TaskClientConfig `yaml:"task_client"`
+	// Task client configuration removed - replaced with simple event stream logger
 
 	// TUI configuration
 	TUI TUIConfig `yaml:"tui"`
@@ -77,20 +76,7 @@ type TelemetryConfig struct {
 	SamplingRate float64 `yaml:"sampling_rate"`
 }
 
-// TaskClientConfig holds task client configuration
-type TaskClientConfig struct {
-	// Python bridge script path
-	BridgePath string `yaml:"bridge_path"`
-
-	// Python executable path
-	PythonPath string `yaml:"python_path"`
-
-	// Enable mock mode
-	MockMode bool `yaml:"mock_mode"`
-
-	// Command timeout
-	Timeout time.Duration `yaml:"timeout"`
-}
+// TaskClientConfig removed - IPC bridge functionality has been replaced with simple event stream logger
 
 // RetryConfig holds retry configuration
 type RetryConfig struct {
@@ -268,12 +254,7 @@ func DefaultConfig() *Config {
 			Environment:  "production",
 			SamplingRate: 0.1,
 		},
-		TaskClient: TaskClientConfig{
-			BridgePath: "", // Auto-discover
-			PythonPath: "python3",
-			MockMode:   false,
-			Timeout:    5 * time.Minute,
-		},
+		// TaskClient configuration removed - replaced with simple event stream logger
 		TUI: TUIConfig{
 			Enabled: true,
 			Performance: TUIPerformanceConfig{
@@ -384,13 +365,7 @@ func (c *Config) applyEnvOverrides() {
 		c.Telemetry.OTLPEndpoint = endpoint
 	}
 
-	// Task client overrides
-	if bridge := os.Getenv("MORGANA_BRIDGE_PATH"); bridge != "" {
-		c.TaskClient.BridgePath = bridge
-	}
-	if mock := os.Getenv("MORGANA_MOCK_MODE"); mock == "true" {
-		c.TaskClient.MockMode = true
-	}
+	// Task client overrides removed - IPC bridge functionality has been replaced with simple event stream logger
 
 	// TUI overrides
 	if enabled := os.Getenv("MORGANA_TUI_ENABLED"); enabled != "" {
