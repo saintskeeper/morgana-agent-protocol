@@ -38,7 +38,17 @@ help:
 	@echo "  make test        - Run unit tests"
 	@echo "  make test-coverage - Run tests with coverage report"
 	@echo "  make test-integration - Run integration tests"
+	@echo "  make test-integration-coverage - Run integration tests with coverage"
 	@echo "  make test-all    - Run all tests"
+	@echo ""
+	@echo "Integration test suites:"
+	@echo "  make test-events - Event stream tests"
+	@echo "  make test-tui    - TUI integration tests"  
+	@echo "  make test-monitor - Monitor system tests"
+	@echo "  make test-commands - Command polling tests"
+	@echo "  make test-resources - Resource leak tests"
+	@echo "  make test-suite  - Complete integration suite"
+	@echo "  make test-performance - Performance validation tests"
 	@echo ""
 	@echo "Monitor targets:"
 	@echo "  make up          - Start monitor in headless mode"
@@ -111,7 +121,44 @@ test-coverage:
 # Run integration tests
 test-integration:
 	@echo "Running integration tests..."
-	$(GOTEST) -v -tags=integration ./...
+	$(GOTEST) -v -tags=integration -timeout=30m ./tests/integration
+
+# Run integration tests with coverage
+test-integration-coverage:
+	@echo "Running integration tests with coverage..."
+	$(GOTEST) -v -tags=integration -timeout=30m -coverprofile=integration-coverage.out ./tests/integration
+	$(GOCMD) tool cover -html=integration-coverage.out -o integration-coverage.html
+	@echo "Integration coverage report generated: integration-coverage.html"
+
+# Run specific integration test suites
+test-events:
+	@echo "Running event stream integration tests..."
+	$(GOTEST) -v -tags=integration -run TestEventStream ./tests/integration
+
+test-tui:
+	@echo "Running TUI integration tests..."
+	$(GOTEST) -v -tags=integration -run TestTUI ./tests/integration
+
+test-monitor:
+	@echo "Running monitor integration tests..."
+	$(GOTEST) -v -tags=integration -run TestMonitor ./tests/integration
+
+test-commands:
+	@echo "Running command polling tests..."
+	$(GOTEST) -v -tags=integration -run TestCommand ./tests/integration
+
+test-resources:
+	@echo "Running resource leak tests..."
+	$(GOTEST) -v -tags=integration -run TestResource ./tests/integration
+
+test-suite:
+	@echo "Running comprehensive integration suite..."
+	$(GOTEST) -v -tags=integration -run TestMorganaIntegrationSuite ./tests/integration
+
+# Run performance validation tests only
+test-performance:
+	@echo "Running performance validation tests..."
+	$(GOTEST) -v -tags=integration -run Performance ./tests/integration
 
 # Run all tests including integration
 test-all: test test-integration
