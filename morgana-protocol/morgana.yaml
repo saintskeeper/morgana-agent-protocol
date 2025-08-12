@@ -57,20 +57,6 @@ telemetry:
   sampling_rate: 0.1
 
 # Task client configuration
-task_client:
-  # Path to Python bridge script (auto-discovered if empty)
-  bridge_path: ""
-
-  # Python executable to use
-  python_path: python3
-
-  # Enable mock mode (for testing without Claude Code)
-  mock_mode: false
-
-  # Command execution timeout
-  timeout: 5m
-
-# TUI (Terminal User Interface) configuration
 tui:
   # Enable TUI mode
   enabled: true

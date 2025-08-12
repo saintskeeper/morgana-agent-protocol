@@ -176,6 +176,7 @@ const (
 	ComponentDashboard ComponentType = iota
 	ComponentLogs
 	ComponentStatus
+	ComponentStatistics
 	ComponentHelp
 )
 
