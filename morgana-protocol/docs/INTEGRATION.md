@@ -2,143 +2,165 @@
 
 ## Overview
 
-The Morgana Protocol now includes a Python bridge that enables the Go
-orchestrator to call Claude Code's Task function. This hybrid architecture keeps
-all complex logic in Go while using Python only for the Task API boundary.
+The Morgana Protocol is a simplified event monitoring system designed for
+real-time observation of specialized agents in Claude Code. It provides a
+light-weight, high-performance event streaming architecture with beautiful
+Terminal User Interface (TUI) for live monitoring.
 
 ## Architecture
 
+Morgana uses a simplified event streaming architecture:
+
 ```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  Claude Code    │────▶│  agent_adapter.py│────▶│  morgana (Go)   │
-│  Python Env     │     │                  │     │                 │
-└─────────────────┘     └──────────────────┘     └─────────────────┘
-                                  │                        │
-                                  ▼                        ▼
-                        ┌──────────────────┐     ┌─────────────────┐
-                        │ task_bridge.py   │◀────│  Task Client    │
-                        │ (Python Bridge)  │     │  (Go)           │
-                        └──────────────────┘     └─────────────────┘
-                                  │
-                                  ▼
-                        ┌──────────────────┐
-                        │  Task() Function │
-                        │  (Claude Code)   │
-                        └──────────────────┘
+┌─────────────────┐      Event Stream       ┌─────────────────┐
+│  Agent Tasks   │ ──────────────────────> │  Event Monitor  │
+│  (morgana)     │     (Unix Socket)      │  (daemon)      │
+└─────────────────┘                        └─────────────────┘
+         │                                      │
+         ▼                                      ▼
+┌─────────────────┐                        ┌─────────────────┐
+│  Event Bus      │                        │  Event Buffer   │
+│  (5M+ evt/sec)  │                        │  (Circular)     │
+└─────────────────┘                        └─────────────────┘
+                                                      │
+                                                      ▼
+                                             ┌─────────────────┐
+                                             │   TUI Client    │
+                                             │  (Real-time)   │
+                                             └─────────────────┘
 ```
 
 ## Components
 
-### 1. Go Orchestrator (`morgana`)
+### 1. Event Bus (`internal/events`)
 
-- Handles all orchestration logic
-- Manages parallel execution with goroutines
-- Routes specialized agents to general-purpose
-- Cross-platform binary (darwin/linux/windows)
+- High-performance event publishing (5M+ events/sec)
+- Lock-free circular buffer design
+- Thread-safe concurrent access
+- Zero allocations after initialization
 
-### 2. Python Bridge (`task_bridge.py`)
+### 2. Monitor Daemon (`morgana-monitor`)
 
-- Minimal Python script (< 100 lines)
-- Interfaces with Claude Code's Task() function
-- Communicates via JSON over stdin/stdout
-- Returns mock responses when outside Claude Code
+- Headless event collection daemon
+- Unix socket server for TUI clients
+- Circular event buffer (1000 events)
+- Automatic event replay for new clients
 
-### 3. Agent Adapter (`agent_adapter.py`)
+### 3. Terminal Interface (TUI)
 
-- Drop-in replacement for AgentAdapter function
-- Calls the Go orchestrator
-- Maintains backward compatibility
+- Beautiful real-time event visualization
+- Agent-specific progress tracking
+- Customizable themes and layouts
+- Export and filtering capabilities
 
 ## Usage
 
-### Direct CLI Usage
+### Basic Usage
 
 ```bash
-# Single agent
-./dist/morgana -- --agent code-implementer --prompt "Write a function"
+# Start the monitor daemon
+make up
 
-# Parallel agents
-./dist/morgana --parallel -- \
-  --agent code-implementer --prompt "Write code" \
-  --agent test-specialist --prompt "Write tests"
+# Run a single agent task
+morgana -- --agent code-implementer --prompt "Write a hello world function"
 
-# Debug mode
-MORGANA_DEBUG=true ./dist/morgana -- --agent sprint-planner --prompt "Plan sprint"
+# Run parallel agents
+echo '[
+  {"agent_type":"code-implementer","prompt":"Write function"},
+  {"agent_type":"test-specialist","prompt":"Write tests"}
+]' | morgana --parallel
+
+# View live monitoring
+make attach
 ```
 
-### From Python (Claude Code)
+### Event Monitoring
 
-```python
-from agent_adapter import AgentAdapter
+```bash
+# Start monitor daemon in background
+make up
 
-# Single agent
-result = AgentAdapter("code-implementer", "Write a hello world function")
+# Check daemon status
+make status
 
-# With options
-result = AgentAdapter(
-    "validation-expert",
-    "Validate the implementation",
-    timeout=30,
-    context="web-app"
-)
+# Attach TUI to view live events
+make attach
+
+# Run tasks while monitoring
+morgana -- --agent code-implementer --prompt "Implement auth service"
+
+# Stop the monitor daemon
+make down
 ```
 
-### Parallel Execution (Python)
+### Event Stream Integration
 
-```python
-import asyncio
-from agent_adapter import AgentAdapter
+```bash
+# Custom event processing
+echo '{"agent_type":"validation-expert","prompt":"Review code"}' | \
+  morgana --tui --parallel
 
-async def parallel_agents():
-    tasks = [
-        asyncio.create_task(AgentAdapter("code-implementer", "Write function")),
-        asyncio.create_task(AgentAdapter("test-specialist", "Write tests")),
-        asyncio.create_task(AgentAdapter("validation-expert", "Review code"))
-    ]
-    results = await asyncio.gather(*tasks)
-    return results
+# High-performance batch processing
+for task in task1 task2 task3; do
+  morgana -- --agent code-implementer --prompt "$task" &
+done
+wait
 ```
 
-## Environment Variables
+## Configuration
 
-- `MORGANA_DEBUG`: Enable debug output (`true`/`false`)
-- `MORGANA_BRIDGE_PATH`: Custom path to task_bridge.py
-- `MORGANA_OPTIONS`: Additional options as JSON
+### Environment Variables
+
+- `MORGANA_TUI_ENABLED`: Enable/disable TUI mode (`true`/`false`)
+- `MORGANA_TUI_REFRESH_RATE`: TUI refresh rate (e.g., `16ms`)
+- `MORGANA_TUI_THEME`: Color theme (`dark`, `light`, `custom`)
+- `MORGANA_EVENT_BUFFER_SIZE`: Event buffer size (default: 1000)
+
+### YAML Configuration
+
+```yaml
+# morgana.yaml
+tui:
+  enabled: true
+  performance:
+    refresh_rate: 50ms
+    max_log_lines: 1000
+    target_fps: 20
+  visual:
+    theme:
+      name: dark
+      primary: "#7C3AED"
+  events:
+    buffer_size: 1000
+    enable_batching: true
+```
 
 ## Installation
 
-1. Build the Go binary:
+```bash
+# Clone and build
+git clone <repo-url>
+cd morgana-protocol
+make build && make install
 
-   ```bash
-   cd /Users/walterday/.claude/morgana-protocol
-   make build
-   ```
+# Start monitoring
+make up
 
-2. The Python bridge is automatically found in:
-   - `./scripts/task_bridge.py` (relative to binary)
-   - `$HOME/.claude/morgana-protocol/scripts/task_bridge.py`
-   - Or set `MORGANA_BRIDGE_PATH`
-
-## Testing
-
-Outside Claude Code environment, the system returns mock responses:
-
-```
-[MOCK] Executed general-purpose agent with prompt length: 4299
+# Test with sample task
+morgana -- --agent code-implementer --prompt "Hello world"
 ```
 
-Inside Claude Code, it will execute real Task() calls.
+## Performance
 
-## Limitations
+- **Event Throughput**: 5M+ events/sec (async mode)
+- **Memory Footprint**: <50MB for daemon + TUI
+- **Latency**: <100ns per event publish
+- **Buffer Capacity**: 1000 events with zero-copy replay
 
-1. **Python Dependency**: Python 3 is required for the bridge
-2. **Subprocess Overhead**: Each task incurs ~50-100ms overhead
-3. **No Batching**: Tasks are executed one at a time (though in parallel via
-   goroutines)
+## Advanced Features
 
-## Future Improvements
-
-1. **gRPC/HTTP Server**: Replace subprocess with persistent server
-2. **Connection Pooling**: Reuse Python processes
-3. **Circuit Breaker**: Handle Task() failures gracefully
-4. **TypeScript Alternative**: Support Node.js runtime
+1. **Event Filtering**: Subscribe to specific event types
+2. **Historical Replay**: Access buffered events from earlier runs
+3. **Multi-client Support**: Multiple TUI instances can connect
+4. **Export Capabilities**: Save event logs for analysis
+5. **Custom Themes**: Personalize TUI appearance

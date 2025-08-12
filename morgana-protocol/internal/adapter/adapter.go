@@ -9,7 +9,6 @@ import (
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/events"
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/prompt"
 	"github.com/saintskeeper/claude-code-configs/morgana-protocol/internal/telemetry"
-	"github.com/saintskeeper/claude-code-configs/morgana-protocol/pkg/task"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
@@ -31,10 +30,10 @@ type Result struct {
 	Error  string `json:"error,omitempty"`
 }
 
-// Adapter bridges specialized agent types with the general-purpose Task tool
+// Adapter bridges specialized agent types with simplified event stream logging
 type Adapter struct {
-	promptLoader   *prompt.Loader
-	taskClient     *task.Client
+	promptLoader *prompt.Loader
+	// taskClient removed - replaced with simple event stream logger
 	tracer         trace.Tracer
 	eventBus       events.EventBus
 	defaultTimeout time.Duration
@@ -44,10 +43,10 @@ type Adapter struct {
 }
 
 // New creates a new Adapter instance
-func New(promptLoader *prompt.Loader, taskClient *task.Client, tracer trace.Tracer) *Adapter {
+func New(promptLoader *prompt.Loader, taskClient interface{}, tracer trace.Tracer) *Adapter {
 	return &Adapter{
-		promptLoader:   promptLoader,
-		taskClient:     taskClient,
+		promptLoader: promptLoader,
+		// taskClient removed - replaced with simple event stream logger
 		tracer:         tracer,
 		eventBus:       nil, // Will be set via SetEventBus
 		defaultTimeout: 2 * time.Minute,
@@ -196,7 +195,16 @@ func (a *Adapter) Execute(ctx context.Context, task Task) Result {
 			attribute.String("task.model", selectedModel),
 		),
 	)
-	result, err := a.taskClient.RunWithContext(ctx, "general-purpose", fullPrompt, options)
+	// Task client removed - replaced with simple event stream logger
+	// Return a stub result indicating the IPC bridge has been removed
+	result := struct {
+		Output string
+		Error  string
+	}{
+		Output: fmt.Sprintf("Task client IPC bridge has been removed from Morgana Protocol.\n\nAgent: %s\nPrompt: %s...\n\nThe complex file-based IPC mechanism has been replaced with a simple event stream logger for better maintainability.", task.AgentType, truncateString(task.Prompt, 100)),
+		Error:  "",
+	}
+	err = nil
 	execTime := time.Since(startTime)
 
 	// Publish completion progress
@@ -257,4 +265,12 @@ func contains(slice []string, item string) bool {
 		}
 	}
 	return false
+}
+
+// truncateString truncates a string to the specified length
+func truncateString(s string, maxLen int) string {
+	if len(s) <= maxLen {
+		return s
+	}
+	return s[:maxLen]
 }

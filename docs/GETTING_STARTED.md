@@ -37,11 +37,15 @@ This will:
 - Set up executable permissions
 - Verify installation
 
-### Step 3: Source the Shell Functions
+### Step 3: Add to PATH and Source Functions
 
 Add to your shell profile (`~/.zshrc` or `~/.bashrc`):
 
 ```bash
+# Add Morgana to PATH
+export PATH=$HOME/.claude/bin:$PATH
+
+# Source agent adapter functions
 source ~/.claude/scripts/agent-adapter-wrapper.sh
 ```
 

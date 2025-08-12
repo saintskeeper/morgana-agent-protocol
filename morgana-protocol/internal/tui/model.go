@@ -25,8 +25,10 @@ type Model struct {
 	state *ModelState
 
 	// UI Components
-	dashboard *StatusDashboard
-	logViewer *LogViewer
+	dashboard  *StatusDashboard
+	logViewer  *LogViewer
+	statsPanel *StatisticsPanel
+	statistics *ExecutionStatistics
 
 	// Layout and interaction
 	focused  ComponentType
@@ -46,10 +48,11 @@ type Model struct {
 type LayoutType int
 
 const (
-	LayoutSplit     LayoutType = iota // Dashboard top, logs bottom
-	LayoutDashboard                   // Dashboard only
-	LayoutLogs                        // Logs only
-	LayoutHelp                        // Help screen
+	LayoutSplit      LayoutType = iota // Dashboard top, logs bottom
+	LayoutDashboard                    // Dashboard only
+	LayoutLogs                         // Logs only
+	LayoutStatistics                   // Statistics only
+	LayoutHelp                         // Help screen
 )
 
 // KeyBindings defines keyboard shortcuts
@@ -60,6 +63,7 @@ type KeyBindings struct {
 	ScrollDown   []string
 	ToggleLayout []string
 	ShowHelp     []string
+	ShowStats    []string
 	Filter       []string
 	Search       []string
 	ClearFilter  []string
@@ -74,6 +78,7 @@ func DefaultKeyBindings() *KeyBindings {
 		ScrollDown:   []string{"down", "j"},
 		ToggleLayout: []string{"l", "space"},
 		ShowHelp:     []string{"h", "?"},
+		ShowStats:    []string{"s"},
 		Filter:       []string{"f"},
 		Search:       []string{"/"},
 		ClearFilter:  []string{"c"},
@@ -82,9 +87,13 @@ func DefaultKeyBindings() *KeyBindings {
 
 // NewModel creates a new TUI model
 func NewModel(ctx context.Context, eventBus events.EventBus, config TUIConfig) *Model {
+	// Initialize statistics tracking
+	statistics := NewExecutionStatistics(100) // Keep 100 history snapshots
+
 	// Initialize components
 	dashboard := NewStatusDashboard(config.Theme)
 	logViewer := NewLogViewer(config.Theme, config.ShowTimeStamps)
+	statsPanel := NewStatisticsPanel(statistics, config.Theme)
 
 	// Initialize state
 	state := &ModelState{
@@ -100,17 +109,19 @@ func NewModel(ctx context.Context, eventBus events.EventBus, config TUIConfig) *
 	dashboard.Focus()
 
 	model := &Model{
-		config:    config,
-		ctx:       ctx,
-		eventBus:  eventBus,
-		processor: NewEventProcessor(config),
-		state:     state,
-		dashboard: dashboard,
-		logViewer: logViewer,
-		focused:   ComponentDashboard,
-		layout:    LayoutSplit,
-		keybinds:  DefaultKeyBindings(),
-		startTime: time.Now(),
+		config:     config,
+		ctx:        ctx,
+		eventBus:   eventBus,
+		processor:  NewEventProcessor(config),
+		state:      state,
+		dashboard:  dashboard,
+		logViewer:  logViewer,
+		statsPanel: statsPanel,
+		statistics: statistics,
+		focused:    ComponentDashboard,
+		layout:     LayoutSplit,
+		keybinds:   DefaultKeyBindings(),
+		startTime:  time.Now(),
 	}
 
 	// Create and start event bridge
@@ -166,6 +177,15 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if logViewer, updated := m.logViewer.Update(msg); updated {
 			m.logViewer = logViewer.(*LogViewer)
 		}
+		if statsPanel, updated := m.statsPanel.Update(msg); updated {
+			m.statsPanel = statsPanel.(*StatisticsPanel)
+		}
+
+		// Take periodic statistics snapshots (every 10 seconds)
+		elapsed := time.Since(m.startTime)
+		if int(elapsed.Seconds())%10 == 0 && elapsed.Milliseconds()%1000 < 100 {
+			m.statistics.TakeSnapshot()
+		}
 
 	case tea.QuitMsg:
 		// Handle quit message
@@ -193,6 +213,8 @@ func (m *Model) View() string {
 		return m.renderDashboardOnly()
 	case LayoutLogs:
 		return m.renderLogsOnly()
+	case LayoutStatistics:
+		return m.renderStatisticsOnly()
 	case LayoutHelp:
 		return m.renderHelp()
 	default: // LayoutSplit
@@ -238,6 +260,22 @@ func (m *Model) handleKeyPress(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		}
 	}
 
+	// Check for statistics keys
+	for _, statsKey := range m.keybinds.ShowStats {
+		if key == statsKey {
+			if m.layout == LayoutStatistics {
+				m.layout = LayoutSplit
+			} else {
+				m.layout = LayoutStatistics
+				m.focused = ComponentStatistics
+				m.statsPanel.Focus()
+				m.dashboard.Blur()
+				m.logViewer.Blur()
+			}
+			return m, nil
+		}
+	}
+
 	// Check for layout toggle
 	for _, layoutKey := range m.keybinds.ToggleLayout {
 		if key == layoutKey {
@@ -265,6 +303,8 @@ func (m *Model) handleKeyPress(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		return m.handleLogViewerKeys(key)
 	case ComponentDashboard:
 		return m.handleDashboardKeys(key)
+	case ComponentStatistics:
+		return m.handleStatisticsKeys(key)
 	}
 
 	return m, nil
@@ -338,10 +378,55 @@ func (m *Model) handleDashboardKeys(key string) (tea.Model, tea.Cmd) {
 	return m, nil
 }
 
+// handleStatisticsKeys handles keys specific to the statistics panel
+func (m *Model) handleStatisticsKeys(key string) (tea.Model, tea.Cmd) {
+	// Scroll up
+	for _, scrollKey := range m.keybinds.ScrollUp {
+		if key == scrollKey {
+			m.statsPanel.ScrollUp(1)
+			return m, nil
+		}
+	}
+
+	// Scroll down
+	for _, scrollKey := range m.keybinds.ScrollDown {
+		if key == scrollKey {
+			m.statsPanel.ScrollDown(1)
+			return m, nil
+		}
+	}
+
+	// Page up/down
+	if key == "pgup" {
+		m.statsPanel.ScrollUp(10)
+		return m, nil
+	}
+	if key == "pgdown" {
+		m.statsPanel.ScrollDown(10)
+		return m, nil
+	}
+
+	// Pass key to statistics panel for internal navigation
+	if updated, changed := m.statsPanel.Update(key); changed {
+		m.statsPanel = updated.(*StatisticsPanel)
+		return m, nil
+	}
+
+	return m, nil
+}
+
 // processEvent processes events from the event bridge
 func (m *Model) processEvent(eventMsg EventMessage) {
 	// Update state using the event processor
 	m.processor.ProcessEvent(eventMsg.Event, m.state)
+
+	// Update statistics tracking
+	if eventMsg.Event != nil {
+		m.statistics.ProcessEvent(eventMsg.Event)
+		// Update statistics panel with new data
+		stats, agentStats := m.statistics.GetStatistics()
+		m.statsPanel.SetData(stats, agentStats)
+	}
 
 	// Update component data
 	m.dashboard.SetData(m.state.TaskStates, m.state.StatusInfo)
@@ -412,6 +497,8 @@ func (m *Model) switchFocus() {
 		m.dashboard.Blur()
 	case ComponentLogs:
 		m.logViewer.Blur()
+	case ComponentStatistics:
+		m.statsPanel.Blur()
 	}
 
 	// Switch to next component
@@ -428,6 +515,8 @@ func (m *Model) switchFocus() {
 		// Only dashboard, no switching
 	case LayoutLogs:
 		// Only logs, no switching
+	case LayoutStatistics:
+		// Only statistics, no switching
 	}
 }
 
@@ -439,16 +528,25 @@ func (m *Model) toggleLayout() {
 		m.focused = ComponentDashboard
 		m.dashboard.Focus()
 		m.logViewer.Blur()
+		m.statsPanel.Blur()
 	case LayoutDashboard:
 		m.layout = LayoutLogs
 		m.focused = ComponentLogs
 		m.logViewer.Focus()
 		m.dashboard.Blur()
+		m.statsPanel.Blur()
 	case LayoutLogs:
+		m.layout = LayoutStatistics
+		m.focused = ComponentStatistics
+		m.statsPanel.Focus()
+		m.dashboard.Blur()
+		m.logViewer.Blur()
+	case LayoutStatistics:
 		m.layout = LayoutSplit
 		m.focused = ComponentDashboard
 		m.dashboard.Focus()
 		m.logViewer.Blur()
+		m.statsPanel.Blur()
 	}
 }
 
@@ -546,6 +644,27 @@ func (m *Model) renderLogsOnly() string {
 	)
 }
 
+// renderStatisticsOnly renders only the statistics
+func (m *Model) renderStatisticsOnly() string {
+	width := m.state.Width
+	height := m.state.Height
+
+	headerHeight := 1
+	statusBarHeight := 1
+	availableHeight := height - headerHeight - statusBarHeight
+
+	header := m.renderHeader(width)
+	statsView := m.statsPanel.Render(width, availableHeight, m.config.Theme)
+	statusBar := m.renderStatusBar(width)
+
+	return lipgloss.JoinVertical(
+		lipgloss.Left,
+		header,
+		statsView,
+		statusBar,
+	)
+}
+
 // renderHelp renders the help screen
 func (m *Model) renderHelp() string {
 	width := m.state.Width
@@ -561,6 +680,7 @@ func (m *Model) renderHelp() string {
 	help.WriteString("Navigation:\n")
 	help.WriteString("  Tab/Shift+Tab  - Switch between components\n")
 	help.WriteString("  Space/L        - Toggle layout mode\n")
+	help.WriteString("  S              - Show/hide statistics view\n")
 	help.WriteString("  H/?            - Show/hide this help\n")
 	help.WriteString("  Q/Ctrl+C/Esc   - Quit application\n\n")
 
@@ -571,10 +691,17 @@ func (m *Model) renderHelp() string {
 	help.WriteString("  F              - Cycle through filters\n")
 	help.WriteString("  C              - Clear current filter\n\n")
 
+	help.WriteString("Statistics (when focused):\n")
+	help.WriteString("  ↑/K, ↓/J       - Scroll up/down one line\n")
+	help.WriteString("  PgUp/PgDn      - Scroll up/down one page\n")
+	help.WriteString("  S              - Toggle detailed view\n")
+	help.WriteString("  B              - Back to overview (in detail)\n\n")
+
 	help.WriteString("Layout Modes:\n")
 	help.WriteString("  Split          - Dashboard + Logs (default)\n")
 	help.WriteString("  Dashboard Only - Agent status cards only\n")
-	help.WriteString("  Logs Only      - Log viewer only\n\n")
+	help.WriteString("  Logs Only      - Log viewer only\n")
+	help.WriteString("  Statistics     - Execution statistics view\n\n")
 
 	help.WriteString("Features:\n")
 	help.WriteString("  • Real-time agent execution tracking\n")
@@ -582,6 +709,9 @@ func (m *Model) renderHelp() string {
 	help.WriteString("  • Animated progress bars\n")
 	help.WriteString("  • Log filtering and search\n")
 	help.WriteString("  • Performance monitoring\n")
+	help.WriteString("  • Execution statistics and metrics\n")
+	help.WriteString("  • Success/failure rate tracking\n")
+	help.WriteString("  • Performance trend analysis\n")
 	help.WriteString("  • Responsive terminal resizing\n\n")
 
 	help.WriteString("Press H or ? to return to the main view")
@@ -664,6 +794,8 @@ func (m *Model) getLayoutString() string {
 		return "Dashboard"
 	case LayoutLogs:
 		return "Logs"
+	case LayoutStatistics:
+		return "Statistics"
 	case LayoutHelp:
 		return "Help"
 	default:
@@ -680,6 +812,8 @@ func (m *Model) getFocusString() string {
 		return "Logs"
 	case ComponentStatus:
 		return "Status"
+	case ComponentStatistics:
+		return "Statistics"
 	case ComponentHelp:
 		return "Help"
 	default:
