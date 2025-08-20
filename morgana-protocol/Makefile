@@ -220,18 +220,16 @@ lint:
 mocks:
 	@echo "Generating mocks..."
 	mockgen -source=internal/adapter/adapter.go -destination=internal/adapter/mocks/adapter_mock.go
-	mockgen -source=pkg/task/client.go -destination=pkg/task/mocks/client_mock.go
+	# Task client removed - using event stream instead
 
 # Monitor control targets
 up:
-	@echo "🚀 Starting Morgana Monitor in headless mode..."
-	@$(DIST_DIR)/$(MONITOR_BINARY) --headless > /tmp/morgana-monitor.log 2>&1 &
-	@echo "✅ Monitor started (PID: $$!)"
-	@echo "📝 Logs: /tmp/morgana-monitor.log"
+	@echo "🚀 Starting Morgana Monitor..."
+	@~/.claude/scripts/morgana-monitor-ctl.sh start
 
 down:
 	@echo "🛑 Stopping Morgana Monitor..."
-	@pkill -f $(MONITOR_BINARY) 2>/dev/null || echo "Monitor not running"
+	@~/.claude/scripts/morgana-monitor-ctl.sh stop
 	@rm -f /tmp/morgana.sock
 	@echo "✅ Monitor stopped"
 

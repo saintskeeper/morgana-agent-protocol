@@ -100,16 +100,22 @@ install-user: build
 # Clean build artifacts and stop services
 clean: down
 	@echo "🧹 Cleaning up..."
-	@# Kill all morgana-monitor processes
+	@# Kill all morgana-monitor processes (including any stuck ones)
 	@pkill -f morgana-monitor 2>/dev/null || true
-	@# Clean up screen sessions
+	@# Kill any processes holding the socket
+	@lsof -t /tmp/morgana.sock 2>/dev/null | xargs -r kill -9 2>/dev/null || true
+	@# Clean up any leftover screen sessions (legacy)
 	@screen -S morgana-monitor -X quit 2>/dev/null || true
-	@# Clean up tmux sessions
+	@screen -wipe 2>/dev/null || true
+	@# Clean up any leftover tmux sessions (legacy)
 	@tmux kill-session -t morgana-monitor 2>/dev/null || true
-	@# Remove artifacts
-	@cd morgana-protocol && make clean
-	@rm -f /tmp/morgana.sock /tmp/morgana-monitor.pid /tmp/morgana-monitor.log
-	@echo "✅ Cleanup complete - all morgana-monitor instances killed"
+	@# Remove all temporary files and artifacts
+	@rm -f /tmp/morgana.sock /tmp/morgana-monitor.pid /tmp/morgana-monitor.log /tmp/morgana-monitor.log.old
+	@# Clean morgana-protocol artifacts
+	@cd morgana-protocol && make clean 2>/dev/null || true
+	@# Kill any orphaned login processes from screen
+	@pkill -f "login.*morgana-monitor" 2>/dev/null || true
+	@echo "✅ Cleanup complete - all processes and artifacts removed"
 
 # Run a test agent to verify system
 test:
