@@ -96,78 +96,46 @@ mkdir -p ~/.claude/bin
 # Check if we're in the right directory
 if [ -d "morgana-protocol" ]; then
     echo "  Found morgana-protocol directory"
-    
+
     # Build Morgana with enhanced model selection
     echo "  Building Morgana with model selection support..."
     cd morgana-protocol
-    
+
     # Clean and update dependencies
     go clean
     go mod tidy
-    
+
     # Build with version tag
     go build -ldflags "-X main.Version=v1.2.0-model-selection" -o dist/morgana ./cmd/morgana
     cd ..
-    
+
     # Install Morgana binary
     if [ -f "morgana-protocol/dist/morgana" ]; then
         echo "  Installing Morgana binary..."
         cp morgana-protocol/dist/morgana ~/.claude/bin/
         chmod +x ~/.claude/bin/morgana
-        
+
         # Verify installation
         ~/.claude/bin/morgana --version
     else
         echo "  ❌ Failed to build Morgana binary"
     fi
-    
+
     # Copy scripts
     echo "  Installing helper scripts..."
     [ -f "scripts/agent-adapter-wrapper.sh" ] && cp scripts/agent-adapter-wrapper.sh ~/.claude/scripts/
     [ -f "scripts/agent_adapter.py" ] && cp scripts/agent_adapter.py ~/.claude/scripts/
     [ -f "morgana-protocol/scripts/task_bridge.py" ] && cp morgana-protocol/scripts/task_bridge.py ~/.claude/scripts/
-    
+
     # Make scripts executable
     chmod +x ~/.claude/scripts/*.sh ~/.claude/scripts/*.py 2>/dev/null
-    
+
     # Create default Morgana config if it doesn't exist
     if [ ! -f "~/.claude/morgana.yaml" ]; then
         echo "  Creating default Morgana configuration with model selection..."
         cat > ~/.claude/morgana.yaml << 'MORGANA_CONFIG'
-# Morgana Protocol Configuration with Model Selection Support
-agents:
-  prompt_dir: ~/.claude/agents
-  default_timeout: 2m
-  timeouts:
-    code-implementer: 5m    # Code generation might take longer
-    test-specialist: 3m     # Test generation is usually faster
-    validation-expert: 2m   # Validation is typically quick
-    sprint-planner: 2m      # Planning should be fast
-
-execution:
-  max_concurrency: 5
-  default_mode: sequential
-  queue_size: 100
-
-telemetry:
-  enabled: true           # Enable to track model usage
-  exporter: stdout        # stdout for local development
-  service_name: morgana-protocol
-  environment: local
-  sampling_rate: 0.1      # 10% sampling for local dev
-
-task_client:
-  bridge_path: ~/.claude/scripts/task_bridge.py
-  python_path: python3
-  mock_mode: false
-  timeout: 5m             # Increased for complex model operations
-
-# Model Selection Configuration (built into agents)
-# Default: claude-3-7-sonnet-20250219 (token-efficient)
-# Escalation rules are defined in individual agent files
-MORGANA_CONFIG
     fi
-    
+
     echo "✅ Morgana Protocol setup complete!"
 else
     echo "⚠️  morgana-protocol directory not found - skipping Morgana setup"

@@ -37,37 +37,23 @@ find_monitor_binary() {
 is_monitor_running() {
     local pid=""
     
-    # Check screen session first
-    if command -v screen >/dev/null 2>&1 && screen -list | grep -q morgana-monitor; then
-        # Get screen session PID and update PID file
-        pid=$(screen -list | grep morgana-monitor | awk '{print $1}' | cut -d. -f1)
-        if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
-            echo "$pid" > "$PID_FILE"
-            return 0
-        fi
-    fi
-    
-    # Check tmux session
-    if command -v tmux >/dev/null 2>&1 && tmux has-session -t morgana-monitor 2>/dev/null; then
-        # Get tmux session PID and update PID file
-        pid=$(tmux list-sessions -F '#{session_name} #{pane_pid}' | grep morgana-monitor | awk '{print $2}')
-        if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
-            echo "$pid" > "$PID_FILE"
-            return 0
-        fi
-    fi
-    
     # Check if PID file exists and process is running
     if [ -f "$PID_FILE" ]; then
         pid=$(cat "$PID_FILE")
         if kill -0 "$pid" 2>/dev/null; then
-            # Process is running, check if socket is responsive
-            if [ -S "$SOCKET_PATH" ]; then
-                return 0
-            fi
+            # Process is running
+            return 0
         fi
         # Clean up stale PID file
         rm -f "$PID_FILE"
+    fi
+    
+    # Check for any morgana-monitor process
+    pid=$(pgrep -f "morgana-monitor.*-headless" | head -1)
+    if [ -n "$pid" ]; then
+        # Found a running monitor, update PID file
+        echo "$pid" > "$PID_FILE"
+        return 0
     fi
     
     # Check for socket without PID file (manual start)
@@ -100,113 +86,69 @@ start_monitor() {
     
     echo "🚀 Starting morgana monitor daemon..."
     
+    # Clean up any stale socket/pid files
+    rm -f "$SOCKET_PATH" "$PID_FILE"
+    
     # Remove old log if it's too large (>10MB)
     if [ -f "$LOG_FILE" ] && [ $(stat -f%z "$LOG_FILE" 2>/dev/null || echo 0) -gt 10485760 ]; then
         echo "📝 Rotating large log file"
         mv "$LOG_FILE" "${LOG_FILE}.old"
     fi
     
-    # Start monitor with proper terminal support
-    local monitor_pid=""
-    if command -v screen >/dev/null 2>&1; then
-        # CRITICAL: Always force headless mode when using screen to prevent TUI attempts
-        # The -headless flag MUST be present to avoid terminal detection issues
-        screen -dmS morgana-monitor bash -c "exec $monitor_cmd -headless >> $LOG_FILE 2>&1"
-        # Get screen session PID
-        monitor_pid=$(screen -list | grep morgana-monitor | awk '{print $1}' | cut -d. -f1)
-        echo "🗺 Started in screen session (headless mode)"
-        echo "📺 To view TUI: make attach or screen -r morgana-monitor"
-    elif command -v tmux >/dev/null 2>&1; then
-        # Use tmux for proper terminal emulation with headless mode
-        tmux new-session -d -s morgana-monitor "$monitor_cmd -headless"
-        # Get tmux session PID
-        monitor_pid=$(tmux list-sessions -F '#{session_name} #{pane_pid}' | grep morgana-monitor | awk '{print $2}')
-        echo "🗺 Started in tmux session (headless mode)"
-        echo "📺 To view TUI: make attach or tmux attach -t morgana-monitor"
-    else
-        # Fallback approaches
-        if command -v script >/dev/null 2>&1; then
-            echo "📝 Using script for pseudo-terminal"
-            script -q "$LOG_FILE" "$monitor_cmd" &
-            monitor_pid=$!
-        else
-            echo "⚠️  No screen/tmux available, using TERM workaround"
-            TERM=xterm-256color nohup "$monitor_cmd" >> "$LOG_FILE" 2>&1 &
-            monitor_pid=$!
-        fi
+    # Start monitor directly with nohup (simpler and more reliable than screen/tmux)
+    echo "🔧 Starting monitor in background (headless mode)..."
+    nohup "$monitor_cmd" -headless >> "$LOG_FILE" 2>&1 &
+    local monitor_pid=$!
+    
+    # Store PID immediately
+    echo $monitor_pid > "$PID_FILE"
+    
+    # Check if process started successfully
+    sleep 0.5
+    if ! kill -0 "$monitor_pid" 2>/dev/null; then
+        echo "❌ Failed to start monitor process"
+        echo "📝 Check logs at: $LOG_FILE"
+        tail -n 10 "$LOG_FILE" 2>/dev/null
+        rm -f "$PID_FILE"
+        return 1
     fi
     
-    # Store PID
-    if [ -n "$monitor_pid" ]; then
-        echo $monitor_pid > "$PID_FILE"
-    fi
-    
-    # Wait for socket to be created (increased timeout for TUI initialization)
+    # Wait for socket to be created (with shorter timeout)
     local wait_count=0
-    local max_wait=20  # 10 seconds total (20 * 0.5s) - reduced from 30s
+    local max_wait=10  # 5 seconds total (10 * 0.5s)
     echo "⏳ Waiting for socket creation..."
     
     while [ $wait_count -lt $max_wait ]; do
         if [ -S "$SOCKET_PATH" ]; then
             echo "✅ Morgana monitor started successfully (PID: $monitor_pid)"
             echo "📋 Socket: $SOCKET_PATH"
-            if command -v screen >/dev/null 2>&1 && screen -list | grep -q morgana-monitor; then
-                echo "🗺️ Session: screen -r morgana-monitor (to view TUI)"
-            elif command -v tmux >/dev/null 2>&1 && tmux has-session -t morgana-monitor 2>/dev/null; then
-                echo "🗺️ Session: tmux attach -t morgana-monitor (to view TUI)"
-            else
-                echo "📝 Logs: $LOG_FILE"
-            fi
+            echo "📝 Logs: tail -f $LOG_FILE"
             return 0
         fi
         
         # Check if process is still running
-        if [ -n "$monitor_pid" ] && ! kill -0 "$monitor_pid" 2>/dev/null; then
+        if ! kill -0 "$monitor_pid" 2>/dev/null; then
             echo "❌ Monitor process died unexpectedly"
-            echo "📝 Check logs at: $LOG_FILE"
+            echo "📝 Last log entries:"
             tail -n 20 "$LOG_FILE" 2>/dev/null
             rm -f "$PID_FILE"
             return 1
-        fi
-        
-        # Show progress indicator every 2 seconds
-        if [ $((wait_count % 4)) -eq 0 ] && [ $wait_count -gt 0 ]; then
-            echo "   ⏳ Still waiting... ($((wait_count / 2))s elapsed)"
-            # Check if monitor is actually running but socket creation failed
-            if pgrep -f "morgana-monitor.*-headless" >/dev/null 2>&1; then
-                echo "   ℹ️  Monitor process is running, but socket not created yet"
-            fi
         fi
         
         sleep 0.5
         wait_count=$((wait_count + 1))
     done
     
-    echo "⚠️  Socket creation timeout - attempting direct start..."
-    
-    # Try starting directly without screen/tmux as fallback
-    echo "🔄 Falling back to direct execution..."
-    pkill -f "morgana-monitor.*-headless" 2>/dev/null
-    sleep 1
-    
-    # Start directly in background
-    nohup "$monitor_cmd" -headless >> "$LOG_FILE" 2>&1 &
-    monitor_pid=$!
-    echo $monitor_pid > "$PID_FILE"
-    
-    # Give it a moment to start
-    sleep 2
-    
-    if [ -S "$SOCKET_PATH" ]; then
-        echo "✅ Monitor started successfully with fallback method (PID: $monitor_pid)"
-        echo "📋 Socket: $SOCKET_PATH"
-        echo "📝 Logs: $LOG_FILE"
+    # If socket still doesn't exist but process is running, it might be okay
+    if kill -0 "$monitor_pid" 2>/dev/null; then
+        echo "⚠️  Monitor is running (PID: $monitor_pid) but socket not yet created"
+        echo "📝 The monitor may still be initializing. Check logs: tail -f $LOG_FILE"
+        echo "📋 Expected socket path: $SOCKET_PATH"
         return 0
     else
         echo "❌ Failed to start morgana monitor"
         echo "📝 Last log entries:"
         tail -n 20 "$LOG_FILE" 2>/dev/null
-        kill "$monitor_pid" 2>/dev/null
         rm -f "$PID_FILE"
         return 1
     fi
@@ -216,13 +158,7 @@ start_monitor() {
 stop_monitor() {
     if ! is_monitor_running; then
         echo "ℹ️  Morgana monitor is not running"
-        # Clean up any leftover sessions
-        if command -v screen >/dev/null 2>&1 && screen -list | grep -q morgana-monitor; then
-            screen -S morgana-monitor -X quit 2>/dev/null
-        fi
-        if command -v tmux >/dev/null 2>&1 && tmux has-session -t morgana-monitor 2>/dev/null; then
-            tmux kill-session -t morgana-monitor 2>/dev/null
-        fi
+        # Clean up any stale files
         rm -f "$PID_FILE" "$SOCKET_PATH"
         return 0
     fi
@@ -230,32 +166,22 @@ stop_monitor() {
     local pid=$(cat "$PID_FILE")
     echo "🛑 Stopping morgana monitor (PID: $pid)..."
     
-    # Stop screen session if it exists
-    if command -v screen >/dev/null 2>&1 && screen -list | grep -q morgana-monitor; then
-        echo "🗺 Stopping screen session..."
-        screen -S morgana-monitor -X quit
-    # Stop tmux session if it exists
-    elif command -v tmux >/dev/null 2>&1 && tmux has-session -t morgana-monitor 2>/dev/null; then
-        echo "🗺 Stopping tmux session..."
-        tmux kill-session -t morgana-monitor
-    else
-        # Send TERM signal for graceful shutdown
-        if kill -TERM "$pid" 2>/dev/null; then
-            # Wait for graceful shutdown
-            local wait_count=0
-            while [ $wait_count -lt 10 ]; do
-                if ! kill -0 "$pid" 2>/dev/null; then
-                    break
-                fi
-                sleep 0.5
-                wait_count=$((wait_count + 1))
-            done
-            
-            # Force kill if still running
-            if kill -0 "$pid" 2>/dev/null; then
-                echo "⚡ Force stopping monitor..."
-                kill -KILL "$pid" 2>/dev/null
+    # Send TERM signal for graceful shutdown
+    if kill -TERM "$pid" 2>/dev/null; then
+        # Wait for graceful shutdown
+        local wait_count=0
+        while [ $wait_count -lt 10 ]; do
+            if ! kill -0 "$pid" 2>/dev/null; then
+                break
             fi
+            sleep 0.5
+            wait_count=$((wait_count + 1))
+        done
+        
+        # Force kill if still running
+        if kill -0 "$pid" 2>/dev/null; then
+            echo "⚡ Force stopping monitor..."
+            kill -KILL "$pid" 2>/dev/null
         fi
     fi
     
@@ -285,30 +211,13 @@ status_monitor() {
     fi
 }
 
-# Attach to monitor logs or TUI session
+# Attach to monitor logs
 attach_monitor() {
     if ! is_monitor_running; then
         echo "❌ Morgana monitor is not running"
         return 1
     fi
     
-    # Try to attach to screen session first
-    if command -v screen >/dev/null 2>&1 && screen -list | grep -q morgana-monitor; then
-        echo "🗺️ Attaching to screen session with TUI..."
-        echo "ℹ️  Use Ctrl+A, D to detach from session"
-        screen -r morgana-monitor
-        return 0
-    fi
-    
-    # Try to attach to tmux session
-    if command -v tmux >/dev/null 2>&1 && tmux has-session -t morgana-monitor 2>/dev/null; then
-        echo "🗺️ Attaching to tmux session with TUI..."
-        echo "ℹ️  Use Ctrl+B, D to detach from session"
-        tmux attach -t morgana-monitor
-        return 0
-    fi
-    
-    # Fallback to log tailing if no session available
     if [ ! -f "$LOG_FILE" ]; then
         echo "❌ Log file not found: $LOG_FILE"
         return 1
