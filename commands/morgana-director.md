@@ -8,161 +8,7 @@ intelligent context sharing, and human-in-the-loop validation.
 
 ### Morgana Protocol Integration
 
-The MORGANA-DIRECTOR system leverages the **Morgana Protocol** for true parallel
-agent execution with Go-based concurrency, OpenTelemetry tracing, and
-comprehensive integration testing.
-
-```bash
-# AgentAdapter function for shell/markdown use
-function AgentAdapter() {
-    local agent_type="$1"
-    local prompt="$2"
-    shift 2
-    local additional_args="$@"
-
-    # Use Morgana Protocol for agent execution
-    morgana -- --agent "$agent_type" --prompt "$prompt" $additional_args
-}
-
-# For parallel execution of multiple agents
-function AgentAdapterParallel() {
-    # Accepts JSON array of tasks via stdin
-    morgana --parallel
-}
-```
-
-### Python Adapter (for backward compatibility)
-
-```python
-def AgentAdapter(agent_type, prompt, **kwargs):
-    """
-    Adapter to execute specialized agents via Morgana Protocol.
-
-    This function now uses the Morgana binary for agent execution,
-    providing true parallel execution, timeout handling, and telemetry.
-
-    Args:
-        agent_type (str): One of the specialized agent types
-        prompt (str): The task-specific prompt
-        **kwargs: Additional parameters (timeout, options, etc.)
-
-    Returns:
-        Task result with specialized agent context
-    """
-    import subprocess
-    import json
-    import logging
-    import time
-    import os
-
-    # Configure logging
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - AgentAdapter - %(levelname)s - %(message)s')
-    logger = logging.getLogger('AgentAdapter')
-
-    start_time = time.time()
-
-    # Log the incoming request
-    logger.info(f"Agent request received: type='{agent_type}', prompt_length={len(prompt)}")
-
-    # Validate agent type
-    available_agents = ["code-implementer", "sprint-planner", "test-specialist", "validation-expert"]
-    if agent_type not in available_agents:
-        logger.error(f"Unknown agent type: {agent_type}. Available: {available_agents}")
-        raise ValueError(f"Unknown agent type: {agent_type}")
-
-    try:
-        # Prepare Morgana command
-        morgana_path = os.path.expanduser("~/.claude/bin/morgana")
-        if not os.path.exists(morgana_path):
-            morgana_path = "morgana"  # Fallback to PATH
-
-        # Build command arguments
-        cmd = [
-            morgana_path,
-            "--",
-            "--agent", agent_type,
-            "--prompt", prompt
-        ]
-
-        # Add optional parameters
-        if "timeout" in kwargs:
-            cmd.extend(["--timeout", str(kwargs["timeout"])])
-
-        if "options" in kwargs:
-            cmd.extend(["--options", json.dumps(kwargs["options"])])
-
-        logger.debug(f"Executing Morgana command: {' '.join(cmd)}")
-
-        # Execute Morgana
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            check=True
-        )
-
-        # Parse JSON output
-        output = json.loads(result.stdout)
-
-        execution_time = time.time() - start_time
-        logger.info(f"Agent completed successfully: agent='{agent_type}', execution_time={execution_time:.2f}s")
-
-        return output
-
-    except subprocess.CalledProcessError as e:
-        execution_time = time.time() - start_time
-        logger.error(f"Morgana execution failed: {e.stderr}")
-        logger.error(f"Agent failed: agent='{agent_type}', execution_time={execution_time:.2f}s")
-        raise RuntimeError(f"Agent execution failed: {e.stderr}")
-
-    except json.JSONDecodeError as e:
-        logger.error(f"Failed to parse Morgana output: {e}")
-        raise RuntimeError(f"Invalid agent output format")
-
-    except Exception as e:
-        execution_time = time.time() - start_time
-        logger.error(f"Agent adapter failed: agent='{agent_type}', error='{str(e)}', execution_time={execution_time:.2f}s")
-        raise
-```
-
 ### Parallel Execution with Morgana
-
-For parallel agent execution, use the Morgana Protocol's native parallel
-support:
-
-```python
-def AgentAdapterParallel(tasks):
-    """
-    Execute multiple agents in parallel using Morgana Protocol.
-
-    Args:
-        tasks (list): List of task dictionaries with agent_type and prompt
-
-    Returns:
-        List of results from all agents
-    """
-    import subprocess
-    import json
-    import os
-
-    morgana_path = os.path.expanduser("~/.claude/bin/morgana")
-    if not os.path.exists(morgana_path):
-        morgana_path = "morgana"
-
-    # Convert tasks to Morgana format
-    morgana_tasks = json.dumps(tasks)
-
-    # Execute with parallel flag
-    result = subprocess.run(
-        [morgana_path, "--parallel"],
-        input=morgana_tasks,
-        capture_output=True,
-        text=True,
-        check=True
-    )
-
-    return json.loads(result.stdout)
-```
 
 ## Available Specialized Agents
 
@@ -174,13 +20,6 @@ Protocol:
 - **validation-expert**: Comprehensive quality and security validation
 - **test-specialist**: Test suite creation with edge case coverage
 
-### Morgana Protocol Features
-
-- 🚀 **True Parallel Execution**: Go-based concurrency with goroutines
-- 🔍 **OpenTelemetry Tracing**: Full observability of agent execution
-- ⏱️ **Per-Agent Timeouts**: Configurable timeouts for each agent type
-- 🧪 **Integration Testing**: Comprehensive test coverage
-- 🐍 **Python Bridge**: Seamless integration with Claude Code's Task tool
 
 ## Core Workflow Architecture
 
@@ -221,8 +60,9 @@ Track each task through states:
 **/morgana-plan**
 
 - **Purpose**: Generate structured sprint plans
+#TODO, add chatgpt subagent calls
 - **Model**: `gemini-2.5-pro` or `o3` for comprehensive planning
-- **Output**: QDIRECTOR-compatible sprint plan with dependencies and exit
+- **Output**: MORGANA-DIRECTOR-compatible sprint plan with dependencies and exit
   criteria
 - **Usage**: `/morgana-plan Create authentication system with JWT and OAuth`
 
@@ -280,7 +120,7 @@ Track each task through states:
 **/morgana-commit**
 
 - **Purpose**: Version control operations
-- **Model**: `flash` or `claude-3-7-sonnet-20250219` (supports token-efficient
+- **Model**: `flash` or `claude-4-sonnet-20250219` (supports token-efficient
   mode)
 - **Pre-commit**: Runs `/morgana-validate-all --mode standard`
 - **Format**: Semantic commit messages
@@ -305,17 +145,17 @@ Architecture/Design | N/A       | gemini-2.5-pro      | o3               | No
 Complex Planning    | N/A       | o3                  | gemini-2.5-pro    | No
 Code Implementation | Complex   | claude-4-opus       | gpt-4.1           | No
 Code Implementation | Moderate  | claude-4-sonnet     | gpt-4.1           | Limited*
-Code Implementation | Simple    | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
-Test Generation     | Any       | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
-Quick Tasks         | Any       | claude-3-7-sonnet   | o3-mini          | Yes*
+Code Implementation | Simple    | claude-4-sonnet   | gemini-2.5-flash  | Yes*
+Test Generation     | Any       | claude-4-sonnet   | gemini-2.5-flash  | Yes*
+Quick Tasks         | Any       | claude-4-sonnet   | o3-mini          | Yes*
 Critical Decisions  | N/A       | o3-pro              | o3               | No
-Documentation       | Any       | claude-3-7-sonnet   | o3-mini          | Yes*
-Validation          | Any       | claude-3-7-sonnet   | gemini-2.5-flash  | Yes*
+Documentation       | Any       | claude-4-sonnet   | o3-mini          | Yes*
+Validation          | Any       | claude-4-sonnet   | gemini-2.5-flash  | Yes*
 ```
 
 \*Token-efficient mode:
 
-- Claude 3.7 Sonnet: Full support (14-70% token reduction)
+- Claude 4 Sonnet: Full support (14-70% token reduction)
 - Claude 4 Sonnet: No-op (works normally, no token reduction)
 - Claude 4 Opus: No-op (works normally, no token reduction)
 
@@ -507,7 +347,7 @@ code_generation_flow:
 
   2. Select Model:
     simple:
-      primary: claude-3-7-sonnet-20250219 # Token-efficient
+      primary: claude-4-sonnet-20250219 # Token-efficient
       fallback: gemini-2.5-flash
     moderate:
       primary: claude-4-sonnet # Balanced capability
@@ -518,14 +358,14 @@ code_generation_flow:
 
   3. Apply Optimization:
     - Use structured prompts for all models
-    - Enable token-efficient mode for Claude 3.7
+    - Enable token-efficient mode for Claude 4
     - No-op for Claude 4 (works normally)
 ```
 
 Example complexity detection:
 
 ```bash
-# Simple task - uses Claude 3.7 Sonnet
+# Simple task - uses Claude 4 Sonnet
 "Create a utility function to format dates"
 
 # Moderate task - uses Claude 4 Sonnet
@@ -803,7 +643,7 @@ agent_response:
 
 When token-efficient mode is enabled in settings.json, QDIRECTOR automatically:
 
-1. **Model Selection**: Prioritizes Claude 3.7 Sonnet for compatible tasks
+1. **Model Selection**: Prioritizes Claude 4 Sonnet for compatible tasks
 2. **Token Savings**: Reduces output tokens by 14-70% on average
 3. **Performance**: Maintains quality while improving latency
 
@@ -819,7 +659,7 @@ When token-efficient mode is enabled in settings.json, QDIRECTOR automatically:
 
 ### Task Routing with Token Efficiency
 
-When enabled, QDIRECTOR routes these tasks to Claude 3.7 Sonnet:
+When enabled, QDIRECTOR routes these tasks to Claude 4 Sonnet:
 
 - Simple coding tasks
 - Test generation
@@ -842,27 +682,7 @@ gemini-2.5-pro).
 - **Smart Retries**: Failed validations trigger targeted agent retries
 - **Human Escalation**: Includes full agent communication history
 - **Continuous Learning**: Agent performance metrics improve routing over time
-- **Token Efficiency**: Automatic optimization when using Claude 3.7 Sonnet
+- **Token Efficiency**: Automatic optimization when using Claude 4 Sonnet
 - **Colored Output**: Parse and display subagent responses with color formatting
 
-## Quick Start Examples
 
-```bash
-# Simple feature implementation
-/qdirector-enhanced implement user profile feature
-
-# Complex system with parallel execution (uses Morgana)
-/qdirector-enhanced build complete authentication system with OAuth, JWT, and 2FA
-
-# Validation-focused workflow
-/qdirector-enhanced audit and secure existing payment system
-
-# Direct Morgana usage for parallel agents
-echo '[
-  {"agent_type": "code-implementer", "prompt": "implement auth service"},
-  {"agent_type": "test-specialist", "prompt": "create auth tests"}
-]' | morgana --parallel
-
-# Single agent with Morgana
-morgana -- --agent code-implementer --prompt "implement user service"
-```

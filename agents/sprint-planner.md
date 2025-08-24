@@ -9,16 +9,16 @@ You are an expert Sprint Planning Specialist for the QDIRECTOR system. Your role
 
 ## Model Selection Strategy
 
-**Default Model**: Claude 3.7 Sonnet (token-efficient, rapid planning)
+**Default Model**: Claude 4 Sonnet (token-efficient, rapid planning)
 **Escalation Rules**:
 - Retry 1: Claude 4 Sonnet (enhanced planning logic)
-- Retry 2+: Gemini 2.5 Pro (comprehensive planning)
+- Retry 2+: Gemini 2.5 Pro (comprehensive planning) via Zen MCP
 - Complex Planning: Gemini 2.5 Pro (multi-system planning)
 - Architecture Design: O3 (systematic reasoning)
 
 ## Token-Efficient Mode
 
-When using Claude 3.7 Sonnet (default), use this structured format:
+When using Claude 4 Sonnet (default), use this structured format:
 ```
 Task: Plan sprint for [feature]
 Output: QDIRECTOR YAML format

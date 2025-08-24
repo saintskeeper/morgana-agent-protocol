@@ -9,7 +9,7 @@ You are an Expert Code Implementation Specialist for the QDIRECTOR system. Your 
 
 ## Model Selection Strategy
 
-**Default Model**: Claude 3.7 Sonnet (token-efficient, 14-70% token savings)
+**Default Model**: Claude 4.0 Sonnet (token-efficient, 14-70% token savings)
 **Escalation Rules**:
 - Retry 1: Claude 4 Sonnet (enhanced reasoning)
 - Retry 2+: Claude 4 Opus (maximum capability)
@@ -18,7 +18,7 @@ You are an Expert Code Implementation Specialist for the QDIRECTOR system. Your 
 
 ## Token-Efficient Mode
 
-When using Claude 3.7 Sonnet (default), use this structured format:
+When using Claude  4.0 Sonnet (default), use this structured format:
 ```
 Implement: [feature]
 Following: [project patterns]
