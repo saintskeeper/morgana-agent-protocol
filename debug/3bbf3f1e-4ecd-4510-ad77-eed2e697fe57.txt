@@ -1,0 +1,184 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json...
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.98696.1761092837733
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195961 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.98696.1761092837733 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/.config/nvim/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1761092837834-v909vn.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/3bbf3f1e-4ecd-4510-ad77-eed2e697fe57-agent-3bbf3f1e-4ecd-4510-ad77-eed2e697fe57.json.tmp.98696.1761092837836
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/3bbf3f1e-4ecd-4510-ad77-eed2e697fe57-agent-3bbf3f1e-4ecd-4510-ad77-eed2e697fe57.json.tmp.98696.1761092837836 to /Users/walterday/.claude/todos/3bbf3f1e-4ecd-4510-ad77-eed2e697fe57-agent-3bbf3f1e-4ecd-4510-ad77-eed2e697fe57.json
+[DEBUG] File /Users/walterday/.claude/todos/3bbf3f1e-4ecd-4510-ad77-eed2e697fe57-agent-3bbf3f1e-4ecd-4510-ad77-eed2e697fe57.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.98696.1761092837876
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195543 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.98696.1761092837876 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.98696.1761092837926
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195543 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.98696.1761092837926 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Summarizing all 2 messages (~1907 tokens)
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHhtrCNwwBKumrCkC4P"}
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHhu2cWbZd1Jn8u3qL8"}
+[ERROR] Error in non-streaming fallback: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHhuKDqtmJ1yzXhR9Dv"}
+[DEBUG] Summarizing all 9 messages (~43493 tokens)
+[ERROR] Error in non-streaming fallback: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHhuQgGaWMdPQep16Xo"}
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHhuh3sR3FfJ74fcczk"}
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[ERROR] Error in non-streaming fallback: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHhuz9yUvTY8MYUiUDD"}
+[DEBUG] Stream started - received first chunk
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:18.999 | INFO     | basic_memory.utils:setup_logging:167 - ENV: 'dev' Log level: 'INFO' Logging to .basic-memory/basic-memory-mcp.log
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:18.999 | INFO     | basic_memory.config:setup_basic_memory_logging:367 - Basic Memory 0.14.3 (Project: subagents)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.073 | DEBUG    | basic_memory.api.template_loader:__init__:235 - Initialized template loader with directory: /Users/walterday/.local/share/uv/tools/basic-memory/lib/python3.13/site-packages/basic_memory/templates
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.186 | DEBUG    | basic_memory.mcp.async_client:create_client:23 - Creating ASGI client for local Basic Memory API
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.235 | INFO     | basic_memory.services.initialization:initialize_app:156 - Initializing app...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.236 | DEBUG    | basic_memory.db:_create_engine_and_session:81 - Creating engine for db_url: sqlite+aiosqlite:////Users/walterday/.basic-memory/memory.db
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.241 | INFO     | basic_memory.db:run_migrations:176 - Running database migrations...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.246 | ERROR    | basic_memory.db:run_migrations:210 - Error running migrations: Can't locate revision identified by 'a1b2c3d4e5f6'
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.246 | ERROR    | basic_memory.services.initialization:initialize_database:32 - Error initializing database: Can't locate revision identified by 'a1b2c3d4e5f6'
+2025-10-21 20:27:20.246 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:47 - Reconciling projects from config with database...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.247 | INFO     | basic_memory.services.project_service:synchronize_projects:233 - Synchronizing projects between database and configuration
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.257 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Project (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.258 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 4 Project records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.260 | INFO     | basic_memory.services.project_service:synchronize_projects:301 - Project synchronization complete
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.261 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.261 | INFO     | basic_memory.mcp.project_session:refresh_from_config:81 - Refreshed project session from config, new default: subagents
+2025-10-21 20:27:20.261 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:64 - Projects successfully reconciled between config and database
+2025-10-21 20:27:20.261 | INFO     | basic_memory.services.initialization:initialize_app:163 - App initialization completed (migration running in background if needed)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.262 | INFO     | basic_memory.services.initialization:ensure_initialization:177 - Initialization completed successfully: result=None
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.262 | INFO     | basic_memory.mcp.project_session:set_current_project:53 - Switched project context: subagents -> subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.263 | INFO     | basic_memory.cli.commands.mcp:mcp:56 - Sync changes enabled: True
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.263 | INFO     | basic_memory.cli.commands.mcp:mcp:61 - Started file sync in background
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.263 | INFO     | basic_memory.cli.commands.mcp:mcp:64 - Starting MCP server with STDIO transport
+[ERROR] MCP server "basic-memory" Server stderr: ╭─ FastMCP 2.0 ────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│         _ __ ___ ______           __  __  _____________       ____           │
+│     ____                                                                     │
+│        _ __ ___ / ____/___ ______/ /_/  |/  / ____/ __ \     |___ \  /       │
+│     __ \                                                                     │
+│       _ __ ___ / /_  / __ `/ ___/ __/ /|_/ / /   / /_/ /     ___/ / / /      │
+│     / /                                                                      │
+│      _ __ ___ / __/ / /_/ (__  ) /_/ /  / / /___/ ____/     /  __/_/ /_/     │
+│     /                                                                        │
+│     _ __ ___ /_/    \__,_/____/\__/_/  /_/\____/_/                           │
+│     /_____(_)____/                                                           │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│     🖥️  Server name:     Basic Memory                                         │
+│     📦 Transport:       STDIO                                                │
+│                                                                              │
+│     📚 Docs:            https://gofastmcp.com                                │
+│     🚀 Deploy:          https://fastmcp.cloud                                │
+│                                                                              │
+│     🏎️  FastMCP version: 2.10.2                                               │
+│     🤝 MCP version:     1.13.0                                               │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+[ERROR] MCP server "basic-memory" Server stderr: [10/21/25 20:27:20] INFO     Starting MCP server 'Basic Memory'   server.py:1352
+                             with transport 'stdio'
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.276 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: main
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.277 | INFO     | basic_memory.services.initialization:initialize_app:156 - Initializing app...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.279 | INFO     | basic_memory.services.initialization:initialize_database:30 - Database initialization completed
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.279 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:47 - Reconciling projects from config with database...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.279 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/basic-memory
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.280 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.280 | INFO     | basic_memory.services.project_service:synchronize_projects:233 - Synchronizing projects between database and configuration
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.284 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 0 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.285 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 0 db records
+2025-10-21 20:27:20.285 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/basic-memory. Found 0 db paths
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.285 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/basic-memory
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.285 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/basic-memory scan completed directory=/Users/walterday/basic-memory files_found=0 duration_ms=0
+2025-10-21 20:27:20.285 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/basic-memory, found 0 changes.
+2025-10-21 20:27:20.285 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.289 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Project (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.290 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+2025-10-21 20:27:20.290 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/basic-memory, total_changes=0, duration_ms=10
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.290 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: main
+2025-10-21 20:27:20.290 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project main is now watching for changes
+2025-10-21 20:27:20.290 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: tauri-docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.292 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 4 Project records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.293 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.293 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.297 | INFO     | basic_memory.services.project_service:synchronize_projects:301 - Project synchronization complete
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.298 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.298 | INFO     | basic_memory.mcp.project_session:refresh_from_config:81 - Refreshed project session from config, new default: subagents
+2025-10-21 20:27:20.298 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:64 - Projects successfully reconciled between config and database
+2025-10-21 20:27:20.298 | INFO     | basic_memory.services.initialization:initialize_app:163 - App initialization completed (migration running in background if needed)
+2025-10-21 20:27:20.298 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[DEBUG] MCP server "basic-memory": Successfully connected to stdio server in 1590ms
+[DEBUG] MCP server "basic-memory": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Basic Memory","version":"1.13.0"}}
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.98696.1761092840333
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195543 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.98696.1761092840333 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-21 20:27:20.311 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 7 Entity records
+2025-10-21 20:27:20.311 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 7 db records
+2025-10-21 20:27:20.311 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs. Found 7 db paths
+2025-10-21 20:27:20.311 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs
+2025-10-21 20:27:20.314 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs scan completed directory=/Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs files_found=7 duration_ms=2
+2025-10-21 20:27:20.314 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs, found 0 changes.
+2025-10-21 20:27:20.314 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+2025-10-21 20:27:20.316 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+2025-10-21 20:27:20.316 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs, total_changes=0, duration_ms=22
+2025-10-21 20:27:20.316 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: tauri-docs
+2025-10-21 20:27:20.316 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project tauri-docs is now watching for changes
+2025-10-21 20:27:20.316 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: subagents
+2025-10-21 20:27:20.317 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/projects/subagents
+2025-10-21 20:27:20.317 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+2025-10-21 20:27:20.324 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 17 Entity records
+2025-10-21 20:27:20.324 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 17 db records
+2025-10-21 20:27:20.325 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/projects/subagents. Found 17 db paths
+2025-10-21 20:27:20.325 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/projects/subagents
+2025-10-21 20:27:20.327 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/projects/subagents scan completed directory=/Users/walterday/projects/subagents files_found=17 duration_ms=1
+2025-10-21 20:27:20.327 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/projects/subagents, found 0 changes.
+2025-10-21 20:27:20.327 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+2025-10-21 20:27:20.328 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+2025-10-21 20:27:20.328 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/projects/subagents, total_changes=0, duration_ms=11
+2025-10-21 20:27:20.328 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: subagents
+2025-10-21 20:27:20.328 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project subagents is now watching for changes
+2025-10-21 20:27:20.328 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: firecrawl-docs
+2025-10-21 20:27:20.330 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/Documents/firecrawl-knowledge
+2025-10-21 20:27:20.330 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+2025-10-21 20:27:20.333 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 2 Entity records
+2025-10-21 20:27:20.333 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 2 db records
+2025-10-21 20:27:20.333 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/Documents/firecrawl-knowledge. Found 2 db paths
+2025-10-21 20:27:20.333 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/Documents/firecrawl-knowledge
+2025-10-21 20:27:20.334 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/Documents/firecrawl-knowledge scan completed directory=/Users/walterday/Documents/firecrawl-knowledge files_found=2 duration_ms=0
+2025-10-21 20:27:20.334 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/Documents/firecrawl-knowledge, found 0 changes.
+2025-10-21 20:27:20.334 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+2025-10-21 20:27:20.335 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+2025-10-21 20:27:20.335 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/Documents/firecrawl-knowledge, total_changes=0, duration_ms=5
+2025-10-21 20:27:20.335 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: firecrawl-docs
+2025-10-21 20:27:20.335 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project firecrawl-docs is now watching for changes
+2025-10-21 20:27:20.335 | INFO     | basic_memory.services.initialization:initialize_file_sync:131 - Starting watch service for all projects
+2025-10-21 20:27:20.337 | INFO     | basic_memory.sync.watch_service:run:94 - Watch service started

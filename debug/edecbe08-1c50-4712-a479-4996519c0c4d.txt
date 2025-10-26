@@ -1,0 +1,902 @@
+[DEBUG] Executing hooks for SessionStart:clear
+[DEBUG] Getting matching hook commands for SessionStart with query: clear
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "clear" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] FileHistory: Added snapshot for 74a41a11-5b4a-4ede-9f0c-4205e6a9c6d8, tracking 0 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760209794689
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1904042 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760209794689 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 5fd7e382-d6d1-48cf-a1ed-de6690e181bf
+[DEBUG] FileHistory: Added snapshot for 5fd7e382-d6d1-48cf-a1ed-de6690e181bf, tracking 0 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760209866766
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1904126 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760209866766 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: git ls-files
+[DEBUG] Bash tool description: List all files tracked by git
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 818e61a8-266d-460f-bf96-d5a5ab6d104a
+[DEBUG] FileHistory: Added snapshot for 818e61a8-266d-460f-bf96-d5a5ab6d104a, tracking 0 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760209906760
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1905488 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760209906760 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: railway logs --limit 50
+[DEBUG] Bash tool description: Check Railway deployment logs
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: railway logs
+[DEBUG] Bash tool description: Check Railway deployment logs
+[DEBUG] Bash tool timeout: 10000ms
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: railway status
+[DEBUG] Bash tool description: Check Railway deployment status
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: railway service
+[DEBUG] Bash tool description: List Railway services
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: go build -o bin/cromie ./app/server/cmd
+[DEBUG] Bash tool description: Test if the Go binary builds successfully
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 2ded8a79-0316-499a-89a0-eb191af02466
+[DEBUG] FileHistory: Added snapshot for 2ded8a79-0316-499a-89a0-eb191af02466, tracking 0 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760209995255
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1905596 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760209995255 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Writing to temp file: /Users/walterday/.claude/settings.json.tmp.65807.1760209996557
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 632 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/settings.json.tmp.65807.1760209996557 to /Users/walterday/.claude/settings.json
+[DEBUG] File /Users/walterday/.claude/settings.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/settings.json.tmp.65807.1760209997221
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 631 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/settings.json.tmp.65807.1760209997221 to /Users/walterday/.claude/settings.json
+[DEBUG] File /Users/walterday/.claude/settings.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 2a02468b-c406-469b-9cbe-91003cfe34b0
+[DEBUG] FileHistory: Added snapshot for 2a02468b-c406-469b-9cbe-91003cfe34b0, tracking 0 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760210088955
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1905883 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760210088955 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go.tmp.65807.1760210113138
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1581 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go.tmp.65807.1760210113138 to /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go.tmp.65807.1760210113217
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1683 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go.tmp.65807.1760210113217 to /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/pkg/config/config.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/app/server/internal/middleware/cors.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/internal/middleware/cors.go.tmp.65807.1760210113309
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 813 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/internal/middleware/cors.go.tmp.65807.1760210113309 to /Users/walterday/Git/MerlinMines/cromie/app/server/internal/middleware/cors.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/internal/middleware/cors.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go.tmp.65807.1760210113789
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2057 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go.tmp.65807.1760210113789 to /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/.env.example
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/.env.example.tmp.65807.1760210114142
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 742 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/.env.example.tmp.65807.1760210114142 to /Users/walterday/Git/MerlinMines/cromie/.env.example
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/.env.example written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: CGO_ENABLED=1 go build -o bin/cromie ./app/server/cmd
+[DEBUG] Bash tool description: Rebuild binary with CORS changes
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 9a95bb5d-5dd2-4a0f-960c-672a0ff5b76d
+[DEBUG] FileHistory: Added snapshot for 9a95bb5d-5dd2-4a0f-960c-672a0ff5b76d, tracking 4 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760211168092
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1907183 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760211168092 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: railway service --json 2>&1 || echo "FAILED"
+[DEBUG] Bash tool description: Try to get service list
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Executing hooks for PreToolUse:Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/debug-deployment.sh
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/debug-deployment.sh.tmp.65807.1760211187711
+[DEBUG] Temp file written successfully, size: 1685 bytes
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/debug-deployment.sh.tmp.65807.1760211187711 to /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/debug-deployment.sh
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/debug-deployment.sh written atomically
+[DEBUG] Executing hooks for PostToolUse:Write
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: chmod +x /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/debug-deployment.sh
+[DEBUG] Bash tool description: Make debug script executable
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 8cd91c89-1e64-4b44-8671-05845a4cdae0
+[DEBUG] FileHistory: Added snapshot for 8cd91c89-1e64-4b44-8671-05845a4cdae0, tracking 5 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760211236474
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1915660 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760211236474 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: railway variables | grep "PORT"
+[DEBUG] Bash tool description: Check if PORT is set by Railway
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go.tmp.65807.1760211275396
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2138 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go.tmp.65807.1760211275396 to /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/cmd/main.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go.tmp.65807.1760211275500
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1971 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go.tmp.65807.1760211275500 to /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: git add -A && git commit -m "Add health check logging for Railway debugging"
+[DEBUG] Bash tool description: Commit health check improvements
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "git push:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Bash tool invoked with command: git push
+[DEBUG] Bash tool description: Push changes to trigger Railway deployment
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go.tmp.65807.1760211301116
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1979 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go.tmp.65807.1760211301116 to /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/app/server/internal/api/routes.go written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "git push:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Bash tool invoked with command: git add -A && git commit -m "Add missing log import" && git push
+[DEBUG] Bash tool description: Fix missing import and push
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760211311369
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1915660 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760211311369 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message f513f5b1-4b99-4f00-8d55-282696b7c805
+[DEBUG] FileHistory: Added snapshot for f513f5b1-4b99-4f00-8d55-282696b7c805, tracking 6 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760211320453
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1915794 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760211320453 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 992ac1c3-c83e-4c07-82c7-d3900ad71636
+[DEBUG] FileHistory: Added snapshot for 992ac1c3-c83e-4c07-82c7-d3900ad71636, tracking 6 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760211778952
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1917452 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760211778952 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message ebda9ba5-a60d-4724-9910-985e78c2420a
+[DEBUG] FileHistory: Added snapshot for ebda9ba5-a60d-4724-9910-985e78c2420a, tracking 6 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760222802729
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1917573 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760222802729 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760222803781
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1917573 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760222803781 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Streaming aborted by user: Request was aborted.
+[ERROR] Error in non-streaming fallback: Request was aborted.
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760208560553-2wwhwf.sh
+[DEBUG] MCP server "basic-memory": Sending SIGINT to MCP server process
+[DEBUG] MCP server "basic-memory": SIGINT failed, sending SIGTERM to MCP server process
+[ERROR] MCP server "basic-memory" Server stderr: /opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:324: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown: {'/mp-lfk7ci_m', '/mp-zm7e8c00', '/mp-xp2tv1aq', '/mp-nf_7db16', '/mp-yt_tq6nn', '/mp-v571sxpl', '/mp-24v0alq1', '/mp-cwkycu99'}
+  warnings.warn(
+[DEBUG] MCP server "basic-memory": MCP server process exited cleanly
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.65807.1760222847554
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1918005 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.65807.1760222847554 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically

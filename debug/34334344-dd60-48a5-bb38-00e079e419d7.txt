@@ -1,0 +1,38 @@
+[DEBUG] Getting matching hook commands for SessionStart with query: clear
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "clear" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for 6c70805c-bd88-4763-97fd-d89486ca808f, tracking 0 files
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-name>/clear</command-name>
+            <command-message>clear</command-message>
+           ...
+[DEBUG] UserCommandMessage rendering: "clear" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.91598.1761320637724
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2202240 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.91598.1761320637724 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.91598.1761320637779
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2202212 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.91598.1761320637779 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1761319489003-kk0sr2.sh
+[DEBUG] MCP server "basic-memory": Sending SIGINT to MCP server process
+[DEBUG] MCP server "basic-memory": SIGINT failed, sending SIGTERM to MCP server process
+[ERROR] MCP server "basic-memory" Server stderr: /opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:324: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown: {'/mp-4csl52c_', '/mp-d2xemz13', '/mp-b2981huf', '/mp-fz12e7ej', '/mp-syaotnja', '/mp-axurgovr', '/mp-k25ne0ni', '/mp-_absdwm5'}
+  warnings.warn(
+[DEBUG] MCP server "basic-memory": MCP server process exited cleanly
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.91598.1761320640759
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2202192 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.91598.1761320640759 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically

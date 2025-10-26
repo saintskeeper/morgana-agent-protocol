@@ -1,0 +1,62 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json, /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 18 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ebitengine.org)","WebFetch(domain:github.com)","WebFetch(domain:raw.githubusercontent.com)","Bash(git add:*)","Bash(git commit:*)","Bash(git push:*)","Bash(git remote add:*)","WebSearch","Bash(mkdir:*)","Bash(tree:*)","WebFetch(domain:anthropic.mintlify.app)","Bash(go version:*)","Bash(go get:*)","Bash(go build:*)","Bash(go test:*)","Bash(go tool cover:*)","Bash(go mod tidy:*)","Bash(cat:*)"]
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760909156212
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2164679 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760909156212 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760909156299-fsvyxm.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/c5c3d2db-0a2e-44b1-a661-0f4b65930847-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760909156301
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/c5c3d2db-0a2e-44b1-a661-0f4b65930847-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760909156301 to /Users/walterday/.claude/todos/c5c3d2db-0a2e-44b1-a661-0f4b65930847-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json
+[DEBUG] File /Users/walterday/.claude/todos/c5c3d2db-0a2e-44b1-a661-0f4b65930847-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760909156341
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2164241 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760909156341 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760909156388
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2164241 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760909156388 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Summarizing all 5 messages (~0 tokens)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760909156671
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2164241 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760909156671 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760909157078
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2164241 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760909157078 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)

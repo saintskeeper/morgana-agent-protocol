@@ -1,0 +1,1297 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json, /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 11 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ebitengine.org)","WebFetch(domain:github.com)","WebFetch(domain:raw.githubusercontent.com)","Bash(git add:*)","Bash(git commit:*)","Bash(git push:*)","Bash(git remote add:*)","WebSearch","Bash(mkdir:*)","Bash(tree:*)","WebFetch(domain:anthropic.mintlify.app)"]
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878425995
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161278 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878425995 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760878426093-951nwf.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878426095
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878426095 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426139
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160879 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426139 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426191
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160879 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426191 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426424
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160879 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426424 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426713
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160879 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426713 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426808
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160771 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426808 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426855
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160771 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426855 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called, ENABLE_PLUGINS=true
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878426939
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160879 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878426939 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] MCP server "ide": Starting connection with timeout of 30000ms
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] MCP server "ide": Successfully connected to ws-ide server in 13ms
+[DEBUG] MCP server "ide": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Claude Code Cursor MCP","version":"1.0.83"}}
+[DEBUG] Stream started - received first chunk
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:47.166 | INFO     | basic_memory.utils:setup_logging:167 - ENV: 'dev' Log level: 'INFO' Logging to .basic-memory/basic-memory-mcp.log
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:47.167 | INFO     | basic_memory.config:setup_basic_memory_logging:367 - Basic Memory 0.14.3 (Project: subagents)
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.434 | DEBUG    | basic_memory.api.template_loader:__init__:235 - Initialized template loader with directory: /Users/walterday/.local/share/uv/tools/basic-memory/lib/python3.13/site-packages/basic_memory/templates
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.547 | DEBUG    | basic_memory.mcp.async_client:create_client:23 - Creating ASGI client for local Basic Memory API
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.604 | INFO     | basic_memory.services.initialization:initialize_app:156 - Initializing app...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.605 | DEBUG    | basic_memory.db:_create_engine_and_session:81 - Creating engine for db_url: sqlite+aiosqlite:////Users/walterday/.basic-memory/memory.db
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.611 | INFO     | basic_memory.db:run_migrations:176 - Running database migrations...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.617 | ERROR    | basic_memory.db:run_migrations:210 - Error running migrations: Can't locate revision identified by 'a1b2c3d4e5f6'
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.617 | ERROR    | basic_memory.services.initialization:initialize_database:32 - Error initializing database: Can't locate revision identified by 'a1b2c3d4e5f6'
+2025-10-19 08:53:48.617 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:47 - Reconciling projects from config with database...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.618 | INFO     | basic_memory.services.project_service:synchronize_projects:233 - Synchronizing projects between database and configuration
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.628 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Project (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.630 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 4 Project records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.632 | INFO     | basic_memory.services.project_service:synchronize_projects:301 - Project synchronization complete
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.632 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.632 | INFO     | basic_memory.mcp.project_session:refresh_from_config:81 - Refreshed project session from config, new default: subagents
+2025-10-19 08:53:48.632 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:64 - Projects successfully reconciled between config and database
+2025-10-19 08:53:48.632 | INFO     | basic_memory.services.initialization:initialize_app:163 - App initialization completed (migration running in background if needed)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.633 | INFO     | basic_memory.services.initialization:ensure_initialization:177 - Initialization completed successfully: result=None
+2025-10-19 08:53:48.633 | INFO     | basic_memory.mcp.project_session:set_current_project:53 - Switched project context: subagents -> subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.634 | INFO     | basic_memory.cli.commands.mcp:mcp:56 - Sync changes enabled: True
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.634 | INFO     | basic_memory.cli.commands.mcp:mcp:61 - Started file sync in background
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.634 | INFO     | basic_memory.cli.commands.mcp:mcp:64 - Starting MCP server with STDIO transport
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.639 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: main
+[ERROR] MCP server "basic-memory" Server stderr: ╭─ FastMCP 2.0 ────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│         _ __ ___ ______           __  __  _____________       ____           │
+│     ____                                                                     │
+│        _ __ ___ / ____/___ ______/ /_/  |/  / ____/ __ \     |___ \  /       │
+│     __ \                                                                     │
+│       _ __ ___ / /_  / __ `/ ___/ __/ /|_/ / /   / /_/ /     ___/ / / /      │
+│     / /                                                                      │
+│      _ __ ___ / __/ / /_/ (__  ) /_/ /  / / /___/ ____/     /  __/_/ /_/     │
+│     /                                                                        │
+│     _ __ ___ /_/    \__,_/____/\__/_/  /_/\____/_/                           │
+│     /_____(_)____/                                                           │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│     🖥️  Server name:     Basic Memory                                         │
+│     📦 Transport:       STDIO                                                │
+│                                                                              │
+│     📚 Docs:            https://gofastmcp.com                                │
+│     🚀 Deploy:          https://fastmcp.cloud                                │
+│                                                                              │
+│     🏎️  FastMCP version: 2.10.2                                               │
+│     🤝 MCP version:     1.13.0                                               │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+[ERROR] MCP server "basic-memory" Server stderr: [10/19/25 08:53:48] INFO     Starting MCP server 'Basic Memory'   server.py:1352
+                             with transport 'stdio'
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.648 | INFO     | basic_memory.services.initialization:initialize_app:156 - Initializing app...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.648 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/basic-memory
+2025-10-19 08:53:48.648 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.649 | INFO     | basic_memory.services.initialization:initialize_database:30 - Database initialization completed
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.651 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:47 - Reconciling projects from config with database...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.651 | INFO     | basic_memory.services.project_service:synchronize_projects:233 - Synchronizing projects between database and configuration
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.653 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 0 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.653 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 0 db records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.653 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/basic-memory. Found 0 db paths
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.653 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/basic-memory
+2025-10-19 08:53:48.654 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/basic-memory scan completed directory=/Users/walterday/basic-memory files_found=0 duration_ms=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.654 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/basic-memory, found 0 changes.
+2025-10-19 08:53:48.654 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.657 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.657 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/basic-memory, total_changes=0, duration_ms=9
+2025-10-19 08:53:48.657 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: main
+2025-10-19 08:53:48.657 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project main is now watching for changes
+2025-10-19 08:53:48.657 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: tauri-docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.657 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Project (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.659 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.659 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.660 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 4 Project records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.665 | INFO     | basic_memory.services.project_service:synchronize_projects:301 - Project synchronization complete
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.665 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.666 | INFO     | basic_memory.mcp.project_session:refresh_from_config:81 - Refreshed project session from config, new default: subagents
+2025-10-19 08:53:48.666 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:64 - Projects successfully reconciled between config and database
+2025-10-19 08:53:48.666 | INFO     | basic_memory.services.initialization:initialize_app:163 - App initialization completed (migration running in background if needed)
+2025-10-19 08:53:48.666 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[DEBUG] MCP server "basic-memory": Successfully connected to stdio server in 1999ms
+[DEBUG] MCP server "basic-memory": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Basic Memory","version":"1.13.0"}}
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.678 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 7 Entity records
+2025-10-19 08:53:48.678 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 7 db records
+2025-10-19 08:53:48.678 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs. Found 7 db paths
+2025-10-19 08:53:48.678 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.684 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs scan completed directory=/Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs files_found=7 duration_ms=5
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.684 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs, found 0 changes.
+2025-10-19 08:53:48.684 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.686 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.686 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs, total_changes=0, duration_ms=26
+2025-10-19 08:53:48.686 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: tauri-docs
+2025-10-19 08:53:48.686 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project tauri-docs is now watching for changes
+2025-10-19 08:53:48.686 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.687 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/projects/subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.687 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.694 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 17 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.695 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 17 db records
+2025-10-19 08:53:48.695 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/projects/subagents. Found 17 db paths
+2025-10-19 08:53:48.695 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/projects/subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.700 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/projects/subagents scan completed directory=/Users/walterday/projects/subagents files_found=17 duration_ms=5
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.700 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/projects/subagents, found 0 changes.
+2025-10-19 08:53:48.700 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.702 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.702 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/projects/subagents, total_changes=0, duration_ms=14
+2025-10-19 08:53:48.702 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: subagents
+2025-10-19 08:53:48.702 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project subagents is now watching for changes
+2025-10-19 08:53:48.702 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: firecrawl-docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.703 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/Documents/firecrawl-knowledge
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.704 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.707 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 2 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.707 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 2 db records
+2025-10-19 08:53:48.707 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/Documents/firecrawl-knowledge. Found 2 db paths
+2025-10-19 08:53:48.707 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/Documents/firecrawl-knowledge
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.708 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/Documents/firecrawl-knowledge scan completed directory=/Users/walterday/Documents/firecrawl-knowledge files_found=2 duration_ms=1
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.709 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/Documents/firecrawl-knowledge, found 0 changes.
+2025-10-19 08:53:48.709 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.710 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.710 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/Documents/firecrawl-knowledge, total_changes=0, duration_ms=6
+2025-10-19 08:53:48.710 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: firecrawl-docs
+2025-10-19 08:53:48.710 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project firecrawl-docs is now watching for changes
+2025-10-19 08:53:48.710 | INFO     | basic_memory.services.initialization:initialize_file_sync:131 - Starting watch service for all projects
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 08:53:48.712 | INFO     | basic_memory.sync.watch_service:run:94 - Watch service started
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Metadata string for multi-agent-impl:
+[DEBUG] <command-message>multi-agent-impl is running…</command-message>
+<command-name>/multi-agent-impl</command-name>
+[DEBUG] command-message tags in metadata: 1
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] processPromptSlashCommand creating 3 messages for multi-agent-impl
+[DEBUG] Message 1: <command-message>multi-agent-impl is running…</command-message>
+<command-name>/multi-agent-impl</command-name>
+[DEBUG] Message 2 [META]: [{"type":"text","text":"# Multi-Agent Implementation Command\n\nExecute a phase of the Screen Manager feature using optimally-sized Claude models with parallel execution where possible.\n\n## Usage\n\
+[DEBUG] Message 3: [ATTACHMENT]
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Added snapshot for 8e45ff57-24b8-4823-82fa-1097fcfbe868, tracking 0 files
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-message>multi-agent-impl is running…</command-message>
+<command-name>/multi-agent-impl</com...
+[DEBUG] UserCommandMessage rendering: "multi-agent-impl is running…" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 18ms
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 103ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "go version:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878466437
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160879 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878466437 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878466495
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160974 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878466495 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 102ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message b3727619-0b8d-4f5c-b7c1-18b2fb672a5e
+[DEBUG] FileHistory: Added snapshot for b3727619-0b8d-4f5c-b7c1-18b2fb672a5e, tracking 0 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 14ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878488342
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1478 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878488342 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 109ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "go version:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878518782
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 460 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878518782 to /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(go version:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 107ms
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878528818
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1480 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878528818 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 104ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878548632
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1482 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878548632 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Permission suggestions for Write: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+[DEBUG] MCP server "ide": Calling MCP tool: openDiff
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: close_tab
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'close_tab' completed successfully in 24ms
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/types.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/types.go.tmp.56301.1760878563138
+[DEBUG] Temp file written successfully, size: 2706 bytes
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/types.go.tmp.56301.1760878563138 to /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/types.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/types.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'openDiff' completed successfully in 14s
+[DEBUG] MCP server "ide": Calling MCP tool: close_tab
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 132ms
+[DEBUG] MCP server "ide": Tool 'close_tab' completed successfully in 2ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878574184
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1484 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878574184 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 5ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/config.toml
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/config.toml.tmp.56301.1760878574275
+[DEBUG] Temp file written successfully, size: 471 bytes
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/config.toml.tmp.56301.1760878574275 to /Users/walterday/Git/Saintskeeper/games/10-14-25/config.toml
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/config.toml written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 144ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "go mod init:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 144ms
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878611898
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1486 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878611898 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 2ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config.go.tmp.56301.1760878611981
+[DEBUG] Temp file written successfully, size: 2046 bytes
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config.go.tmp.56301.1760878611981 to /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 174ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "go get:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878621223
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 484 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878621223 to /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(go get:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878658536
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1488 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878658536 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config_test.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config_test.go.tmp.56301.1760878658625
+[DEBUG] Temp file written successfully, size: 7896 bytes
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config_test.go.tmp.56301.1760878658625 to /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config_test.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/screen/config_test.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878670881
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1490 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878670881 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "go build:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878686390
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 510 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878686390 to /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(go build:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878700821
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1492 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878700821 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "go test:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878710454
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 535 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json.tmp.56301.1760878710454 to /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(go test:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878719633
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1494 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878719633 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878734365
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1496 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878734365 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878749486
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json.tmp.56301.1760878749486 to /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json
+[DEBUG] File /Users/walterday/.claude/todos/75fd909f-af30-46ba-b733-1ba2a07e1bd5-agent-75fd909f-af30-46ba-b733-1ba2a07e1bd5.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' failed after 0s: Not connected
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878762823
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160974 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878762823 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878762878
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160974 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878762878 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878762934
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161074 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878762934 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760878426093-951nwf.sh
+[DEBUG] MCP server "basic-memory": Sending SIGINT to MCP server process
+[DEBUG] MCP server "basic-memory": SIGINT failed, sending SIGTERM to MCP server process
+[ERROR] MCP server "basic-memory" Server stderr: /opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:324: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown: {'/mp-7s66_x1o', '/mp-yex7esz7', '/mp-rskmgk18', '/mp-bg07gvjp', '/mp-xuigfkzp', '/mp-jje8kjvq', '/mp-4xvamrti', '/mp-dmp7n9sg'}
+  warnings.warn(
+[DEBUG] MCP server "basic-memory": MCP server process exited cleanly
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.56301.1760878853481
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161501 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.56301.1760878853481 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-message>multi-agent-impl is running…</command-message>
+<command-name>/multi-agent-impl</com...
+[DEBUG] UserCommandMessage rendering: "multi-agent-impl is running…" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760878863405
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160966 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760878863405 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760878863452
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2160966 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760878863452 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called, ENABLE_PLUGINS=true
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760878863534
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161074 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760878863534 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] MCP server "ide": Starting connection with timeout of 30000ms
+[DEBUG] Stream started - received first chunk
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:03.620 | INFO     | basic_memory.utils:setup_logging:167 - ENV: 'dev' Log level: 'INFO' Logging to .basic-memory/basic-memory-mcp.log
+2025-10-19 09:01:03.621 | INFO     | basic_memory.config:setup_basic_memory_logging:367 - Basic Memory 0.14.3 (Project: subagents)
+[DEBUG] MCP server "ide": Successfully connected to ws-ide server in 37ms
+[DEBUG] MCP server "ide": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Claude Code Cursor MCP","version":"1.0.83"}}
+[DEBUG] Summarizing last 1 of 101 messages (~75557 tokens)
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:04.883 | DEBUG    | basic_memory.api.template_loader:__init__:235 - Initialized template loader with directory: /Users/walterday/.local/share/uv/tools/basic-memory/lib/python3.13/site-packages/basic_memory/templates
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:04.994 | DEBUG    | basic_memory.mcp.async_client:create_client:23 - Creating ASGI client for local Basic Memory API
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.048 | INFO     | basic_memory.services.initialization:initialize_app:156 - Initializing app...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.049 | DEBUG    | basic_memory.db:_create_engine_and_session:81 - Creating engine for db_url: sqlite+aiosqlite:////Users/walterday/.basic-memory/memory.db
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.056 | INFO     | basic_memory.db:run_migrations:176 - Running database migrations...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.062 | ERROR    | basic_memory.db:run_migrations:210 - Error running migrations: Can't locate revision identified by 'a1b2c3d4e5f6'
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.063 | ERROR    | basic_memory.services.initialization:initialize_database:32 - Error initializing database: Can't locate revision identified by 'a1b2c3d4e5f6'
+2025-10-19 09:01:05.063 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:47 - Reconciling projects from config with database...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.063 | INFO     | basic_memory.services.project_service:synchronize_projects:233 - Synchronizing projects between database and configuration
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.073 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Project (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.075 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 4 Project records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.077 | INFO     | basic_memory.services.project_service:synchronize_projects:301 - Project synchronization complete
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.077 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.077 | INFO     | basic_memory.mcp.project_session:refresh_from_config:81 - Refreshed project session from config, new default: subagents
+2025-10-19 09:01:05.078 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:64 - Projects successfully reconciled between config and database
+2025-10-19 09:01:05.078 | INFO     | basic_memory.services.initialization:initialize_app:163 - App initialization completed (migration running in background if needed)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.078 | INFO     | basic_memory.services.initialization:ensure_initialization:177 - Initialization completed successfully: result=None
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.078 | INFO     | basic_memory.mcp.project_session:set_current_project:53 - Switched project context: subagents -> subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.079 | INFO     | basic_memory.cli.commands.mcp:mcp:56 - Sync changes enabled: True
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.079 | INFO     | basic_memory.cli.commands.mcp:mcp:61 - Started file sync in background
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.079 | INFO     | basic_memory.cli.commands.mcp:mcp:64 - Starting MCP server with STDIO transport
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.082 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: main
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.085 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/basic-memory
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.085 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: ╭─ FastMCP 2.0 ────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│         _ __ ___ ______           __  __  _____________       ____           │
+│     ____                                                                     │
+│        _ __ ___ / ____/___ ______/ /_/  |/  / ____/ __ \     |___ \  /       │
+│     __ \                                                                     │
+│       _ __ ___ / /_  / __ `/ ___/ __/ /|_/ / /   / /_/ /     ___/ / / /      │
+│     / /                                                                      │
+│      _ __ ___ / __/ / /_/ (__  ) /_/ /  / / /___/ ____/     /  __/_/ /_/     │
+│     /                                                                        │
+│     _ __ ___ /_/    \__,_/____/\__/_/  /_/\____/_/                           │
+│     /_____(_)____/                                                           │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│     🖥️  Server name:     Basic Memory                                         │
+│     📦 Transport:       STDIO                                                │
+│                                                                              │
+│     📚 Docs:            https://gofastmcp.com                                │
+│     🚀 Deploy:          https://fastmcp.cloud                                │
+│                                                                              │
+│     🏎️  FastMCP version: 2.10.2                                               │
+│     🤝 MCP version:     1.13.0                                               │
+│                                                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+[ERROR] MCP server "basic-memory" Server stderr: [10/19/25 09:01:05] INFO     Starting MCP server 'Basic Memory'   server.py:1352
+                             with transport 'stdio'
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.095 | INFO     | basic_memory.services.initialization:initialize_app:156 - Initializing app...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.095 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 0 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.096 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 0 db records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.096 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/basic-memory. Found 0 db paths
+2025-10-19 09:01:05.096 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/basic-memory
+2025-10-19 09:01:05.096 | INFO     | basic_memory.services.initialization:initialize_database:30 - Database initialization completed
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.096 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:47 - Reconciling projects from config with database...
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.097 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/basic-memory scan completed directory=/Users/walterday/basic-memory files_found=0 duration_ms=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.097 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/basic-memory, found 0 changes.
+2025-10-19 09:01:05.097 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.098 | INFO     | basic_memory.services.project_service:synchronize_projects:233 - Synchronizing projects between database and configuration
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.101 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.101 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/basic-memory, total_changes=0, duration_ms=16
+2025-10-19 09:01:05.101 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: main
+2025-10-19 09:01:05.101 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project main is now watching for changes
+2025-10-19 09:01:05.101 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: tauri-docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.103 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.103 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.103 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Project (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.105 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 4 Project records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.108 | INFO     | basic_memory.services.project_service:synchronize_projects:301 - Project synchronization complete
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.110 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.110 | INFO     | basic_memory.mcp.project_session:refresh_from_config:81 - Refreshed project session from config, new default: subagents
+2025-10-19 09:01:05.110 | INFO     | basic_memory.services.initialization:reconcile_projects_with_config:64 - Projects successfully reconciled between config and database
+2025-10-19 09:01:05.111 | INFO     | basic_memory.services.initialization:initialize_app:163 - App initialization completed (migration running in background if needed)
+2025-10-19 09:01:05.111 | INFO     | basic_memory.mcp.project_session:initialize:34 - Initialized project session with default project: subagents
+[DEBUG] MCP server "basic-memory": Successfully connected to stdio server in 1949ms
+[DEBUG] MCP server "basic-memory": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Basic Memory","version":"1.13.0"}}
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.121 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 7 Entity records
+2025-10-19 09:01:05.121 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 7 db records
+2025-10-19 09:01:05.121 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs. Found 7 db paths
+2025-10-19 09:01:05.121 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.127 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs scan completed directory=/Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs files_found=7 duration_ms=5
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.127 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs, found 0 changes.
+2025-10-19 09:01:05.127 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.128 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.129 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/Git/MerlinMines/Demos/tauri-demo-aug/first-project/docs, total_changes=0, duration_ms=25
+2025-10-19 09:01:05.129 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: tauri-docs
+2025-10-19 09:01:05.129 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project tauri-docs is now watching for changes
+2025-10-19 09:01:05.129 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.130 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/projects/subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.130 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.136 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 17 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.137 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 17 db records
+2025-10-19 09:01:05.137 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/projects/subagents. Found 17 db paths
+2025-10-19 09:01:05.137 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/projects/subagents
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.143 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/projects/subagents scan completed directory=/Users/walterday/projects/subagents files_found=17 duration_ms=6
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.143 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/projects/subagents, found 0 changes.
+2025-10-19 09:01:05.143 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.145 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.145 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/projects/subagents, total_changes=0, duration_ms=14
+2025-10-19 09:01:05.145 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: subagents
+2025-10-19 09:01:05.145 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project subagents is now watching for changes
+2025-10-19 09:01:05.145 | INFO     | basic_memory.services.initialization:initialize_file_sync:109 - Starting sync for project: firecrawl-docs
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.146 | INFO     | basic_memory.sync.sync_service:sync:88 - Sync operation started for directory: /Users/walterday/Documents/firecrawl-knowledge
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.146 | DEBUG    | basic_memory.repository.repository:find_all:157 - Finding all Entity (skip=0, limit=None)
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.149 | DEBUG    | basic_memory.repository.repository:find_all:170 - Found 2 Entity records
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.149 | INFO     | basic_memory.sync.sync_service:get_db_file_state:241 - Found 2 db records
+2025-10-19 09:01:05.149 | INFO     | basic_memory.sync.sync_service:scan:189 - Scanning directory /Users/walterday/Documents/firecrawl-knowledge. Found 2 db paths
+2025-10-19 09:01:05.149 | DEBUG    | basic_memory.sync.sync_service:scan_directory:609 - Scanning directory /Users/walterday/Documents/firecrawl-knowledge
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.151 | DEBUG    | basic_memory.sync.sync_service:scan_directory:630 - /Users/walterday/Documents/firecrawl-knowledge scan completed directory=/Users/walterday/Documents/firecrawl-knowledge files_found=2 duration_ms=1
+2025-10-19 09:01:05.151 | INFO     | basic_memory.sync.sync_service:scan:229 - Completed scan for directory /Users/walterday/Documents/firecrawl-knowledge, found 0 changes.
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.151 | INFO     | basic_memory.sync.sync_service:sync:109 - Sync changes detected: new_files=0, modified_files=0, deleted_files=0, moved_files=0
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.152 | INFO     | basic_memory.sync.sync_service:resolve_relations:556 - Resolving forward references
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.152 | INFO     | basic_memory.sync.sync_service:sync:179 - Sync operation completed: directory=/Users/walterday/Documents/firecrawl-knowledge, total_changes=0, duration_ms=6
+2025-10-19 09:01:05.152 | INFO     | basic_memory.services.initialization:initialize_file_sync:115 - Sync completed successfully for project: firecrawl-docs
+2025-10-19 09:01:05.152 | INFO     | basic_memory.services.initialization:initialize_file_sync:121 - Project firecrawl-docs is now watching for changes
+2025-10-19 09:01:05.152 | INFO     | basic_memory.services.initialization:initialize_file_sync:131 - Starting watch service for all projects
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-19 09:01:05.154 | INFO     | basic_memory.sync.watch_service:run:94 - Watch service started
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message d8a65642-6dae-4fe5-8413-8940155c4ea9
+[DEBUG] FileHistory: Added snapshot for d8a65642-6dae-4fe5-8413-8940155c4ea9, tracking 4 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 13ms
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Permission suggestions for Write: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+[DEBUG] MCP server "ide": Calling MCP tool: openDiff
+[DEBUG] MCP server "ide": Calling MCP tool: close_tab
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/cmd/test-config/main.go
+[DEBUG] MCP server "ide": Tool 'openDiff' completed successfully in 5s
+[DEBUG] MCP server "ide": Tool 'close_tab' completed successfully in 27ms
+[DEBUG] MCP server "ide": Calling MCP tool: close_tab
+[DEBUG] MCP server "ide": Tool 'close_tab' completed successfully in 1ms
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/cmd/test-config/main.go.tmp.63117.1760878899881
+[DEBUG] Temp file written successfully, size: 2899 bytes
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/cmd/test-config/main.go.tmp.63117.1760878899881 to /Users/walterday/Git/Saintskeeper/games/10-14-25/cmd/test-config/main.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/cmd/test-config/main.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 67ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760878908913
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161074 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760878908913 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760878908972
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161074 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760878908972 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760878909028
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161179 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760878909028 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 52ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 9e1c91c8-6934-4ab2-a177-08f995ef566f
+[DEBUG] FileHistory: Added snapshot for 9e1c91c8-6934-4ab2-a177-08f995ef566f, tracking 5 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 15ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 51ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] Permission suggestions for Write: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+[DEBUG] MCP server "ide": Calling MCP tool: openDiff
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: close_tab
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 4ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/main.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/main.go.tmp.63117.1760879037957
+[DEBUG] Temp file written successfully, size: 2337 bytes
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/main.go.tmp.63117.1760879037957 to /Users/walterday/Git/Saintskeeper/games/10-14-25/main.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/main.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'close_tab' completed successfully in 134ms
+[DEBUG] MCP server "ide": Tool 'openDiff' completed successfully in 10s
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 74ms
+[DEBUG] MCP server "ide": Calling MCP tool: close_tab
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] MCP server "ide": Tool 'close_tab' completed successfully in 23ms
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760879047646
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161179 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760879047646 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760879047704
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161179 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760879047704 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.63117.1760879047755
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2161360 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.63117.1760879047755 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)

@@ -1,0 +1,84 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json...
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106145321
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883947 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106145321 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760106145400-b74zaq.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/9a23b2ca-284a-42c7-ac99-e068f7b7da5f-agent-9a23b2ca-284a-42c7-ac99-e068f7b7da5f.json.tmp.45250.1760106145402
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/9a23b2ca-284a-42c7-ac99-e068f7b7da5f-agent-9a23b2ca-284a-42c7-ac99-e068f7b7da5f.json.tmp.45250.1760106145402 to /Users/walterday/.claude/todos/9a23b2ca-284a-42c7-ac99-e068f7b7da5f-agent-9a23b2ca-284a-42c7-ac99-e068f7b7da5f.json
+[DEBUG] File /Users/walterday/.claude/todos/9a23b2ca-284a-42c7-ac99-e068f7b7da5f-agent-9a23b2ca-284a-42c7-ac99-e068f7b7da5f.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106145436
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883540 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106145436 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/MerlinMines/cromie/.claude/skills
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106145955
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883540 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106145955 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Executing hooks for SessionStart:startup
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106146067
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883432 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106146067 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106146104
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883432 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106146104 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106146140
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883432 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106146140 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called, ENABLE_PLUGINS=undefined
+[DEBUG] Skipping plugin installations - ENABLE_PLUGINS not set
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106146194
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883540 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106146194 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[ERROR] MCP server "basic-memory" Server stderr: 2025-10-10 10:22:26.205 | INFO     | basic_memory.utils:setup_logging:167 - ENV: 'dev' Log level: 'INFO' Logging to .basic-memory/basic-memory-mcp.log
+2025-10-10 10:22:26.205 | INFO     | basic_memory.config:setup_basic_memory_logging:367 - Basic Memory 0.14.3 (Project: subagents)
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760106145400-b74zaq.sh
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45250.1760106146793
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1883920 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45250.1760106146793 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically

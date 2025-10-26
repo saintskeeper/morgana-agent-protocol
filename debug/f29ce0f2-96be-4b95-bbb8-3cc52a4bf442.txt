@@ -1,0 +1,47 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json...
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.99520.1761092843931
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195543 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.99520.1761092843931 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/.config/nvim/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1761092844034-p7z5q3.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/f29ce0f2-96be-4b95-bbb8-3cc52a4bf442-agent-f29ce0f2-96be-4b95-bbb8-3cc52a4bf442.json.tmp.99520.1761092844036
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/f29ce0f2-96be-4b95-bbb8-3cc52a4bf442-agent-f29ce0f2-96be-4b95-bbb8-3cc52a4bf442.json.tmp.99520.1761092844036 to /Users/walterday/.claude/todos/f29ce0f2-96be-4b95-bbb8-3cc52a4bf442-agent-f29ce0f2-96be-4b95-bbb8-3cc52a4bf442.json
+[DEBUG] File /Users/walterday/.claude/todos/f29ce0f2-96be-4b95-bbb8-3cc52a4bf442-agent-f29ce0f2-96be-4b95-bbb8-3cc52a4bf442.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.99520.1761092844078
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195543 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.99520.1761092844078 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHiMGRvw7dWnokiCsjH"}
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.99520.1761092844521
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2195543 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.99520.1761092844521 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[ERROR] Error in non-streaming fallback: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CUMHiMqQwqm6Uh8uM4oH4"}
+[DEBUG] Shell snapshot created successfully (28050 bytes)

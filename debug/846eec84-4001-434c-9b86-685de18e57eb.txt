@@ -1,0 +1,69 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json...
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.73897.1761064526934
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2194973 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.73897.1761064526934 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/MerlinMines/Demos/Scraping/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1761064527157-rgld91.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/846eec84-4001-434c-9b86-685de18e57eb-agent-846eec84-4001-434c-9b86-685de18e57eb.json.tmp.73897.1761064527158
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/846eec84-4001-434c-9b86-685de18e57eb-agent-846eec84-4001-434c-9b86-685de18e57eb.json.tmp.73897.1761064527158 to /Users/walterday/.claude/todos/846eec84-4001-434c-9b86-685de18e57eb-agent-846eec84-4001-434c-9b86-685de18e57eb.json
+[DEBUG] File /Users/walterday/.claude/todos/846eec84-4001-434c-9b86-685de18e57eb-agent-846eec84-4001-434c-9b86-685de18e57eb.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.73897.1761064527197
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2194558 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.73897.1761064527197 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.73897.1761064527243
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2194558 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.73897.1761064527243 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Summarizing last 8 of 54 messages (~148676 tokens)
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CULfiz5Jhv9xcVuNFUcaQ"}
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.73897.1761064527487
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2194558 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.73897.1761064527487 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CULfizJhBi9Sg9TzcLevK"}
+[ERROR] Error in non-streaming fallback: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CULfizd3jKBygpWhQjYHN"}
+[ERROR] Error in non-streaming fallback: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CULfizjFSKEGKtKafGPRG"}
+[DEBUG] Summarizing all 2 messages (~1047 tokens)
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.73897.1761064527768
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2194558 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.73897.1761064527768 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[ERROR] Error streaming, falling back to non-streaming mode: 401 {"type":"error","error":{"type":"authentication_error","message":"OAuth authentication is currently not supported."},"request_id":"req_011CULfj19YvFiYfZvoZNgDC"}
+[DEBUG] FileHistory: Copied backup 0a6eb1ea42af0dd8@v2 from session e209f1bc-c18f-40cf-8e7a-ff76c3d43862 to 846eec84-4001-434c-9b86-685de18e57eb
+[DEBUG] FileHistory: Copied backup ba1992794980c2e1@v1 from session e209f1bc-c18f-40cf-8e7a-ff76c3d43862 to 846eec84-4001-434c-9b86-685de18e57eb
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)

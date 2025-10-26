@@ -1,0 +1,94 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json, /Users/walterday/Git/MerlinMines/cromie/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 49 allow rule(s) to destination 'localSettings': ["Bash(mkdir:*)","SlashCommand(/prime)","WebSearch","WebFetch(domain:github.com)","Bash(npx create-next-app:*)","Bash(go mod init:*)","Bash(npx shadcn:*)","Bash(npm install:*)","Bash(go get:*)","Bash(go mod:*)","Bash(tree:*)","Bash(railway status:*)","Bash(mv:*)","Bash(go build:*)","Bash(go run:*)","Bash(git commit:*)","Bash(railway link:*)","Bash(railway up:*)","Bash(railway logs:*)","Bash(railway service:*)","Bash(railway:*)","Bash(chmod:*)","Bash(CGO_ENABLED=1 go build -o bin/cromie ./app/server/cmd)","Bash(git add:*)","Bash(docker build:*)","Bash(cp:*)","Bash(curl:*)","Bash(/Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/test-deployment.sh:*)","WebFetch(domain:www.anthropic.com)","SlashCommand(/seek)","SlashCommand(/bug)","SlashCommand(/seek:*)","Bash(go vet:*)","Bash(bash:*)","Bash(grep:*)","Bash(find:*)","Bash(cat:*)","Bash(git diff:*)","Bash(go test:*)","Bash(go test -v ./app/server/internal/api/handlers/ -run TestHandleAssignClient)","Bash(git push:*)","WebFetch(domain:medium.com)","WebFetch(domain:api.slack.com)","WebFetch(domain:docs.slack.dev)","Bash(python3:*)","Bash(source:*)","Bash(pip install:*)","Bash(python:*)","Bash(./adw:*)"]
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.2189.1760378459488
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1980216 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.2189.1760378459488 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760378459601-ubuwl6.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json.tmp.2189.1760378459603
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json.tmp.2189.1760378459603 to /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json
+[DEBUG] File /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.2189.1760378459642
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1979776 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.2189.1760378459642 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.2189.1760378459689
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1979776 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.2189.1760378459689 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Agent file /Users/walterday/Git/MerlinMines/cromie/.claude/agents/test-specialist.md is missing required 'name' in frontmatter
+[DEBUG] Failed to parse agent from /Users/walterday/Git/MerlinMines/cromie/.claude/agents/test-specialist.md: Missing required "name" field in frontmatter
+[DEBUG] Agent file /Users/walterday/Git/MerlinMines/cromie/.claude/agents/code-quality.md is missing required 'name' in frontmatter
+[DEBUG] Failed to parse agent from /Users/walterday/Git/MerlinMines/cromie/.claude/agents/code-quality.md: Missing required "name" field in frontmatter
+[DEBUG] Agent file /Users/walterday/Git/MerlinMines/cromie/.claude/agents/task-implementer.md is missing required 'name' in frontmatter
+[DEBUG] Failed to parse agent from /Users/walterday/Git/MerlinMines/cromie/.claude/agents/task-implementer.md: Missing required "name" field in frontmatter
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/MerlinMines/cromie/.claude/skills
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Summarizing last 3 of 281 messages (~109145 tokens)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.2189.1760378459887
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1979776 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.2189.1760378459887 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] Summarizing last 1 of 125 messages (~100814 tokens)
+[DEBUG] Summarizing last 1 of 144 messages (~130618 tokens)
+[DEBUG] Summarizing last 7 of 49 messages (~134850 tokens)
+[DEBUG] Summarizing last 6 of 34 messages (~146809 tokens)
+[DEBUG] Summarizing last 4 of 23 messages (~148141 tokens)
+[DEBUG] Summarizing last 3 of 17 messages (~146285 tokens)
+[DEBUG] Summarizing last 3 of 17 messages (~141873 tokens)
+[DEBUG] Failed to fetch Grove notice config: Error: read ETIMEDOUT
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.2189.1760378479810
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1979776 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.2189.1760378479810 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json.tmp.2189.1760378480000
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 746 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json.tmp.2189.1760378480000 to /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json
+[DEBUG] File /Users/walterday/.claude/todos/53d2e417-42a5-4d39-a692-731ebeaf605c-agent-53d2e417-42a5-4d39-a692-731ebeaf605c.json written atomically
+[DEBUG] FileHistory: Copied backup ffadf6a0ddbdd776@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 8a7f3b99429a0287@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 381b4bc8f7ea0f8d@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup f5241bed7de15550@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup d7b67a28e4fd3e1b@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup dd88d863d506a0be@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 5f633ead821b4137@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 2f67bf85c88d7372@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup e5b05f8f9132e537@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup e5c7e74378747fca@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup f208ec3099145410@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 7838f5c22b1c4a78@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 9d1b2e5643e31e37@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 06e2789edd94d545@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 6e0ac08d60e5a8f9@v2 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] FileHistory: Copied backup 93f04d4f13f722c1@v3 from session afb46daa-4af6-48b0-91d4-56414c88fac7 to 53d2e417-42a5-4d39-a692-731ebeaf605c
+[DEBUG] Executing hooks for SessionStart:resume
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute

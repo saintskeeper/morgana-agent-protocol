@@ -1,0 +1,44 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json, /Users/walterday/Git/MerlinMines/cromie/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 11 allow rule(s) to destination 'localSettings': ["Bash(mkdir:*)","SlashCommand(/prime)","WebSearch","WebFetch(domain:github.com)","Bash(npx create-next-app:*)","Bash(go mod init:*)","Bash(npx shadcn:*)","Bash(npm install:*)","Bash(go get:*)","Bash(go mod:*)","Bash(tree:*)"]
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.96392.1760130837558
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1896054 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.96392.1760130837558 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760130837644-uatbb0.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/c78d87d1-f52b-4422-81b3-0a0a24e7b8d0-agent-c78d87d1-f52b-4422-81b3-0a0a24e7b8d0.json.tmp.96392.1760130837645
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/c78d87d1-f52b-4422-81b3-0a0a24e7b8d0-agent-c78d87d1-f52b-4422-81b3-0a0a24e7b8d0.json.tmp.96392.1760130837645 to /Users/walterday/.claude/todos/c78d87d1-f52b-4422-81b3-0a0a24e7b8d0-agent-c78d87d1-f52b-4422-81b3-0a0a24e7b8d0.json
+[DEBUG] File /Users/walterday/.claude/todos/c78d87d1-f52b-4422-81b3-0a0a24e7b8d0-agent-c78d87d1-f52b-4422-81b3-0a0a24e7b8d0.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.96392.1760130837681
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1895612 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.96392.1760130837681 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/MerlinMines/cromie/.claude/skills
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Summarizing last 2 of 80 messages (~140191 tokens)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.96392.1760130837869
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1895612 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.96392.1760130837869 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] Summarizing last 2 of 136 messages (~99967 tokens)
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760130837644-uatbb0.sh

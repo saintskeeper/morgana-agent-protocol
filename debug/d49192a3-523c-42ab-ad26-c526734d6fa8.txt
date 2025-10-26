@@ -1,0 +1,467 @@
+[DEBUG] Executing hooks for SessionStart:clear
+[DEBUG] Getting matching hook commands for SessionStart with query: clear
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "clear" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] FileHistory: Added snapshot for 31fd2eaf-a604-4c43-92de-50e704061151, tracking 0 files
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45814.1760356663525
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1942258 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45814.1760356663525 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45814.1760356663574
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1942137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45814.1760356663574 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Executing hooks for UserPromptSubmit
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/hooks/post-branch-create.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/hooks/post-branch-create.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 2df1e3b6-dc12-4140-9580-915dfef45e77
+[DEBUG] FileHistory: Added snapshot for 2df1e3b6-dc12-4140-9580-915dfef45e77, tracking 0 files
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Executing hooks for PreToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356674213
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356674213 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356674220
+[DEBUG] Temp file written successfully, size: 2010 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356674220 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356674226
+[DEBUG] Temp file written successfully, size: 552 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356674226 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json written atomically
+[DEBUG] Executing hooks for PostToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: git ls-files
+[DEBUG] Bash tool description: List all tracked files in git repository
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Executing hooks for PreToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356685265
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356685265 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356685273
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2010 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356685273 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356685280
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 554 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356685280 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json written atomically
+[DEBUG] Executing hooks for PostToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45814.1760356685937
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1942137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45814.1760356685937 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Executing hooks for PreToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356700364
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356700364 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356700372
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2010 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356700372 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356700379
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 753 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356700379 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json written atomically
+[DEBUG] Executing hooks for PostToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Executing hooks for PreToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356714782
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356714782 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356714791
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2010 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356714791 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356714798
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 757 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356714798 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json written atomically
+[DEBUG] Executing hooks for PostToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Executing hooks for PreToolUse:Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Executing hooks for PostToolUse:Read
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Executing hooks for PreToolUse:Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/check-system.sh
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/check-system.sh.tmp.45814.1760356761938
+[DEBUG] Temp file written successfully, size: 4953 bytes
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/check-system.sh.tmp.45814.1760356761938 to /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/check-system.sh
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/check-system.sh written atomically
+[DEBUG] Executing hooks for PostToolUse:Write
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Executing hooks for PreToolUse:Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/quick-deploy.sh
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/quick-deploy.sh.tmp.45814.1760356777253
+[DEBUG] Temp file written successfully, size: 1955 bytes
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/quick-deploy.sh.tmp.45814.1760356777253 to /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/quick-deploy.sh
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/quick-deploy.sh written atomically
+[DEBUG] Executing hooks for PostToolUse:Write
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Executing hooks for PreToolUse:Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/deploy-prod.sh
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/deploy-prod.sh.tmp.45814.1760356799823
+[DEBUG] Preserving file permissions: 100755
+[DEBUG] Temp file written successfully, size: 4614 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/deploy-prod.sh.tmp.45814.1760356799823 to /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/deploy-prod.sh
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/deploy-prod.sh written atomically
+[DEBUG] Executing hooks for PostToolUse:Edit
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Executing hooks for PreToolUse:Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Bash tool invoked with command: chmod +x /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/check-system.sh /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/quick-deploy.sh
+[DEBUG] Bash tool description: Make new scripts executable
+[DEBUG] Executing hooks for PostToolUse:Bash
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Executing hooks for PreToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356812642
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356812642 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356812650
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2010 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356812650 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356812656
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 937 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356812656 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json written atomically
+[DEBUG] Executing hooks for PostToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Write
+[DEBUG] Executing hooks for PreToolUse:Write
+[DEBUG] Getting matching hook commands for PreToolUse with query: Write
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Write" (1 before deduplication)
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /Users/walterday/.claude/scripts/validate-claude.sh with timeout 60000ms
+[DEBUG] Hook command completed with status 0: /Users/walterday/.claude/scripts/validate-claude.sh
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/README.md
+[DEBUG] Writing to temp file: /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/README.md.tmp.45814.1760356840770
+[DEBUG] Temp file written successfully, size: 4512 bytes
+[DEBUG] Renaming /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/README.md.tmp.45814.1760356840770 to /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/README.md
+[DEBUG] File /Users/walterday/Git/MerlinMines/cromie/infrastructure/scripts/README.md written atomically
+[DEBUG] Executing hooks for PostToolUse:Write
+[DEBUG] Getting matching hook commands for PostToolUse with query: Write
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Write" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Executing hooks for PreToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356848120
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json.tmp.45814.1760356848120 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-021d49d0-0e5d-4b6e-b471-e74c2afa2206.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356848131
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2010 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json.tmp.45814.1760356848131 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-6dd5b38e-4203-491d-897e-6863a0cf565d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356848138
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json.tmp.45814.1760356848138 to /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json
+[DEBUG] File /Users/walterday/.claude/todos/d49192a3-523c-42ab-ad26-c526734d6fa8-agent-d49192a3-523c-42ab-ad26-c526734d6fa8.json written atomically
+[DEBUG] Executing hooks for PostToolUse:TodoWrite
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Slash commands included in SlashCommand tool: /bug, /seek, /implement
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45814.1760356862425
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1942137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45814.1760356862425 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Executing hooks for Stop
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45814.1760356862474
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1942137 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45814.1760356862474 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.45814.1760356862523
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1941586 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.45814.1760356862523 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)

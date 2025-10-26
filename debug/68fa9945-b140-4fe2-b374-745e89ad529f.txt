@@ -1,0 +1,501 @@
+[DEBUG] Getting matching hook commands for SessionStart with query: clear
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "clear" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for b867e536-bb50-4b99-9b00-1579c982dc4e, tracking 0 files
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-name>/clear</command-name>
+            <command-message>clear</command-message>
+           ...
+[DEBUG] UserCommandMessage rendering: "clear" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760975764128
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189393 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760975764128 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760975764180
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189477 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760975764180 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Metadata string for prime:
+[DEBUG] <command-message>prime is running…</command-message>
+<command-name>/prime</command-name>
+[DEBUG] command-message tags in metadata: 1
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 6ms
+[DEBUG] processPromptSlashCommand creating 3 messages for prime
+[DEBUG] Message 1: <command-message>prime is running…</command-message>
+<command-name>/prime</command-name>
+[DEBUG] Message 2 [META]: [{"type":"text","text":"# Prime\nExecute the `Run`, `Read` and `Report` sections to understand the codebase then summarize your understanding.\n\n## Run\ngit ls-files\n\n## Read\nREADME.md\n## Report\
+[DEBUG] Message 3: [ATTACHMENT]
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message 260619a8-0f1e-4b0d-94d8-68e56ae77fa9
+[DEBUG] FileHistory: Added snapshot for 260619a8-0f1e-4b0d-94d8-68e56ae77fa9, tracking 0 files
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-message>prime is running…</command-message>
+<command-name>/prime</command-name>...
+[DEBUG] UserCommandMessage rendering: "prime is running…" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 26ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Stream started - received first chunk
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: BashOutput
+[DEBUG] Getting matching hook commands for PreToolUse with query: BashOutput
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "BashOutput" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: BashOutput
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "BashOutput" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 21ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760975783343
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189477 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760975783343 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760975783390
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189477 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760975783390 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760975783437
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189561 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760975783437 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 31ms
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "no match query" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] FileHistory: Making snapshot for message e30ccbe3-530e-49e6-b3e1-5eec48f41435
+[DEBUG] FileHistory: Added snapshot for e30ccbe3-530e-49e6-b3e1-5eec48f41435, tracking 0 files
+[DEBUG] MCP server "ide": Calling MCP tool: closeAllDiffTabs
+[DEBUG] MCP server "ide": Tool 'closeAllDiffTabs' completed successfully in 12ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 37ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 67ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760975874166
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760975874166 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json.tmp.30150.1760975874178
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json.tmp.30150.1760975874178 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json.tmp.30150.1760975874184
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json.tmp.30150.1760975874184 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json.tmp.30150.1760975874190
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json.tmp.30150.1760975874190 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json.tmp.30150.1760975874197
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json.tmp.30150.1760975874197 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json.tmp.30150.1760975874203
+[DEBUG] Temp file written successfully, size: 687 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json.tmp.30150.1760975874203 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json.tmp.30150.1760975874208
+[DEBUG] Temp file written successfully, size: 520 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json.tmp.30150.1760975874208 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 84ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 3ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go.tmp.30150.1760975887594
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 10256 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go.tmp.30150.1760975887594 to /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 81ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 3ms
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go.tmp.30150.1760975898558
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 10736 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go.tmp.30150.1760975898558 to /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/game/game.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 86ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 89ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 1 unique hooks for query "Edit" (1 before deduplication)
+[DEBUG] Hook output does not start with {, treating as plain text
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 2ms
+[DEBUG] FileHistory: Tracked file modification for /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/collision/grid.go
+[DEBUG] Writing to temp file: /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/collision/grid.go.tmp.30150.1760975923023
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 6590 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/collision/grid.go.tmp.30150.1760975923023 to /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/collision/grid.go
+[DEBUG] File /Users/walterday/Git/Saintskeeper/games/10-14-25/internal/collision/grid.go written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 82ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760975930077
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760975930077 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json.tmp.30150.1760975930091
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json.tmp.30150.1760975930091 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json.tmp.30150.1760975930099
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json.tmp.30150.1760975930099 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json.tmp.30150.1760975930105
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json.tmp.30150.1760975930105 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json.tmp.30150.1760975930113
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json.tmp.30150.1760975930113 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json.tmp.30150.1760975930119
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 687 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json.tmp.30150.1760975930119 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json.tmp.30150.1760975930125
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 524 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json.tmp.30150.1760975930125 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 90ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: BashOutput
+[DEBUG] Getting matching hook commands for PreToolUse with query: BashOutput
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "BashOutput" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: BashOutput
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "BashOutput" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 87ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: TodoWrite
+[DEBUG] Getting matching hook commands for PreToolUse with query: TodoWrite
+[DEBUG] Found 1 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760976810644
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json.tmp.30150.1760976810644 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-c5c3d2db-0a2e-44b1-a661-0f4b65930847.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json.tmp.30150.1760976810651
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json.tmp.30150.1760976810651 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-86528a96-c0b6-4efb-b99f-9483cf15fb4b.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json.tmp.30150.1760976810657
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json.tmp.30150.1760976810657 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-333014ff-cd0d-42e6-bb62-ebf25adbf902.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json.tmp.30150.1760976810664
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json.tmp.30150.1760976810664 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-506b0288-a4cb-4d1c-bc17-b693c884bdc7.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json.tmp.30150.1760976810670
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json.tmp.30150.1760976810670 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-5e3cbfb4-7523-4587-92f5-749ea11d518e.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json.tmp.30150.1760976810676
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 687 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json.tmp.30150.1760976810676 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-ab455b9e-4a01-4e0c-8c2d-c155848dfa8d.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json.tmp.30150.1760976810683
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json.tmp.30150.1760976810683 to /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json
+[DEBUG] File /Users/walterday/.claude/todos/68fa9945-b140-4fe2-b374-745e89ad529f-agent-68fa9945-b140-4fe2-b374-745e89ad529f.json written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: TodoWrite
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "TodoWrite" (0 before deduplication)
+[DEBUG] MCP server "ide": Calling MCP tool: getDiagnostics
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] MCP server "ide": Tool 'getDiagnostics' completed successfully in 82ms
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool: /seek
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760976823199
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189402 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760976823199 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760976823251
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189402 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760976823251 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.30150.1760976823303
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2189770 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.30150.1760976823303 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)

@@ -1,0 +1,58 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json, /Users/walterday/Git/ProFlyt/testing/proflyt-military/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 11 allow rule(s) to destination 'localSettings': ["Bash(npm install)","Bash(make:*)","Bash(cat:*)","Bash(if [ -f .claude/commands/prime.md ])","Bash(then cat .claude/commands/prime.md)","Bash(else echo \"prime.md not found\")","Bash(fi)","Bash(timeout 30 npm run dev)","Bash(npm run build:*)","Bash(node:*)","Bash(curl:*)"]
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.9473.1760034991842
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1869482 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.9473.1760034991842 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760034991923-p2s9fc.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/faa4a24f-9662-457d-88c8-2936e763e286-agent-faa4a24f-9662-457d-88c8-2936e763e286.json.tmp.9473.1760034991925
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/faa4a24f-9662-457d-88c8-2936e763e286-agent-faa4a24f-9662-457d-88c8-2936e763e286.json.tmp.9473.1760034991925 to /Users/walterday/.claude/todos/faa4a24f-9662-457d-88c8-2936e763e286-agent-faa4a24f-9662-457d-88c8-2936e763e286.json
+[DEBUG] File /Users/walterday/.claude/todos/faa4a24f-9662-457d-88c8-2936e763e286-agent-faa4a24f-9662-457d-88c8-2936e763e286.json written atomically
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.9473.1760034991958
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1869057 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.9473.1760034991958 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Summarizing last 4 of 90 messages (~94998 tokens)
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/ProFlyt/testing/proflyt-military/.claude/skills
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.9473.1760034992147
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1869057 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.9473.1760034992147 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.9473.1760034992417
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1869057 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.9473.1760034992417 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] FileHistory: Copied backup adced6a093d31d63@v1 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] FileHistory: Copied backup d2fd7dfafde44199@v1 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] FileHistory: Copied backup a173ff127b5ddb52@v1 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] FileHistory: Copied backup adced6a093d31d63@v2 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] FileHistory: Copied backup d2fd7dfafde44199@v2 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] FileHistory: Copied backup a173ff127b5ddb52@v2 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] FileHistory: Copied backup 303960716ad6f9ca@v2 from session 0a338ef1-ae73-4630-bc53-a1255703fa0b to faa4a24f-9662-457d-88c8-2936e763e286
+[DEBUG] Executing hooks for SessionStart:resume
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)
+[DEBUG] Found 0 hook commands to execute

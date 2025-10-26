@@ -4,6 +4,17 @@
     "CLAUDE_BETA_HEADER": "token-efficient-tools-2025-02-19"
   },
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/walterday/.claude/hooks/post-edit.sh"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Edit|MultiEdit|Write",
@@ -25,6 +36,5 @@
         ]
       }
     ]
-  },
-  "alwaysThinkingEnabled": true
+  }
 }

@@ -13,13 +13,4 @@
 ## Development Environment
 
 - We run macOS
-- Morgana Protocol agent functions are available via:
-  `source ~/.claude/scripts/agent-adapter-wrapper.sh`
-- Available agents: code-implementer, sprint-planner, test-specialist,
-  validation-expert
 
-## Code Maintenance
-
-- When adding TODOs to the code base ensure you're not deleting functionality
-  from the codebase, instead call analyze on your problem if you don't have
-  context before making assumptions

@@ -1,0 +1,56 @@
+[DEBUG] Watching for changes in setting files /Users/walterday/.claude/settings.json, /Users/walterday/Git/MerlinMines/Infrastructure/security-infra-onprem/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 21 allow rule(s) to destination 'localSettings': ["Bash(pdftotext:*)","WebFetch(domain:www.cloudnuro.ai)","WebFetch(domain:www.jit.io)","WebFetch(domain:csrc.nist.gov)","WebFetch(domain:blog.alphabravo.io)","WebFetch(domain:resources.steelpatriotpartners.com)","WebFetch(domain:aws.amazon.com)","WebFetch(domain:www.mirantis.com)","WebFetch(domain:repo1.dso.mil)","WebFetch(domain:www.siderolabs.com)","WebFetch(domain:github.com)","WebFetch(domain:mattermost.com)","WebFetch(domain:stackarmor.com)","WebFetch(domain:www.tigera.io)","WebFetch(domain:dodcio.defense.gov)","WebSearch","WebFetch(domain:spacelift.io)","WebFetch(domain:nirmata.com)","WebFetch(domain:www.stackgenie.io)","WebFetch(domain:stigviewer.com)","Bash(tree:*)"]
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.54833.1760709173221
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2141004 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.54833.1760709173221 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/walterday/.claude/skills, project=/Users/walterday/Git/MerlinMines/Infrastructure/security-infra-onprem/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for bash (/bin/bash)
+[DEBUG] Looking for shell config file: /Users/walterday/.bashrc
+[DEBUG] Snapshots directory: /Users/walterday/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/walterday/.claude/shell-snapshots/snapshot-bash-1760709173309-1ni4c8.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude/todos/8ae3ff76-a85f-4daa-bb39-b41c56349542-agent-8ae3ff76-a85f-4daa-bb39-b41c56349542.json.tmp.54833.1760709173311
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/walterday/.claude/todos/8ae3ff76-a85f-4daa-bb39-b41c56349542-agent-8ae3ff76-a85f-4daa-bb39-b41c56349542.json.tmp.54833.1760709173311 to /Users/walterday/.claude/todos/8ae3ff76-a85f-4daa-bb39-b41c56349542-agent-8ae3ff76-a85f-4daa-bb39-b41c56349542.json
+[DEBUG] File /Users/walterday/.claude/todos/8ae3ff76-a85f-4daa-bb39-b41c56349542-agent-8ae3ff76-a85f-4daa-bb39-b41c56349542.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.54833.1760709173350
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2141004 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.54833.1760709173350 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/opt/homebrew/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Shell snapshot created successfully (28050 bytes)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.54833.1760709174684
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2141498 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.54833.1760709174684 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] MCP server "basic-memory": Starting connection with timeout of 30000ms
+[DEBUG] Writing to temp file: /Users/walterday/.claude.json.tmp.54833.1760709174774
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2141498 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/walterday/.claude.json.tmp.54833.1760709174774 to /Users/walterday/.claude.json
+[DEBUG] File /Users/walterday/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)
